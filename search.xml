@@ -17,11 +17,10 @@
     <url>%2F2019%2F06%2F22%2F216-Combination-Sum-III%2F</url>
     <content type="text"><![CDATA[ProblemFind all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers. Note: All numbers will be positive integers.The solution set must not contain duplicate combinations. Example Input: k = 3, n = 7Output: [[1,2,4]]Explanation: Answer123456789101112131415161718192021222324252627class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; combinationSum3(int k, int n) &#123; vector&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; sol; helper(res, sol, k, n); return res; &#125; void helper(vector&lt;vector&lt;int&gt;&gt; &amp;res, vector&lt;int&gt; &amp;sol, int k, int n) &#123; if (sol.size() == k &amp;&amp; n == 0) &#123; res.push_back(sol); return; &#125; for (int i = sol.empty() ? 1 : sol.back() + 1; i &lt;= 9; ++i) &#123; if (n - i &lt; 0) return; sol.push_back(i); helper(res, sol, k, n-i); sol.pop_back(); &#125; &#125;&#125;;` Explanation]]></content>
       <categories>
-        <category>Leetcode</category>
+        <category>Leetcode Medium</category>
       </categories>
       <tags>
         <tag>Leetcode</tag>
-        <tag>Medium</tag>
       </tags>
   </entry>
 </search>
