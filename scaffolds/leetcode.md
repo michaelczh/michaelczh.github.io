@@ -4,7 +4,9 @@ date: {{ date }}
 tags:
 - Leetcode
 categories: 
-- Leetcode
+- Leetcode Easy
+- Leetcode Medium
+- Leetcode Hard
 ---
 
 #### Problem

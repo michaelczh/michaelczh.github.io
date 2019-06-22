@@ -2,9 +2,8 @@
 title: 216. Combination Sum III
 tags:
   - Leetcode
-  - Medium
 categories:
-  - Leetcode
+  - Leetcode Medium
 date: 2019-06-22 21:22:00
 ---
 #### Problem
