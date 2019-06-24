@@ -21,9 +21,9 @@ categories:
 **Explanation**:
 
 
+#### Explanation
+
 #### Answer
 ```c
 
 ````
-#### Explanation
-
