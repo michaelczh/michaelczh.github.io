@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MAC创建Spring-boot项目环境]]></title>
+    <url>%2F2019%2F06%2F25%2FMAC%E5%88%9B%E5%BB%BASpring-boot%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[使用brew 更新brewbrew update &amp;&amp; brew upgrade &amp;&amp; brew cleanup 安装Javabrew cask install java 安装完成后，执行java -version. 有输出信息表示安装成功。 设置JAVA环境变量vim ~/.bash_profile 进入环境变量输入export JAVA_HOME=$(/usr/libexec/java_home)保存退出，并执行source ~/.bash_profile执行echo JAVA_HOME，应该可以看得到路径 安装Tomcatbrew install tomcat 安装 Mavenbrew install maven 设置环境变量 export M2_HOME=/usr/local/Cellar/maven/{版本号}/export M2=$M2_HOME/binexport PATH=$M2:$JAVA_HOME:$PATH]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[485. Max Consecutive Ones]]></title>
     <url>%2F2019%2F06%2F24%2F485-Max-Consecutive-Ones%2F</url>
     <content type="text"><![CDATA[ProblemGiven a binary array, find the maximum number of consecutive 1s in this array. Example Input: [1,1,0,1,1,1]Output: 3Explanation:The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3. Explanation好简单而且无聊的一道问题。就贴个答案吧 Answer1234567891011121314class Solution &#123;public: int findMaxConsecutiveOnes(vector&lt;int&gt;&amp; nums) &#123; int res = 0; int tmp = 0; for(int&amp;n : nums)&#123; tmp += n; tmp = tmp*n; res = max(res, tmp); &#125; return res; &#125;&#125;;`]]></content>
