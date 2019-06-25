@@ -86,18 +86,18 @@
 
 
 
-  <meta name="description" content="ProblemNote: Example Input:  Output:  Explanation:  ExplanationAnswer12`">
+  <meta name="description" content="ProblemDesign a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user’s news feed. Your design should support">
 <meta name="keywords" content="Leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="355. Design Twitter">
 <meta property="og:url" content="http://yoursite.com/2019/06/25/355-Design-Twitter/index.html">
 <meta property="og:site_name" content="IAM.CZH">
-<meta property="og:description" content="ProblemNote: Example Input:  Output:  Explanation:  ExplanationAnswer12`">
+<meta property="og:description" content="ProblemDesign a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user’s news feed. Your design should support">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-25T08:18:27.846Z">
+<meta property="og:updated_time" content="2019-06-25T08:40:42.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="355. Design Twitter">
-<meta name="twitter:description" content="ProblemNote: Example Input:  Output:  Explanation:  ExplanationAnswer12`">
+<meta name="twitter:description" content="ProblemDesign a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user’s news feed. Your design should support">
 
 
 
@@ -403,9 +403,13 @@
                 
               
 
-              <time title="Created: 2019-06-25 17:18:27" itemprop="dateCreated datePublished" datetime="2019-06-25T17:18:27+09:00">2019-06-25</time>
+              <time title="Created: 2019-06-25 17:18:27 / Modified: 17:40:42" itemprop="dateCreated datePublished" datetime="2019-06-25T17:18:27+09:00">2019-06-25</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -421,21 +425,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/" itemprop="url" rel="index"><span itemprop="name">Leetcode Easy</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Leetcode-Medium/" itemprop="url" rel="index"><span itemprop="name">Leetcode Medium</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Leetcode-Medium/Leetcode-Hard/" itemprop="url" rel="index"><span itemprop="name">Leetcode Hard</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Medium/" itemprop="url" rel="index"><span itemprop="name">Leetcode Medium</span></a></span>
 
                 
                 
@@ -470,13 +460,43 @@
       
 
       
-        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p><strong>Note:</strong></p>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><blockquote>
-<p><strong>Input</strong>: 
-<strong>Output</strong>: 
-<strong>Explanation</strong>:</p>
+        <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Design a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user’s news feed. Your design should support the following methods:</p>
+<ol>
+<li><strong>postTweet(userId, tweetId)</strong>: Compose a new tweet.</li>
+<li><strong>getNewsFeed(userId)</strong>: Retrieve the 10 most recent tweet ids in the user’s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.</li>
+<li><strong>follow(followerId, followeeId)</strong>: Follower follows a followee.</li>
+<li><strong>unfollow(followerId, followeeId)</strong>: Follower unfollows a followee.</li>
+</ol>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><ul>
+<li>Your Twitter object will be instantiated and called as such:</li>
+<li>Twitter* obj = new Twitter();</li>
+<li>obj-&gt;postTweet(userId,tweetId);</li>
+<li>vector<int> param_2 = obj-&gt;getNewsFeed(userId);</int></li>
+<li>obj-&gt;follow(followerId,followeeId);</li>
+<li>obj-&gt;unfollow(followerId,followeeId);</li>
+</ul>
+<blockquote>
+<p>Twitter twitter = new Twitter();</p>
+<p>// User 1 posts a new tweet (id = 5).<br>twitter.postTweet(1, 5);</p>
+<p>// User 1’s news feed should return a list with 1 tweet id -&gt; [5].<br>twitter.getNewsFeed(1);</p>
+<p>// User 1 follows user 2.<br>twitter.follow(1, 2);</p>
+<p>// User 2 posts a new tweet (id = 6).<br>twitter.postTweet(2, 6);</p>
+<p>// User 1’s news feed should return a list with 2 tweet ids -&gt; [6, 5].<br>// Tweet id 6 should precede tweet id 5 because it is posted after tweet id 5.<br>twitter.getNewsFeed(1);</p>
+<p>// User 1 unfollows user 2.<br>twitter.unfollow(1, 2);</p>
+<p>// User 1’s news feed should return a list with 1 tweet id -&gt; [5],<br>// since user 1 is no longer following user 2.<br>twitter.getNewsFeed(1);</p>
 </blockquote>
-<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>其实这道题相对简单。<br>四个功能</p>
+<ol>
+<li><p>关注<br>关注的功能比较简单，用<code>unodered_map&lt;userId, unodered_set&lt;followeeId&gt;&gt;</code></p>
+</li>
+<li><p>取消关注<br>取消关注的话只需要把对应的<code>unodered_set&lt;followeeId&gt;</code>里面的<code>id</code>删掉就可以了。</p>
+</li>
+<li><p>发推文（把<code>userId</code>和<code>tweetId</code>绑定）<br>由于最后需要返回最近的推文，和时间有关，因此定义一个<code>pair&lt;tweetId, time&gt;</code>来表示一个推文，<code>time</code>由全局控制。<br>然后同样用<code>unodered_map&lt;userId, unodered_set&lt;tweetId&gt;&gt;</code> 来储存发过的推特。</p>
+</li>
+<li><p>返回自己和关注的人最近的10条推文<code>vector[tweetId]</code><br>定义一个<code>priority_queue&lt;pair&lt;tweetId, time&gt;&gt;</code>来根据时间排序。<br>遍历自己发过的推，以及关注的人发过的推。然后储存到<code>pq</code>，当<code>pq</code>大于10个的时候，推出一个。</p>
+</li>
+</ol>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">CustomCompare</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&amp; tw1, <span class="keyword">const</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&amp; tw2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tw1.second &gt; tw2.second;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pair_hash</span> &#123;</span></span><br><span class="line">    <span class="keyword">inline</span> <span class="built_in">std</span>::<span class="keyword">size_t</span> <span class="keyword">operator</span>()(<span class="keyword">const</span> <span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &amp; v) <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> v.first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Twitter</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> TWEET pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="keyword">int</span> time = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt;&gt; followMap;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">unordered_set</span>&lt;TWEET,pair_hash&gt;&gt; postMap;</span><br><span class="line">    </span><br><span class="line">    Twitter() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Compose a new tweet. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">postTweet</span><span class="params">(<span class="keyword">int</span> userId, <span class="keyword">int</span> tweetId)</span> </span>&#123;</span><br><span class="line">        TWEET tweet = make_pair(tweetId, time++);</span><br><span class="line">        postMap[userId].insert(tweet);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; getNewsFeed(<span class="keyword">int</span> userId) &#123;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;, <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt;, CustomCompare&gt; pq;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;TWEET,pair_hash&gt; selfPost = postMap[userId];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; it : selfPost) &#123;</span><br><span class="line">            pq.push(it);</span><br><span class="line">            <span class="keyword">if</span> (pq.size() &gt; <span class="number">10</span>) pq.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; followeeId: followMap[userId]) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; it : postMap[followeeId]) &#123;</span><br><span class="line">                pq.push(it);</span><br><span class="line">                <span class="keyword">if</span> (pq.size() &gt; <span class="number">10</span>) pq.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> j = pq.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res(j);</span><br><span class="line">        <span class="keyword">while</span> (!pq.empty()) &#123;</span><br><span class="line">            res[--j] = pq.top().first;</span><br><span class="line">            <span class="comment">// res.push_front();</span></span><br><span class="line">            pq.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Follower follows a followee. If the operation is invalid, it should be a no-op. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">follow</span><span class="params">(<span class="keyword">int</span> followerId, <span class="keyword">int</span> followeeId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (followerId == followeeId) <span class="keyword">return</span>;</span><br><span class="line">        followMap[followerId].insert(followeeId);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unfollow</span><span class="params">(<span class="keyword">int</span> followerId, <span class="keyword">int</span> followeeId)</span> </span>&#123;</span><br><span class="line">        followMap[followerId].erase(followeeId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -625,11 +645,7 @@
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
