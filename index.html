@@ -356,6 +356,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/16-3Sum-Closest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/28/16-3Sum-Closest/" class="post-title-link" itemprop="url">16. 3Sum Closest</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-28 01:20:10 / Modified: 01:33:21" itemprop="dateCreated datePublished" datetime="2019-06-28T01:20:10+09:00">2019-06-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Medium/" itemprop="url" rel="index"><span itemprop="name">Leetcode Medium</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Given an array <code>nums</code> of n integers and an integer <code>target</code>, find three integers in <code>nums</code> such that the sum is closest to <code>target</code>. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><blockquote>
+<p>Given array nums = [-1, 2, 1, -4], and target = 1.</p>
+<p>The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</p>
+</blockquote>
+<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>这道题目意外简单。最先能想到的解法应该是<strong>brute-force</strong>。但是复杂度<code>O(N^3)</code>明显不会是题目要求的。<br>直接告诉我这类题目应该要先排序一下，复杂度<code>N(LogN)</code><br>一时间没有什么好想法，于是就想我们可以从第一位到最后一位先扫一遍。确定三个数中的第一个数<br><code>i: 0 ~ N-1</code>, 在扫的过程中增加两个指针<code>p1</code>和<code>p2</code>。因为我们已经对数组进行排序了，所以可以根据<code>nums[i]</code>,<code>nums[p1]</code>和<code>nums[p2]</code>三者的和于<code>target</code>的差值来确定<code>p1</code>,<code>p2</code>指针的移动方向。并且保存与<code>target</code>最相近的那个值。算法复杂度为<code>O(N^2)</code></p>
+<p><code>ps:</code> 为了更快，我们可以在每次计算完三个数的<code>sum</code>时，判断一下是不是等于<code>target</code>的值，如果等于<code>target</code>的值，直接返回就可以了。</p>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> res = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size()<span class="number">-2</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> p1 = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> p2 = nums.size()<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(p1 &lt; p2) &#123;</span><br><span class="line">                <span class="keyword">int</span> currSum = nums[i] + nums[p1] + nums[p2];</span><br><span class="line">                <span class="keyword">if</span> (currSum == target) <span class="keyword">return</span> target;</span><br><span class="line">                <span class="keyword">if</span> ( <span class="built_in">abs</span>(currSum - target) &lt; <span class="built_in">abs</span>(res - target) ) </span><br><span class="line">                    res = currSum;</span><br><span class="line">                <span class="keyword">if</span> (currSum &lt; target) p1++;</span><br><span class="line">                <span class="keyword">else</span> p2--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/355-Design-Twitter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -599,7 +768,7 @@
                 
               
 
-              <time title="Created: 2019-06-25 00:40:59 / Modified: 01:02:05" itemprop="dateCreated datePublished" datetime="2019-06-25T00:40:59+09:00">2019-06-25</time>
+              <time title="Created: 2019-06-25 00:40:59 / Modified: 20:40:49" itemprop="dateCreated datePublished" datetime="2019-06-25T00:40:59+09:00">2019-06-25</time>
             
 
             
@@ -663,7 +832,6 @@
 <h3 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h3><p><code>brew cask install java</code></p>
 <p>安装完成后，执行<code>java -version</code>. 有输出信息表示安装成功。</p>
 <h3 id="设置JAVA环境变量"><a href="#设置JAVA环境变量" class="headerlink" title="设置JAVA环境变量"></a>设置JAVA环境变量</h3><p><code>vim ~/.bash_profile</code> 进入环境变量<br>输入<br><code>export JAVA_HOME=$(/usr/libexec/java_home)</code><br>保存退出，并执行<br><code>source ~/.bash_profile</code><br>执行<code>echo JAVA_HOME</code>，应该可以看得到路径</p>
-<h3 id="安装Tomcat"><a href="#安装Tomcat" class="headerlink" title="安装Tomcat"></a>安装Tomcat</h3><p><code>brew install tomcat</code></p>
 <h3 id="安装-Maven"><a href="#安装-Maven" class="headerlink" title="安装 Maven"></a>安装 Maven</h3><p><code>brew install maven</code></p>
 <h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><blockquote>
 <p>export M2_HOME=/usr/local/Cellar/maven/{版本号}/<br>export M2=$M2_HOME/bin<br>export PATH=$M2:$JAVA_HOME:$PATH</p>
@@ -1445,7 +1613,7 @@ horse -&gt; rorse (replace ‘h’ with ‘r’)<br>rorse -&gt; rose (remove ‘
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1495,7 +1663,9 @@ horse -&gt; rorse (replace ‘h’ with ‘r’)<br>rorse -&gt; rose (remove ‘
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
