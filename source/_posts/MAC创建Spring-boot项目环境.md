@@ -28,9 +28,6 @@ categories:
 `source ~/.bash_profile`
 执行`echo JAVA_HOME`，应该可以看得到路径
 
-### 安装Tomcat
-`brew install tomcat`
-
 ### 安装 Maven
 `brew install maven`
 
