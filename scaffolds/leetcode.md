@@ -9,21 +9,7 @@ categories:
 - Leetcode Hard
 ---
 
-#### Problem
-
-
-**Note:**
-
-
-#### Example
-> **Input**: 
-**Output**: 
-**Explanation**:
-
-
-#### Explanation
-
 #### Answer
 ```c
 
-````
+```

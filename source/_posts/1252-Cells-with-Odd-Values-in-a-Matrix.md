@@ -5,6 +5,7 @@ tags:
   - Array
 categories:
   - Leetcode Easy
+  - Array
 date: 2019-11-10 18:05:22
 ---
 
