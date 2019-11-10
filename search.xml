@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1086. High Five]]></title>
+    <url>%2F2019%2F11%2F10%2F1086-High-Five%2F</url>
+    <content type="text"><![CDATA[ProblemNote: Example Input: Output: Explanation: ExplanationAnswer12345678910111213141516171819202122232425262728293031// 思路：比较简单的一道题目// 创造一个map 来维护学生id和所有成绩// 使用pq来维护前五大成绩// 最后遍历pq来获得总和求得平均数// 复杂度: O(N) // 虽然pq的复杂度应该是O(NlongN)，但是由于我们只维护了5个值，所以heap的深度是一定的class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; highFive(vector&lt;vector&lt;int&gt;&gt;&amp; items) &#123; map&lt;int, priority_queue&lt;int, std::vector&lt;int&gt;, std::greater&lt;int&gt; &gt;&gt; map; for(auto&amp; item: items) &#123; map[item[0]].push(item[1]); if (map[item[0]].size() &gt; 5) map[item[0]].pop(); &#125; vector&lt;vector&lt;int&gt;&gt; res; for (auto&amp; item: map) &#123; int tmp = 0; while(!map[item.first].empty()) &#123; tmp += map[item.first].top(); map[item.first].pop(); &#125; res.push_back(vector&lt;int&gt;&#123;item.first,tmp/5&#125;); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1252. Cells with Odd Values in a Matrix]]></title>
     <url>%2F2019%2F11%2F10%2F1252-Cells-with-Odd-Values-in-a-Matrix%2F</url>
     <content type="text"><![CDATA[ProblemNote: Example Input: Output: Explanation: ExplanationAnswer1234567891011121314151617181920212223242526272829// 思路// 1 分别创建行列数组，分别统计行列的相加情况，// *由于我们只需要只要是不是奇数偶数，所以使用^来保留0 或者1// 2 最后遍历二维数组就，判断数值相加是不是偶数 来更新res// 时间复杂度 O(nm) // 空间复杂度 O(n)class Solution &#123;public: int oddCells(int n, int m, vector&lt;vector&lt;int&gt;&gt;&amp; indices) &#123; vector&lt;int&gt; rows(n, 0); vector&lt;int&gt; cols(m, 0); for(auto&amp; indice: indices) &#123; rows[indice[0]] ^= 1; // 如果是偶数的话就会变成0 cols[indice[1]] ^= 1; &#125; int res = 0; for (int i = 0; i &lt; n; ++i) &#123; for (int j = 0; j &lt; m; ++j) &#123; res += rows[i] ^ cols[j] == 0 ? 0 : 1; &#125; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
+        <category>Array</category>
       </categories>
       <tags>
         <tag>Leetcode</tag>
