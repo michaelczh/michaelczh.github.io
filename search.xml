@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1085. Sum of Digits in the Minimum Number]]></title>
+    <url>%2F2019%2F11%2F11%2F1085-Sum-of-Digits-in-the-Minimum-Number%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213141516class Solution &#123;public: int sumOfDigits(vector&lt;int&gt;&amp; A) &#123; int minNum = INT_MAX; for(auto&amp; num : A) minNum = min(num, minNum); int sum = 0; while(minNum &gt; 0) &#123; sum += minNum%10; minNum = minNum / 10; &#125; return 1- sum%2; &#125;&#125;; ####Think好简单的一道题目，一看竟然是亚麻的，不可思议。这样不可以诶。不过今晚没时间了还是水一道题目去看其他的吧hope everything fine tomorrow.]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1086. High Five]]></title>
     <url>%2F2019%2F11%2F10%2F1086-High-Five%2F</url>
     <content type="text"><![CDATA[ProblemNote: Example Input: Output: Explanation: ExplanationAnswer12345678910111213141516171819202122232425262728293031// 思路：比较简单的一道题目// 创造一个map 来维护学生id和所有成绩// 使用pq来维护前五大成绩// 最后遍历pq来获得总和求得平均数// 复杂度: O(N) // 虽然pq的复杂度应该是O(NlongN)，但是由于我们只维护了5个值，所以heap的深度是一定的class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; highFive(vector&lt;vector&lt;int&gt;&gt;&amp; items) &#123; map&lt;int, priority_queue&lt;int, std::vector&lt;int&gt;, std::greater&lt;int&gt; &gt;&gt; map; for(auto&amp; item: items) &#123; map[item[0]].push(item[1]); if (map[item[0]].size() &gt; 5) map[item[0]].pop(); &#125; vector&lt;vector&lt;int&gt;&gt; res; for (auto&amp; item: map) &#123; int tmp = 0; while(!map[item.first].empty()) &#123; tmp += map[item.first].top(); map[item.first].pop(); &#125; res.push_back(vector&lt;int&gt;&#123;item.first,tmp/5&#125;); &#125; return res; &#125;&#125;;]]></content>
