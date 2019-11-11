@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[1085. Sum of Digits in the Minimum Number]]></title>
     <url>%2F2019%2F11%2F11%2F1085-Sum-of-Digits-in-the-Minimum-Number%2F</url>
-    <content type="text"><![CDATA[Answer1234567891011121314151617// 复杂度O(N)class Solution &#123;public: int sumOfDigits(vector&lt;int&gt;&amp; A) &#123; int minNum = INT_MAX; for(auto&amp; num : A) minNum = min(num, minNum); int sum = 0; while(minNum &gt; 0) &#123; sum += minNum%10; minNum = minNum / 10; &#125; return 1- sum%2; &#125;&#125;; ####Think好简单的一道题目，一看竟然是亚麻的，不可思议。这样不可以诶。不过今晚没时间了还是水一道题目去看其他的吧hope everything fine tomorrow.]]></content>
+    <content type="text"><![CDATA[Answer1234567891011121314151617// 复杂度O(N)class Solution &#123;public: int sumOfDigits(vector&lt;int&gt;&amp; A) &#123; int minNum = INT_MAX; for(auto&amp; num : A) minNum = min(num, minNum); int sum = 0; while(minNum &gt; 0) &#123; sum += minNum%10; minNum = minNum / 10; &#125; return 1- sum%2; &#125;&#125;; Think好简单的一道题目，一看竟然是亚麻的，不可思议。这样不可以诶。不过今晚没时间了还是水一道题目去看其他的吧hope everything fine tomorrow.]]></content>
       <categories>
         <category>Leetcode Easy</category>
         <category>Array</category>
