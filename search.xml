@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[905. Sort Array By Parity]]></title>
+    <url>%2F2019%2F11%2F13%2F905-Sort-Array-By-Parity%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213// 复杂度O(N)// in placeclass Solution &#123;public: vector&lt;int&gt; sortArrayByParity(vector&lt;int&gt;&amp; A) &#123; for(int i = 0, j = 0; j &lt; A.size(); ++j) &#123; if (A[j] % 2 == 0) swap(A[j], A[i++]); &#125; return A; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[832. Flipping an Image]]></title>
     <url>%2F2019%2F11%2F12%2F832-Flipping-an-Image%2F</url>
     <content type="text"><![CDATA[Answer12345678910111213141516171819202122// 复杂度: O(NM) N,M分别为行列数class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; flipAndInvertImage(vector&lt;vector&lt;int&gt;&gt;&amp; A) &#123; int n = A.size(); int m = A[0].size(); for(int i = 0; i &lt; n; ++i) &#123; vector&lt;int&gt; tmpRow = A[i]; for(int j = 0; j &lt; (m+1)/2; ++j) &#123; swap(A[i][j], A[i][m-j-1]); &#125; &#125; for(int i = 0; i &lt; n; ++i) &#123; for(int j = 0; j &lt; m; ++j) A[i][j] = 1 - A[i][j]; &#125; return A; &#125;&#125;;]]></content>
