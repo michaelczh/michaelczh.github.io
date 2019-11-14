@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[977. Squares of a Sorted Array]]></title>
+    <url>%2F2019%2F11%2F15%2F977-Squares-of-a-Sorted-Array%2F</url>
+    <content type="text"><![CDATA[Answer 1第一种方法是脑子里面里吗就出现的，对于排序题相关比较常用的pq时间复杂度: $O(n\log n)$空间复杂度: $O(n)$时间复杂度其实慢了。 12345678910111213141516class Solution &#123;public: vector&lt;int&gt; sortedSquares(vector&lt;int&gt;&amp; A) &#123; vector&lt;int&gt; res; priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; pq; for(auto&amp; num : A) pq.push(num*num); while(!pq.empty()) &#123; res.push_back(pq.top()); pq.pop(); &#125; return res; &#125;&#125;; Answer 2由于输入的数列本来就是排序好的，所以我们使用双指针就可以判断。时间复杂度可以将为时间复杂度: $O(n)$空间复杂度: $O(n)$但是由于结果从小到大排序，所以最后必须翻转数列，复杂度也是$n$，如果不想多这一步，需要多一个指针，从res最尾巴扫到最前面保存计算的数值但是我挺喜欢这种写法的。比较简单明白 1234567891011121314class Solution &#123;public: vector&lt;int&gt; sortedSquares(vector&lt;int&gt;&amp; A) &#123; vector&lt;int&gt; res; int i = 0, j = A.size()-1; while(i &lt;= j) &#123; if (abs(A[i]) &gt; abs(A[j])) res.push_back(pow(A[i++],2)); else res.push_back(pow(A[j--],2)); &#125; reverse(res.begin(), res.end()); return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[905. Sort Array By Parity]]></title>
     <url>%2F2019%2F11%2F13%2F905-Sort-Array-By-Parity%2F</url>
     <content type="text"><![CDATA[Answer12345678910111213// 复杂度O(N)// in placeclass Solution &#123;public: vector&lt;int&gt; sortArrayByParity(vector&lt;int&gt;&amp; A) &#123; for(int i = 0, j = 0; j &lt; A.size(); ++j) &#123; if (A[j] % 2 == 0) swap(A[j], A[i++]); &#125; return A; &#125;&#125;;]]></content>
