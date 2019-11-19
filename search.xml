@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[922. Sort Array By Parity II]]></title>
+    <url>%2F2019%2F11%2F20%2F922-Sort-Array-By-Parity-II%2F</url>
+    <content type="text"><![CDATA[Answer两个指针。不过没想到哦 1234567891011121314class Solution &#123;public: vector&lt;int&gt; sortArrayByParityII(vector&lt;int&gt;&amp; A) &#123; int odd = 0, even = 1, n = A.size(); while( odd&lt; n &amp;&amp; even &lt; n) &#123; while( odd &lt;n &amp;&amp; A[odd] %2 == 0) odd +=2; while( even &lt;n &amp;&amp; A[even]%2 == 1) even+=2; if (odd&lt; n &amp;&amp; even &lt; n) swap(A[odd], A[even]); &#125; return A; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[561. Array Partition I]]></title>
     <url>%2F2019%2F11%2F17%2F561-Array-Partition-I%2F</url>
     <content type="text"><![CDATA[Answer意外简单的一道题目。题目是说有2N个数字，需要组成N对数字，要求N对里面最小的数字加起来最大。所以应该是小的尽量要跟小的组一起，这样不会浪费大的数字。排序一下然后挑选各自最小的就ok了 12345678910111213// 时间复杂度O(NlogN)class Solution &#123;public: int arrayPairSum(vector&lt;int&gt;&amp; nums) &#123; sort(nums.begin(), nums.end()); int res = 0; for(int i = 0; i &lt; nums.size(); i = i + 2) &#123; res += nums[i]; &#125; return res; &#125;&#125;;]]></content>
