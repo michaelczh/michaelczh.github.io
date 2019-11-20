@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1122. Relative Sort Array]]></title>
+    <url>%2F2019%2F11%2F20%2F1122-Relative-Sort-Array%2F</url>
+    <content type="text"><![CDATA[Answer123456789101112131415161718192021222324class Solution &#123;public: vector&lt;int&gt; relativeSortArray(vector&lt;int&gt;&amp; arr1, vector&lt;int&gt;&amp; arr2) &#123; unordered_set&lt;int&gt; arr2Set(arr2.begin(), arr2.end()); vector&lt;int&gt; notExist; unordered_map&lt;int, int&gt; times; for(auto&amp; num : arr1) &#123; times[num]++; if (arr2Set.count(num) == 0) notExist.push_back(num); &#125; sort(notExist.begin(), notExist.end()); vector&lt;int&gt; res; for(auto&amp; num: arr2)&#123; while(times[num]-- &gt; 0) res.push_back(num); &#125; for(auto&amp; num: notExist) res.push_back(num); return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1160. Find Words That Can Be Formed by Characters]]></title>
     <url>%2F2019%2F11%2F20%2F1160-Find-Words-That-Can-Be-Formed-by-Characters%2F</url>
     <content type="text"><![CDATA[Answer比较简单一道题，但是写的没有很爽。因为感觉逻辑有点混乱 1234567891011121314151617181920class Solution &#123;public: int countCharacters(vector&lt;string&gt;&amp; words, string chars) &#123; // restore vector&lt;int&gt; record(26,0); for(auto&amp; c: chars) record[c - 'a']++; int res = 0; for (auto&amp; word : words) &#123; int len = 0; vector&lt;int&gt; tmp = record; while(len &lt; word.size() &amp;&amp; tmp[word[len] - 'a'] &gt; 0) &#123; tmp[word[len++] - 'a']--; &#125; if (len == word.length()) res+= len; &#125; return res; &#125;&#125;;]]></content>

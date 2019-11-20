@@ -86,18 +86,18 @@
 
 
 
-  <meta name="description" content="Answer12345678910111213// 复杂度O(N)// in placeclass Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; sortArrayByParity(vector&amp;lt;int&amp;gt;&amp;amp; A) &amp;#123;                for(int i = 0, j = 0; j &amp;lt; A.size(); +">
+  <meta name="description" content="Answer123456789101112131415161718192021222324class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; relativeSortArray(vector&amp;lt;int&amp;gt;&amp;amp; arr1, vector&amp;lt;int&amp;gt;&amp;amp; arr2) &amp;#123;                unorder">
 <meta name="keywords" content="Leetcode,Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="905. Sort Array By Parity">
-<meta property="og:url" content="http://yoursite.com/2019/11/13/905-Sort-Array-By-Parity/index.html">
+<meta property="og:title" content="1122. Relative Sort Array">
+<meta property="og:url" content="http://yoursite.com/2019/11/20/1122-Relative-Sort-Array/index.html">
 <meta property="og:site_name" content="IAM.CZH">
-<meta property="og:description" content="Answer12345678910111213// 复杂度O(N)// in placeclass Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; sortArrayByParity(vector&amp;lt;int&amp;gt;&amp;amp; A) &amp;#123;                for(int i = 0, j = 0; j &amp;lt; A.size(); +">
+<meta property="og:description" content="Answer123456789101112131415161718192021222324class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; relativeSortArray(vector&amp;lt;int&amp;gt;&amp;amp; arr1, vector&amp;lt;int&amp;gt;&amp;amp; arr2) &amp;#123;                unorder">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-13T14:57:39.666Z">
+<meta property="og:updated_time" content="2019-11-20T14:38:11.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="905. Sort Array By Parity">
-<meta name="twitter:description" content="Answer12345678910111213// 复杂度O(N)// in placeclass Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; sortArrayByParity(vector&amp;lt;int&amp;gt;&amp;amp; A) &amp;#123;                for(int i = 0, j = 0; j &amp;lt; A.size(); +">
+<meta name="twitter:title" content="1122. Relative Sort Array">
+<meta name="twitter:description" content="Answer123456789101112131415161718192021222324class Solution &amp;#123;public:    vector&amp;lt;int&amp;gt; relativeSortArray(vector&amp;lt;int&amp;gt;&amp;amp; arr1, vector&amp;lt;int&amp;gt;&amp;amp; arr2) &amp;#123;                unorder">
 
 
 
@@ -105,7 +105,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/11/13/905-Sort-Array-By-Parity/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/20/1122-Relative-Sort-Array/">
 
 
 
@@ -115,7 +115,7 @@
   };
 </script>
 
-  <title>905. Sort Array By Parity | IAM.CZH</title>
+  <title>1122. Relative Sort Array | IAM.CZH</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/905-Sort-Array-By-Parity/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/1122-Relative-Sort-Array/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -377,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">905. Sort Array By Parity
+          <h1 class="post-title" itemprop="name headline">1122. Relative Sort Array
 
               
             
@@ -403,7 +403,7 @@
                 
               
 
-              <time title="Created: 2019-11-13 23:54:02 / Modified: 23:57:39" itemprop="dateCreated datePublished" datetime="2019-11-13T23:54:02+09:00">2019-11-13</time>
+              <time title="Created: 2019-11-20 23:36:58 / Modified: 23:38:11" itemprop="dateCreated datePublished" datetime="2019-11-20T23:36:58+09:00">2019-11-20</time>
             
 
             
@@ -467,7 +467,7 @@
       
 
       
-        <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复杂度O(N)</span></span><br><span class="line"><span class="comment">// in place</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sortArrayByParity(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>; j &lt; A.size(); ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (A[j] % <span class="number">2</span> == <span class="number">0</span>) swap(A[j], A[i++]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; relativeSortArray(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr2) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt; arr2Set(arr2.begin(), arr2.end());</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; notExist;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; times;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num : arr1) &#123;</span><br><span class="line">            times[num]++;</span><br><span class="line">            <span class="keyword">if</span> (arr2Set.count(num) == <span class="number">0</span>) notExist.push_back(num);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(notExist.begin(), notExist.end());</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num: arr2)&#123;</span><br><span class="line">            <span class="keyword">while</span>(times[num]-- &gt; <span class="number">0</span>) res.push_back(num);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; num: notExist) res.push_back(num);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -510,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/12/832-Flipping-an-Image/" rel="next" title="832. Flipping an Image">
-                <i class="fa fa-chevron-left"></i> 832. Flipping an Image
+              <a href="/2019/11/20/1160-Find-Words-That-Can-Be-Formed-by-Characters/" rel="next" title="1160. Find Words That Can Be Formed by Characters">
+                <i class="fa fa-chevron-left"></i> 1160. Find Words That Can Be Formed by Characters
               </a>
             
           </div>
@@ -519,10 +519,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/15/977-Squares-of-a-Sorted-Array/" rel="prev" title="977. Squares of a Sorted Array">
-                977. Squares of a Sorted Array <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
