@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1160. Find Words That Can Be Formed by Characters]]></title>
+    <url>%2F2019%2F11%2F20%2F1160-Find-Words-That-Can-Be-Formed-by-Characters%2F</url>
+    <content type="text"><![CDATA[Answer比较简单一道题，但是写的没有很爽。因为感觉逻辑有点混乱 1234567891011121314151617181920class Solution &#123;public: int countCharacters(vector&lt;string&gt;&amp; words, string chars) &#123; // restore vector&lt;int&gt; record(26,0); for(auto&amp; c: chars) record[c - 'a']++; int res = 0; for (auto&amp; word : words) &#123; int len = 0; vector&lt;int&gt; tmp = record; while(len &lt; word.size() &amp;&amp; tmp[word[len] - 'a'] &gt; 0) &#123; tmp[word[len++] - 'a']--; &#125; if (len == word.length()) res+= len; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[509. Fibonacci Number]]></title>
     <url>%2F2019%2F11%2F20%2F509-Fibonacci-Number%2F</url>
     <content type="text"><![CDATA[Description经典的递归问题了 Answer 112345678910class Solution &#123;public: int memo[31]; int fib(int N) &#123; if (N == 0) return 0; if (N == 1) return 1; if (memo[N] == 0) memo[N] = fib(N-1) + fib(N-2); return memo[N]; &#125;&#125;; Answer 2123456789101112131415class Solution &#123;public: int memo[31]; int fib(int N) &#123; if (N &lt;= 1) return N; int i = 0, j = 1; int sum = 0; while(N-- &gt; 1) &#123; sum = i + j; i = j; j = sum; &#125; return sum; &#125;&#125;;]]></content>
