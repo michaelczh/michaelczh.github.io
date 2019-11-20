@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1133. Largest Unique Number]]></title>
+    <url>%2F2019%2F11%2F20%2F1133-Largest-Unique-Number%2F</url>
+    <content type="text"><![CDATA[Answer很简单的一道题目。用map来储存数据和出现的次数，然后便利判断就可以了不过似乎题目不够严谨，没有说一定都是大于0的数。因为在test case 是[-5 -6]的时候，出来的结果是-1显然不正确 1234567891011121314// 复杂度:O(N LogN)class Solution &#123;public: int largestUniqueNumber(vector&lt;int&gt;&amp; A) &#123; unordered_map&lt;int, int&gt; map; for(auto&amp; num : A) map[num]++; int res = INT_MIN; for(auto it: map) &#123; if (it.second &gt; 1) continue; res = max(it.first, res); &#125; return res == INT_MIN ? -1 : res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[922. Sort Array By Parity II]]></title>
     <url>%2F2019%2F11%2F20%2F922-Sort-Array-By-Parity-II%2F</url>
     <content type="text"><![CDATA[Answer两个指针。不过没想到哦 1234567891011121314class Solution &#123;public: vector&lt;int&gt; sortArrayByParityII(vector&lt;int&gt;&amp; A) &#123; int odd = 0, even = 1, n = A.size(); while( odd&lt; n &amp;&amp; even &lt; n) &#123; while( odd &lt;n &amp;&amp; A[odd] %2 == 0) odd +=2; while( even &lt;n &amp;&amp; A[even]%2 == 1) even+=2; if (odd&lt; n &amp;&amp; even &lt; n) swap(A[odd], A[even]); &#125; return A; &#125;&#125;;]]></content>
