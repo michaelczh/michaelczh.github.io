@@ -32,11 +32,11 @@
     <content type="text"><![CDATA[Description经典的递归问题了 Answer 112345678910class Solution &#123;public: int memo[31]; int fib(int N) &#123; if (N == 0) return 0; if (N == 1) return 1; if (memo[N] == 0) memo[N] = fib(N-1) + fib(N-2); return memo[N]; &#125;&#125;; Answer 2123456789101112131415class Solution &#123;public: int memo[31]; int fib(int N) &#123; if (N &lt;= 1) return N; int i = 0, j = 1; int sum = 0; while(N-- &gt; 1) &#123; sum = i + j; i = j; j = sum; &#125; return sum; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
-        <category>Leetcode Medium</category>
-        <category>Leetcode Hard</category>
+        <category>Array</category>
       </categories>
       <tags>
         <tag>Leetcode</tag>
+        <tag>Array</tag>
       </tags>
   </entry>
   <entry>
