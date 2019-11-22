@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1200. Minimum Absolute Difference]]></title>
+    <url>%2F2019%2F11%2F22%2F1200-Minimum-Absolute-Difference%2F</url>
+    <content type="text"><![CDATA[Answer看完觉得比较简单。但是感觉没什么挑战。又是亚麻的题目O.O 12345678910111213141516171819202122// 复杂度 O(NlogN)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(arr.begin(), arr.end()); // find the minimum value int minDist = INT_MAX; for(int i = 0; i &lt; arr.size()-1; ++i) &#123; minDist = min(minDist, arr[i+1] - arr[i]); &#125; // return res for (int i = 0; i &lt; arr.size()-1; ++i) &#123; if (arr[i+1] - arr[i] == minDist) res.push_back(vector&lt;int&gt;&#123;arr[i], arr[i+1]&#125;); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1122. Relative Sort Array]]></title>
     <url>%2F2019%2F11%2F20%2F1122-Relative-Sort-Array%2F</url>
     <content type="text"><![CDATA[Answer123456789101112131415161718192021222324class Solution &#123;public: vector&lt;int&gt; relativeSortArray(vector&lt;int&gt;&amp; arr1, vector&lt;int&gt;&amp; arr2) &#123; unordered_set&lt;int&gt; arr2Set(arr2.begin(), arr2.end()); vector&lt;int&gt; notExist; unordered_map&lt;int, int&gt; times; for(auto&amp; num : arr1) &#123; times[num]++; if (arr2Set.count(num) == 0) notExist.push_back(num); &#125; sort(notExist.begin(), notExist.end()); vector&lt;int&gt; res; for(auto&amp; num: arr2)&#123; while(times[num]-- &gt; 0) res.push_back(num); &#125; for(auto&amp; num: notExist) res.push_back(num); return res; &#125;&#125;;]]></content>
