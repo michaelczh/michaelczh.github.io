@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1002. Find Common Characters]]></title>
+    <url>%2F2019%2F11%2F22%2F1002-Find-Common-Characters%2F</url>
+    <content type="text"><![CDATA[Answer很多有字母相关的题目都可以塑造一个26长度的array来完成。 1234567891011121314151617181920class Solution &#123;public: vector&lt;string&gt; commonChars(vector&lt;string&gt;&amp; A) &#123; vector&lt;int&gt; cnt(26, INT_MAX); for(auto&amp; word: A) &#123; vector&lt;int&gt; cnt0(26, 0); for(auto&amp; c : word) cnt0[c - 'a']++; for(int i = 0; i &lt; 26; ++i) cnt[i] = min(cnt[i], cnt0[i]); &#125; vector&lt;string&gt; res; for(int i = 0; i &lt; 26; ++i) &#123; for(int j = 0; j &lt; cnt[i]; ++j) res.push_back(string(1, 'a' + i)); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1200. Minimum Absolute Difference]]></title>
     <url>%2F2019%2F11%2F22%2F1200-Minimum-Absolute-Difference%2F</url>
     <content type="text"><![CDATA[Answer看完觉得比较简单。但是感觉没什么挑战。又是亚麻的题目O.O 12345678910111213141516171819202122// 复杂度 O(NlogN)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(arr.begin(), arr.end()); // find the minimum value int minDist = INT_MAX; for(int i = 0; i &lt; arr.size()-1; ++i) &#123; minDist = min(minDist, arr[i+1] - arr[i]); &#125; // return res for (int i = 0; i &lt; arr.size()-1; ++i) &#123; if (arr[i+1] - arr[i] == minDist) res.push_back(vector&lt;int&gt;&#123;arr[i], arr[i+1]&#125;); &#125; return res; &#125;&#125;;]]></content>
