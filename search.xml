@@ -1,8 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1266. Minimum Time Visiting All Points]]></title>
+    <url>%2F2019%2F11%2F28%2F1266-Minimum-Time-Visiting-All-Points%2F</url>
+    <content type="text"><![CDATA[Answer刚开始看起来还挺唬人的，以为要用BFS什么的做，没想到很简单 1234567891011121314// 复杂度O(N)class Solution &#123;public: int minTimeToVisitAllPoints(vector&lt;vector&lt;int&gt;&gt;&amp; points) &#123; int res = 0; for (int i = 0; i &lt; points.size()-1; ++i) &#123; int hor = abs(points[i][0] - points[i+1][0]); int ver = abs(points[i][1] - points[i+1][1]); res += max(hor, ver); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[867. Transpose Matrix]]></title>
+    <url>%2F2019%2F11%2F28%2F867-Transpose-Matrix%2F</url>
+    <content type="text"><![CDATA[Answer傻瓜题目 123456789101112131415161718// 复杂度 O(N^2)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; transpose(vector&lt;vector&lt;int&gt;&gt;&amp; A) &#123; int n = A.size(), m = A[0].size(); vector&lt;vector&lt;int&gt;&gt; res(m, vector&lt;int&gt;(n,0)); for(int i = 0; i &lt; n; ++i) &#123; for(int j = 0; j &lt; m; ++j) &#123; res[j][i] = A[i][j]; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1002. Find Common Characters]]></title>
     <url>%2F2019%2F11%2F22%2F1002-Find-Common-Characters%2F</url>
+    <content type="text"><![CDATA[Answer很多有字母相关的题目都可以塑造一个26长度的array来完成。 1234567891011121314151617181920class Solution &#123;public: vector&lt;string&gt; commonChars(vector&lt;string&gt;&amp; A) &#123; vector&lt;int&gt; cnt(26, INT_MAX); for(auto&amp; word: A) &#123; vector&lt;int&gt; cnt0(26, 0); for(auto&amp; c : word) cnt0[c - 'a']++; for(int i = 0; i &lt; 26; ++i) cnt[i] = min(cnt[i], cnt0[i]); &#125; vector&lt;string&gt; res; for(int i = 0; i &lt; 26; ++i) &#123; for(int j = 0; j &lt; cnt[i]; ++j) res.push_back(string(1, 'a' + i)); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1002. Find Common Characters]]></title>
+    <url>%2F2019%2F11%2F22%2Fleetcode%2F1002-Find-Common-Characters%2F</url>
     <content type="text"><![CDATA[Answer很多有字母相关的题目都可以塑造一个26长度的array来完成。 1234567891011121314151617181920class Solution &#123;public: vector&lt;string&gt; commonChars(vector&lt;string&gt;&amp; A) &#123; vector&lt;int&gt; cnt(26, INT_MAX); for(auto&amp; word: A) &#123; vector&lt;int&gt; cnt0(26, 0); for(auto&amp; c : word) cnt0[c - 'a']++; for(int i = 0; i &lt; 26; ++i) cnt[i] = min(cnt[i], cnt0[i]); &#125; vector&lt;string&gt; res; for(int i = 0; i &lt; 26; ++i) &#123; for(int j = 0; j &lt; cnt[i]; ++j) res.push_back(string(1, 'a' + i)); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -27,8 +66,21 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[1200. Minimum Absolute Difference]]></title>
+    <url>%2F2019%2F11%2F22%2Fleetcode%2F1200-Minimum-Absolute-Difference%2F</url>
+    <content type="text"><![CDATA[Answer看完觉得比较简单。但是感觉没什么挑战。又是亚麻的题目O.O 12345678910111213141516171819202122// 复杂度 O(NlogN)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(arr.begin(), arr.end()); // find the minimum value int minDist = INT_MAX; for(int i = 0; i &lt; arr.size()-1; ++i) &#123; minDist = min(minDist, arr[i+1] - arr[i]); &#125; // return res for (int i = 0; i &lt; arr.size()-1; ++i) &#123; if (arr[i+1] - arr[i] == minDist) res.push_back(vector&lt;int&gt;&#123;arr[i], arr[i+1]&#125;); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1122. Relative Sort Array]]></title>
-    <url>%2F2019%2F11%2F20%2F1122-Relative-Sort-Array%2F</url>
+    <url>%2F2019%2F11%2F20%2Fleetcode%2F1122-Relative-Sort-Array%2F</url>
     <content type="text"><![CDATA[Answer123456789101112131415161718192021222324class Solution &#123;public: vector&lt;int&gt; relativeSortArray(vector&lt;int&gt;&amp; arr1, vector&lt;int&gt;&amp; arr2) &#123; unordered_set&lt;int&gt; arr2Set(arr2.begin(), arr2.end()); vector&lt;int&gt; notExist; unordered_map&lt;int, int&gt; times; for(auto&amp; num : arr1) &#123; times[num]++; if (arr2Set.count(num) == 0) notExist.push_back(num); &#125; sort(notExist.begin(), notExist.end()); vector&lt;int&gt; res; for(auto&amp; num: arr2)&#123; while(times[num]-- &gt; 0) res.push_back(num); &#125; for(auto&amp; num: notExist) res.push_back(num); return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -41,7 +93,7 @@
   </entry>
   <entry>
     <title><![CDATA[1160. Find Words That Can Be Formed by Characters]]></title>
-    <url>%2F2019%2F11%2F20%2F1160-Find-Words-That-Can-Be-Formed-by-Characters%2F</url>
+    <url>%2F2019%2F11%2F20%2Fleetcode%2F1160-Find-Words-That-Can-Be-Formed-by-Characters%2F</url>
     <content type="text"><![CDATA[Answer比较简单一道题，但是写的没有很爽。因为感觉逻辑有点混乱 1234567891011121314151617181920class Solution &#123;public: int countCharacters(vector&lt;string&gt;&amp; words, string chars) &#123; // restore vector&lt;int&gt; record(26,0); for(auto&amp; c: chars) record[c - 'a']++; int res = 0; for (auto&amp; word : words) &#123; int len = 0; vector&lt;int&gt; tmp = record; while(len &lt; word.size() &amp;&amp; tmp[word[len] - 'a'] &gt; 0) &#123; tmp[word[len++] - 'a']--; &#125; if (len == word.length()) res+= len; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -54,7 +106,7 @@
   </entry>
   <entry>
     <title><![CDATA[509. Fibonacci Number]]></title>
-    <url>%2F2019%2F11%2F20%2F509-Fibonacci-Number%2F</url>
+    <url>%2F2019%2F11%2F20%2Fleetcode%2F509-Fibonacci-Number%2F</url>
     <content type="text"><![CDATA[Description经典的递归问题了 Answer 112345678910class Solution &#123;public: int memo[31]; int fib(int N) &#123; if (N == 0) return 0; if (N == 1) return 1; if (memo[N] == 0) memo[N] = fib(N-1) + fib(N-2); return memo[N]; &#125;&#125;; Answer 2123456789101112131415class Solution &#123;public: int memo[31]; int fib(int N) &#123; if (N &lt;= 1) return N; int i = 0, j = 1; int sum = 0; while(N-- &gt; 1) &#123; sum = i + j; i = j; j = sum; &#125; return sum; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -67,7 +119,7 @@
   </entry>
   <entry>
     <title><![CDATA[1133. Largest Unique Number]]></title>
-    <url>%2F2019%2F11%2F20%2F1133-Largest-Unique-Number%2F</url>
+    <url>%2F2019%2F11%2F20%2Fleetcode%2F1133-Largest-Unique-Number%2F</url>
     <content type="text"><![CDATA[Answer很简单的一道题目。用map来储存数据和出现的次数，然后便利判断就可以了不过似乎题目不够严谨，没有说一定都是大于0的数。因为在test case 是[-5 -6]的时候，出来的结果是-1显然不正确 1234567891011121314// 复杂度:O(N LogN)class Solution &#123;public: int largestUniqueNumber(vector&lt;int&gt;&amp; A) &#123; unordered_map&lt;int, int&gt; map; for(auto&amp; num : A) map[num]++; int res = INT_MIN; for(auto it: map) &#123; if (it.second &gt; 1) continue; res = max(it.first, res); &#125; return res == INT_MIN ? -1 : res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -80,7 +132,7 @@
   </entry>
   <entry>
     <title><![CDATA[922. Sort Array By Parity II]]></title>
-    <url>%2F2019%2F11%2F20%2F922-Sort-Array-By-Parity-II%2F</url>
+    <url>%2F2019%2F11%2F20%2Fleetcode%2F922-Sort-Array-By-Parity-II%2F</url>
     <content type="text"><![CDATA[Answer两个指针。不过没想到哦 1234567891011121314class Solution &#123;public: vector&lt;int&gt; sortArrayByParityII(vector&lt;int&gt;&amp; A) &#123; int odd = 0, even = 1, n = A.size(); while( odd&lt; n &amp;&amp; even &lt; n) &#123; while( odd &lt;n &amp;&amp; A[odd] %2 == 0) odd +=2; while( even &lt;n &amp;&amp; A[even]%2 == 1) even+=2; if (odd&lt; n &amp;&amp; even &lt; n) swap(A[odd], A[even]); &#125; return A; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -93,7 +145,7 @@
   </entry>
   <entry>
     <title><![CDATA[561. Array Partition I]]></title>
-    <url>%2F2019%2F11%2F17%2F561-Array-Partition-I%2F</url>
+    <url>%2F2019%2F11%2F17%2Fleetcode%2F561-Array-Partition-I%2F</url>
     <content type="text"><![CDATA[Answer意外简单的一道题目。题目是说有2N个数字，需要组成N对数字，要求N对里面最小的数字加起来最大。所以应该是小的尽量要跟小的组一起，这样不会浪费大的数字。排序一下然后挑选各自最小的就ok了 12345678910111213// 时间复杂度O(NlogN)class Solution &#123;public: int arrayPairSum(vector&lt;int&gt;&amp; nums) &#123; sort(nums.begin(), nums.end()); int res = 0; for(int i = 0; i &lt; nums.size(); i = i + 2) &#123; res += nums[i]; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -106,7 +158,7 @@
   </entry>
   <entry>
     <title><![CDATA[1064. Fixed Point]]></title>
-    <url>%2F2019%2F11%2F16%2F1064-Fixed-Point%2F</url>
+    <url>%2F2019%2F11%2F16%2Fleetcode%2F1064-Fixed-Point%2F</url>
     <content type="text"><![CDATA[Answer 1第一种方法应该是最好想出来的，就是遍历数组然后找出i和A[i]相同的值，就是题目要求的最小的值。复杂度是O(N) 1234567891011class Solution &#123;public: int fixedPoint(vector&lt;int&gt;&amp; A) &#123; for(int i = 0; i &lt; A.size(); ++i) &#123; if (i == A[i]) return i; &#125; return -1; &#125;&#125;; Answer 2第二种方法是寻求O(logN)的二分查找法。A[i] &lt; A[i+1]A[i] &lt;= A[i+1] - 1A[i] - i &lt;= A[i+1] - i - 1即 A[i] - i &lt;= A[i+1] - (i +1)因此，题目可以变为查找A[i]-i中第一个数值为0的序列。 1234567891011121314151617class Solution &#123;public: int fixedPoint(vector&lt;int&gt;&amp; A) &#123; int i = 0, j = A.size()-1; while(i &lt; j) &#123; int mid = i + (j - i) / 2; // 假如小于0， 那么目标一定是在右边 因此左边的一定是比0小的（右边有可能比0大的｜等于0的）。 if (A[mid] - mid &lt; 0) i = mid + 1; else j = mid; &#125; return A[i] == i ? i : -1; &#125;&#125;; 思考这题的二分查找一个关键的思想在于，通过设定条件来判断答案是在左边，还是在非左边。 假设题目变为查找最大或者最后一个值那么代码应该变为 1234567891011121314151617class Solution &#123;public: int fixedPoint(vector&lt;int&gt;&amp; A) &#123; int i = 0, j = A.size()-1; while(i &lt; j) &#123; int mid = i + (j - i) / 2; // 假如大于0， 那么目标一定是在左边 if (A[mid] - mid &gt; 0) j = mid - 1; else i = mid; &#125; return A[i] == i ? i : -1; &#125;&#125;; 是这样想的，但是无法实现会造成死循环]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -120,7 +172,7 @@
   </entry>
   <entry>
     <title><![CDATA[977. Squares of a Sorted Array]]></title>
-    <url>%2F2019%2F11%2F15%2F977-Squares-of-a-Sorted-Array%2F</url>
+    <url>%2F2019%2F11%2F15%2Fleetcode%2F977-Squares-of-a-Sorted-Array%2F</url>
     <content type="text"></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -133,7 +185,7 @@
   </entry>
   <entry>
     <title><![CDATA[905. Sort Array By Parity]]></title>
-    <url>%2F2019%2F11%2F13%2F905-Sort-Array-By-Parity%2F</url>
+    <url>%2F2019%2F11%2F13%2Fleetcode%2F905-Sort-Array-By-Parity%2F</url>
     <content type="text"><![CDATA[Answer12345678910111213// 复杂度O(N)// in placeclass Solution &#123;public: vector&lt;int&gt; sortArrayByParity(vector&lt;int&gt;&amp; A) &#123; for(int i = 0, j = 0; j &lt; A.size(); ++j) &#123; if (A[j] % 2 == 0) swap(A[j], A[i++]); &#125; return A; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -146,7 +198,7 @@
   </entry>
   <entry>
     <title><![CDATA[832. Flipping an Image]]></title>
-    <url>%2F2019%2F11%2F12%2F832-Flipping-an-Image%2F</url>
+    <url>%2F2019%2F11%2F12%2Fleetcode%2F832-Flipping-an-Image%2F</url>
     <content type="text"><![CDATA[Answer12345678910111213141516171819202122// 复杂度: O(NM) N,M分别为行列数class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; flipAndInvertImage(vector&lt;vector&lt;int&gt;&gt;&amp; A) &#123; int n = A.size(); int m = A[0].size(); for(int i = 0; i &lt; n; ++i) &#123; vector&lt;int&gt; tmpRow = A[i]; for(int j = 0; j &lt; (m+1)/2; ++j) &#123; swap(A[i][j], A[i][m-j-1]); &#125; &#125; for(int i = 0; i &lt; n; ++i) &#123; for(int j = 0; j &lt; m; ++j) A[i][j] = 1 - A[i][j]; &#125; return A; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -159,7 +211,7 @@
   </entry>
   <entry>
     <title><![CDATA[1085. Sum of Digits in the Minimum Number]]></title>
-    <url>%2F2019%2F11%2F11%2F1085-Sum-of-Digits-in-the-Minimum-Number%2F</url>
+    <url>%2F2019%2F11%2F11%2Fleetcode%2F1085-Sum-of-Digits-in-the-Minimum-Number%2F</url>
     <content type="text"><![CDATA[Answer1234567891011121314151617// 复杂度O(N)class Solution &#123;public: int sumOfDigits(vector&lt;int&gt;&amp; A) &#123; int minNum = INT_MAX; for(auto&amp; num : A) minNum = min(num, minNum); int sum = 0; while(minNum &gt; 0) &#123; sum += minNum%10; minNum = minNum / 10; &#125; return 1- sum%2; &#125;&#125;; Think好简单的一道题目，一看竟然是亚麻的，不可思议。这样不可以诶。不过今晚没时间了还是水一道题目去看其他的吧hope everything fine tomorrow.]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -172,7 +224,7 @@
   </entry>
   <entry>
     <title><![CDATA[1086. High Five]]></title>
-    <url>%2F2019%2F11%2F10%2F1086-High-Five%2F</url>
+    <url>%2F2019%2F11%2F10%2Fleetcode%2F1086-High-Five%2F</url>
     <content type="text"><![CDATA[ProblemNote: Example Input:Output:Explanation: ExplanationAnswer12345678910111213141516171819202122232425262728293031// 思路：比较简单的一道题目// 创造一个map 来维护学生id和所有成绩// 使用pq来维护前五大成绩// 最后遍历pq来获得总和求得平均数// 复杂度: O(N) // 虽然pq的复杂度应该是O(NlongN)，但是由于我们只维护了5个值，所以heap的深度是一定的class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; highFive(vector&lt;vector&lt;int&gt;&gt;&amp; items) &#123; map&lt;int, priority_queue&lt;int, std::vector&lt;int&gt;, std::greater&lt;int&gt; &gt;&gt; map; for(auto&amp; item: items) &#123; map[item[0]].push(item[1]); if (map[item[0]].size() &gt; 5) map[item[0]].pop(); &#125; vector&lt;vector&lt;int&gt;&gt; res; for (auto&amp; item: map) &#123; int tmp = 0; while(!map[item.first].empty()) &#123; tmp += map[item.first].top(); map[item.first].pop(); &#125; res.push_back(vector&lt;int&gt;&#123;item.first,tmp/5&#125;); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -184,7 +236,7 @@
   </entry>
   <entry>
     <title><![CDATA[1252. Cells with Odd Values in a Matrix]]></title>
-    <url>%2F2019%2F11%2F10%2F1252-Cells-with-Odd-Values-in-a-Matrix%2F</url>
+    <url>%2F2019%2F11%2F10%2Fleetcode%2F1252-Cells-with-Odd-Values-in-a-Matrix%2F</url>
     <content type="text"><![CDATA[ProblemNote: Example Input:Output:Explanation: ExplanationAnswer1234567891011121314151617181920212223242526272829// 思路// 1 分别创建行列数组，分别统计行列的相加情况，// *由于我们只需要只要是不是奇数偶数，所以使用^来保留0 或者1// 2 最后遍历二维数组就，判断数值相加是不是偶数 来更新res// 时间复杂度 O(nm) // 空间复杂度 O(n)class Solution &#123;public: int oddCells(int n, int m, vector&lt;vector&lt;int&gt;&gt;&amp; indices) &#123; vector&lt;int&gt; rows(n, 0); vector&lt;int&gt; cols(m, 0); for(auto&amp; indice: indices) &#123; rows[indice[0]] ^= 1; // 如果是偶数的话就会变成0 cols[indice[1]] ^= 1; &#125; int res = 0; for (int i = 0; i &lt; n; ++i) &#123; for (int j = 0; j &lt; m; ++j) &#123; res += rows[i] ^ cols[j] == 0 ? 0 : 1; &#125; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -197,7 +249,7 @@
   </entry>
   <entry>
     <title><![CDATA[643. Maximum Average Subarray I]]></title>
-    <url>%2F2019%2F07%2F09%2F643-Maximum-Average-Subarray-I%2F</url>
+    <url>%2F2019%2F07%2F09%2Fleetcode%2F643-Maximum-Average-Subarray-I%2F</url>
     <content type="text"><![CDATA[ProblemGiven an array consisting of n integers, find the contiguous subarray of given length k that has the maximum average value. And you need to output the maximum average value. Note: Example Input: [1,12,-5,-6,50,3], k = 4Output: Maximum average is (12-5-6+50)/4 = 51/4 = 12.75Explanation: 12.75 Explanation很简单的一个问题，刚开始没看到开，以为是求子序列的最大平均数。后来发现给定了k，就简单了点就是维持一个长度为k的窗口，从左到右边扫一扫。保存最大的就好很简单 Answer1234567891011121314class Solution &#123;public: double findMaxAverage(vector&lt;int&gt;&amp; nums, int k) &#123; int res = INT_MIN; int tmp = 0; for (int i = 0; i &lt; k; ++i) tmp += nums[i]; for (int i = k; i &lt; nums.size(); ++i) &#123; res = max(res, tmp); tmp += nums[i] - nums[i-k]; &#125; return (double)max(tmp,res)/k; &#125;&#125;;`]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -208,7 +260,7 @@
   </entry>
   <entry>
     <title><![CDATA[838. Push Dominoes]]></title>
-    <url>%2F2019%2F07%2F06%2F838-Push-Dominoes%2F</url>
+    <url>%2F2019%2F07%2F06%2Fleetcode%2F838-Push-Dominoes%2F</url>
     <content type="text"><![CDATA[Problem There are N dominoes in a line, and we place each domino vertically upright. In the beginning, we simultaneously push some of the dominoes either to the left or to the right. After each second, each domino that is falling to the left pushes the adjacent domino on the left. Similarly, the dominoes falling to the right push their adjacent dominoes standing on the right. When a vertical domino has dominoes falling on it from both sides, it stays still due to the balance of the forces. For the purposes of this question, we will consider that a falling domino expends no additional force to a falling or already fallen domino. Given a string “S” representing the initial state. S[i] = &#39;L&#39;, if the i-th domino has been pushed to the left; S[i] = &#39;R&#39;, if the i-th domino has been pushed to the right; S[i] = &#39;.&#39;, if the i-th domino has not been pushed. Return a string representing the final state Example Input: “.L.R…LR..L..”Output: “LL.RR.LLRRLL..” Explanation就只有四种情况 L…L = LLLLLL…R = L…RR…L = RR.LLR…R = R…R 分别对这四种情况进行讨论就行了。找到一个L或R，继续寻找一个L或R，我们只关心他们两个的距离，根据上面四种可能性，分别添加字符具体见代码 Answer1234567891011121314151617181920212223class Solution &#123;public: // L...L = LLLLL // L...R = L...R // R...L = RR.LL // R...R = R...R string pushDominoes(string d) &#123; d = 'L' + d + 'R'; string res = ""; for (int i = 0, j = 1; j &lt; d.length(); ++j)&#123; if (d[j] == '.') continue; int middleNum = j - i - 1; if (i &gt; 0) res += d[i]; if (d[i] == d[j]) res += string(middleNum, d[i]); else if (d[i] == 'L' &amp;&amp; d[j] == 'R') res += string(middleNum, '.'); else res+= string(middleNum/2, 'R') + string( middleNum%2, '.') + string(middleNum/2, 'L'); i = j; &#125; return res; &#125;&#125;;`]]></content>
       <categories>
         <category>Leetcode Medium</category>
@@ -220,7 +272,7 @@
   </entry>
   <entry>
     <title><![CDATA[16. 3Sum Closest]]></title>
-    <url>%2F2019%2F06%2F28%2F16-3Sum-Closest%2F</url>
+    <url>%2F2019%2F06%2F28%2Fleetcode%2F16-3Sum-Closest%2F</url>
     <content type="text"><![CDATA[ProblemGiven an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target. Return the sum of the three integers. You may assume that each input would have exactly one solution. Example Given array nums = [-1, 2, 1, -4], and target = 1. The sum that is closest to the target is 2. (-1 + 2 + 1 = 2). Explanation这道题目意外简单。最先能想到的解法应该是brute-force。但是复杂度O(N^3)明显不会是题目要求的。直接告诉我这类题目应该要先排序一下，复杂度N(LogN)一时间没有什么好想法，于是就想我们可以从第一位到最后一位先扫一遍。确定三个数中的第一个数i: 0 ~ N-1, 在扫的过程中增加两个指针p1和p2。因为我们已经对数组进行排序了，所以可以根据nums[i],nums[p1]和nums[p2]三者的和于target的差值来确定p1,p2指针的移动方向。并且保存与target最相近的那个值。算法复杂度为O(N^2) ps: 为了更快，我们可以在每次计算完三个数的sum时，判断一下是不是等于target的值，如果等于target的值，直接返回就可以了。 Answer12345678910111213141516171819202122class Solution &#123;public: int threeSumClosest(vector&lt;int&gt;&amp; nums, int target) &#123; sort(nums.begin(), nums.end()); int res = nums[0] + nums[1] + nums[2]; for (int i = 0; i &lt; nums.size()-2; ++i) &#123; int p1 = i + 1; int p2 = nums.size()-1; while(p1 &lt; p2) &#123; int currSum = nums[i] + nums[p1] + nums[p2]; if (currSum == target) return target; if ( abs(currSum - target) &lt; abs(res - target) ) res = currSum; if (currSum &lt; target) p1++; else p2--; &#125; &#125; return res; &#125;&#125;;`]]></content>
       <categories>
         <category>Leetcode Medium</category>
@@ -232,7 +284,7 @@
   </entry>
   <entry>
     <title><![CDATA[355. Design Twitter]]></title>
-    <url>%2F2019%2F06%2F25%2F355-Design-Twitter%2F</url>
+    <url>%2F2019%2F06%2F25%2Fleetcode%2F355-Design-Twitter%2F</url>
     <content type="text"><![CDATA[ProblemDesign a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user’s news feed. Your design should support the following methods: postTweet(userId, tweetId): Compose a new tweet. getNewsFeed(userId): Retrieve the 10 most recent tweet ids in the user’s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. follow(followerId, followeeId): Follower follows a followee. unfollow(followerId, followeeId): Follower unfollows a followee. Example Your Twitter object will be instantiated and called as such: Twitter* obj = new Twitter(); obj-&gt;postTweet(userId,tweetId); vector param_2 = obj-&gt;getNewsFeed(userId); obj-&gt;follow(followerId,followeeId); obj-&gt;unfollow(followerId,followeeId); Twitter twitter = new Twitter(); // User 1 posts a new tweet (id = 5).twitter.postTweet(1, 5); // User 1’s news feed should return a list with 1 tweet id -&gt; [5].twitter.getNewsFeed(1); // User 1 follows user 2.twitter.follow(1, 2); // User 2 posts a new tweet (id = 6).twitter.postTweet(2, 6); // User 1’s news feed should return a list with 2 tweet ids -&gt; [6, 5].// Tweet id 6 should precede tweet id 5 because it is posted after tweet id 5.twitter.getNewsFeed(1); // User 1 unfollows user 2.twitter.unfollow(1, 2); // User 1’s news feed should return a list with 1 tweet id -&gt; [5],// since user 1 is no longer following user 2.twitter.getNewsFeed(1); Explanation其实这道题相对简单。四个功能 关注关注的功能比较简单，用unodered_map&lt;userId, unodered_set&lt;followeeId&gt;&gt; 取消关注取消关注的话只需要把对应的unodered_set&lt;followeeId&gt;里面的id删掉就可以了。 发推文（把userId和tweetId绑定）由于最后需要返回最近的推文，和时间有关，因此定义一个pair&lt;tweetId, time&gt;来表示一个推文，time由全局控制。然后同样用unodered_map&lt;userId, unodered_set&lt;tweetId&gt;&gt; 来储存发过的推特。 返回自己和关注的人最近的10条推文vector[tweetId]定义一个priority_queue&lt;pair&lt;tweetId, time&gt;&gt;来根据时间排序。遍历自己发过的推，以及关注的人发过的推。然后储存到pq，当pq大于10个的时候，推出一个。 Answer1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768struct CustomCompare&#123; bool operator()(const pair&lt;int,int&gt;&amp; tw1, const pair&lt;int,int&gt;&amp; tw2) &#123; return tw1.second &gt; tw2.second; &#125;&#125;;struct pair_hash &#123; inline std::size_t operator()(const std::pair&lt;int,int&gt; &amp; v) const &#123; return v.first; &#125;&#125;;class Twitter &#123;public: #define TWEET pair&lt;int, int&gt; /** Initialize your data structure here. */ int time = 0; unordered_map&lt;int, unordered_set&lt;int&gt;&gt; followMap; unordered_map&lt;int, unordered_set&lt;TWEET,pair_hash&gt;&gt; postMap; Twitter() &#123; &#125; /** Compose a new tweet. */ void postTweet(int userId, int tweetId) &#123; TWEET tweet = make_pair(tweetId, time++); postMap[userId].insert(tweet); &#125; /** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */ vector&lt;int&gt; getNewsFeed(int userId) &#123; priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, CustomCompare&gt; pq; unordered_set&lt;TWEET,pair_hash&gt; selfPost = postMap[userId]; for (auto&amp; it : selfPost) &#123; pq.push(it); if (pq.size() &gt; 10) pq.pop(); &#125; for (auto&amp; followeeId: followMap[userId]) &#123; for (auto&amp; it : postMap[followeeId]) &#123; pq.push(it); if (pq.size() &gt; 10) pq.pop(); &#125; &#125; int j = pq.size(); vector&lt;int&gt; res(j); while (!pq.empty()) &#123; res[--j] = pq.top().first; // res.push_front(); pq.pop(); &#125; return res; &#125; /** Follower follows a followee. If the operation is invalid, it should be a no-op. */ void follow(int followerId, int followeeId) &#123; if (followerId == followeeId) return; followMap[followerId].insert(followeeId); &#125; /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */ void unfollow(int followerId, int followeeId) &#123; followMap[followerId].erase(followeeId); &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Medium</category>
@@ -255,7 +307,7 @@
   </entry>
   <entry>
     <title><![CDATA[485. Max Consecutive Ones]]></title>
-    <url>%2F2019%2F06%2F24%2F485-Max-Consecutive-Ones%2F</url>
+    <url>%2F2019%2F06%2F24%2Fleetcode%2F485-Max-Consecutive-Ones%2F</url>
     <content type="text"><![CDATA[ProblemGiven a binary array, find the maximum number of consecutive 1s in this array. Example Input: [1,1,0,1,1,1]Output: 3Explanation:The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3. Explanation好简单而且无聊的一道问题。就贴个答案吧 Answer1234567891011121314class Solution &#123;public: int findMaxConsecutiveOnes(vector&lt;int&gt;&amp; nums) &#123; int res = 0; int tmp = 0; for(int&amp;n : nums)&#123; tmp += n; tmp = tmp*n; res = max(res, tmp); &#125; return res; &#125;&#125;;`]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -266,7 +318,7 @@
   </entry>
   <entry>
     <title><![CDATA[72. Edit Distance]]></title>
-    <url>%2F2019%2F06%2F24%2F72-Edit-Distance%2F</url>
+    <url>%2F2019%2F06%2F24%2Fleetcode%2F72-Edit-Distance%2F</url>
     <content type="text"><![CDATA[ProblemGiven two words word1 and word2, find the minimum number of operations required to convert word1 to word2. You have the following 3 operations permitted on a word: Insert a characterDelete a characterReplace a character Example Input: word1 = “horse”, word2 = “ros”Output: 3Explanation:horse -&gt; rorse (replace ‘h’ with ‘r’)rorse -&gt; rose (remove ‘r’)rose -&gt; ros (remove ‘e’) Explanation这是一道DP问题。要求输入从word1变化到word2的最少步骤。题目定义了有三种修改方式分别是插入，替换和删除。我们设定一个DP数组，首先明确DP[i][j] 代表从word1[0…i-1]变化到word2[0…j-1]的最少步骤。 DP初值很明显N长度的字符串变化到空字符串需要N个步骤。所以DP[i][0]=i同理，空字符串转化到N个字符串也需要N个步骤，所以有DP[0][i]=i DP更新假设我们已经知道DP[i-1][j-1] 1) 如果word1[i] = words[j]，则DP[i][j]=DP[i-1][j-1]表示无需变化。2) 如果word1[i] != words[j]，分为三种情况a. 替换: word1[i] ==&gt; word2[j]，DP[i][j]=DP[i-1][j-1]+1b. 删除: 删除word1[i-1], 则DP[i][j]=DP[i-1][j]+1c. 增加: 增加word2[j-1], 则DP[i][j]=DP[i][j-1]+1我们只要比较上面三种情况哪种比较小，并更新到DP就可以了。最后返回DP[n][m] Answer123456789101112131415161718192021222324252627class Solution &#123;public: int minDistance(string word1, string word2) &#123; int n = word1.size(); int m = word2.size(); vector&lt;vector&lt;int&gt;&gt; dp(n+1, vector&lt;int&gt;(m+1,0)); // dp[i][j] indicated the minimum steps // from word1[0...i) to word1[0...j) for (int i = 1; i &lt;= n; ++i) dp[i][0] = i; for (int i = 1; i &lt;= m; ++i) dp[0][i] = i; for (int i = 1; i &lt;= n; ++i) &#123; for (int j = 1; j &lt;= m; ++j) &#123; if (word1[i-1] == word2[j-1]) &#123; dp[i][j] = dp[i-1][j-1]; &#125;else&#123; int case1 = dp[i-1][j-1]; int case2 = dp[i-1][j]; int case3 = dp[i][j-1]; dp[i][j] = min(case1, min(case2, case3)) + 1; &#125; &#125; &#125; return dp[n][m]; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Hard</category>
@@ -278,7 +330,7 @@
   </entry>
   <entry>
     <title><![CDATA[376. Wiggle Subsequence]]></title>
-    <url>%2F2019%2F06%2F23%2F376-Wiggle-Subsequence%2F</url>
+    <url>%2F2019%2F06%2F23%2Fleetcode%2F376-Wiggle-Subsequence%2F</url>
     <content type="text"><![CDATA[ProblemA sequence of numbers is called a wiggle sequence if the differences between successive numbers strictly alternate between positive and negative. The first difference (if one exists) may be either positive or negative. A sequence with fewer than two elements is trivially a wiggle sequence. For example, [1,7,4,9,2,5] is a wiggle sequence because the differences (6,-3,5,-7,3) are alternately positive and negative. In contrast, [1,4,7,2,5] and [1,7,4,5,5] are not wiggle sequences, the first because its first two differences are positive and the second because its last difference is zero. Given a sequence of integers, return the length of the longest subsequence that is a wiggle sequence. A subsequence is obtained by deleting some number of elements (eventually, also zero) from the original sequence, leaving the remaining elements in their original order. Note: Example Input: [1,7,4,9,2,5]Output: 6Explanation: The entire sequence is a wiggle sequence. Answer12345678910111213141516171819202122232425262728293031class Solution &#123;public: int wiggleMaxLength(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); if (n==0) return 0; vector&lt;int&gt; up(n); vector&lt;int&gt; down(n); // set initial values up[0] = 1; down[0] = 1; for (int i = 1; i &lt; n; ++i) &#123; if (nums[i] &gt; nums[i-1]) &#123; up[i] = down[i-1] + 1; down[i] = down[i-1]; &#125;else if (nums[i] &lt; nums[i-1])&#123; down[i] = up[i-1] + 1; up[i] = up[i-1]; &#125;else&#123; down[i] = down[i-1]; up[i] = up[i-1]; &#125; &#125; // return the max result return max(up[n-1], down[n-1]); &#125;&#125;;` Explanation这题采用DP来完成.因为对于某一个数，它可能是下降或者上升，所以定义2个数组，up[]和down[]， up[i]和down[i]表示的是，对于nums[i]，如果它是下降或是上升的话，分别最大长度是多少。判断nums[i]和nums[i-1]的关系，如果nums[i]&gt;nums[i-1]: 那就让up[i]=down[i-1]+1，小于的情况同理。 在返回结果的时候，返回最大长度的那一种可能。]]></content>
       <categories>
         <category>Leetcode Medium</category>
@@ -290,7 +342,7 @@
   </entry>
   <entry>
     <title><![CDATA[216. Combination Sum III]]></title>
-    <url>%2F2019%2F06%2F22%2F216-Combination-Sum-III%2F</url>
+    <url>%2F2019%2F06%2F22%2Fleetcode%2F216-Combination-Sum-III%2F</url>
     <content type="text"><![CDATA[ProblemFind all possible combinations of k numbers that add up to a number n, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers. Note: All numbers will be positive integers.The solution set must not contain duplicate combinations. Example Input: k = 3, n = 7Output: [[1,2,4]]Explanation: Answer123456789101112131415161718192021222324252627class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; combinationSum3(int k, int n) &#123; vector&lt;vector&lt;int&gt;&gt; res; vector&lt;int&gt; sol; helper(res, sol, k, n); return res; &#125; void helper(vector&lt;vector&lt;int&gt;&gt; &amp;res, vector&lt;int&gt; &amp;sol, int k, int n) &#123; if (sol.size() == k &amp;&amp; n == 0) &#123; res.push_back(sol); return; &#125; for (int i = sol.empty() ? 1 : sol.back() + 1; i &lt;= 9; ++i) &#123; if (n - i &lt; 0) return; sol.push_back(i); helper(res, sol, k, n-i); sol.pop_back(); &#125; &#125;&#125;;` Explanation]]></content>
       <categories>
         <category>Leetcode Medium</category>

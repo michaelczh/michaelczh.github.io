@@ -356,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/905-Sort-Array-By-Parity/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/leetcode/922-Sort-Array-By-Parity-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -376,7 +376,704 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/13/905-Sort-Array-By-Parity/" class="post-title-link" itemprop="url">905. Sort Array By Parity</a>
+                <a href="/2019/11/20/leetcode/922-Sort-Array-By-Parity-II/" class="post-title-link" itemprop="url">922. Sort Array By Parity II</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-20 00:45:58 / Modified: 00:46:35" itemprop="dateCreated datePublished" datetime="2019-11-20T00:45:58+09:00">2019-11-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/" itemprop="url" rel="index"><span itemprop="name">Leetcode Easy</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>两个指针。不过没想到哦</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; sortArrayByParityII(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> odd = <span class="number">0</span>, even = <span class="number">1</span>, n = A.size();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>( odd&lt; n &amp;&amp; even &lt; n) &#123;</span><br><span class="line">            <span class="keyword">while</span>( odd  &lt;n &amp;&amp; A[odd] %<span class="number">2</span> == <span class="number">0</span>) odd +=<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">while</span>( even &lt;n &amp;&amp; A[even]%<span class="number">2</span> == <span class="number">1</span>) even+=<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (odd&lt; n &amp;&amp; even &lt; n) swap(A[odd], A[even]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/leetcode/561-Array-Partition-I/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/17/leetcode/561-Array-Partition-I/" class="post-title-link" itemprop="url">561. Array Partition I</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-17 22:54:09 / Modified: 23:02:31" itemprop="dateCreated datePublished" datetime="2019-11-17T22:54:09+09:00">2019-11-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/" itemprop="url" rel="index"><span itemprop="name">Leetcode Easy</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>意外简单的一道题目。<br>题目是说有2N个数字，需要组成N对数字，要求N对里面最小的数字加起来最大。<br>所以应该是小的尽量要跟小的组一起，这样不会浪费大的数字。<br>排序一下然后挑选各自最小的就ok了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 时间复杂度O(NlogN)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">arrayPairSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i = i + <span class="number">2</span>) &#123;</span><br><span class="line">            res += nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/16/leetcode/1064-Fixed-Point/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/16/leetcode/1064-Fixed-Point/" class="post-title-link" itemprop="url">1064. Fixed Point</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-16 23:57:24" itemprop="dateCreated datePublished" datetime="2019-11-16T23:57:24+09:00">2019-11-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-11-17 23:05:33" itemprop="dateModified" datetime="2019-11-17T23:05:33+09:00">2019-11-17</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/" itemprop="url" rel="index"><span itemprop="name">Leetcode Easy</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Answer-1"><a href="#Answer-1" class="headerlink" title="Answer 1"></a>Answer 1</h4><p>第一种方法应该是最好想出来的，就是遍历数组然后找出<code>i</code>和<code>A[i]</code>相同的值，就是题目要求的最小的值。<br>复杂度是<code>O(N)</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fixedPoint</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == A[i]) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Answer-2"><a href="#Answer-2" class="headerlink" title="Answer 2"></a>Answer 2</h4><p>第二种方法是寻求<code>O(logN)</code>的二分查找法。<br><code>A[i] &lt; A[i+1]</code><br><code>A[i] &lt;= A[i+1] - 1</code><br><code>A[i] - i &lt;= A[i+1] - i - 1</code><br>即 <code>A[i] - i &lt;= A[i+1] - (i +1)</code><br>因此，题目可以变为查找<code>A[i]-i</code>中第一个数值为0的序列。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fixedPoint</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = A.size()<span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = i + (j - i) / <span class="number">2</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 假如小于0， 那么目标一定是在右边 因此左边的一定是比0小的（右边有可能比0大的｜等于0的）。</span></span><br><span class="line">            <span class="keyword">if</span> (A[mid] - mid &lt; <span class="number">0</span>) </span><br><span class="line">                i = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> j = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> A[i] == i ? i : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><p>这题的二分查找一个关键的思想在于，<br>通过设定条件来判断答案是在左边，还是在非左边。</p>
+<p>假设题目变为查找最大或者最后一个值那么代码应该变为</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">fixedPoint</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = A.size()<span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = i + (j - i) / <span class="number">2</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 假如大于0， 那么目标一定是在左边</span></span><br><span class="line">            <span class="keyword">if</span> (A[mid] - mid &gt; <span class="number">0</span>) </span><br><span class="line">                j = mid - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> i = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> A[i] == i ? i : <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>是这样想的，但是无法实现会造成死循环</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/15/leetcode/977-Squares-of-a-Sorted-Array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/15/leetcode/977-Squares-of-a-Sorted-Array/" class="post-title-link" itemprop="url">977. Squares of a Sorted Array</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-15 00:13:31 / Modified: 00:43:46" itemprop="dateCreated datePublished" datetime="2019-11-15T00:13:31+09:00">2019-11-15</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/" itemprop="url" rel="index"><span itemprop="name">Leetcode Easy</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/13/leetcode/905-Sort-Array-By-Parity/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/11/13/leetcode/905-Sort-Array-By-Parity/" class="post-title-link" itemprop="url">905. Sort Array By Parity</a>
               
             
           </h1>
@@ -525,7 +1222,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/832-Flipping-an-Image/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/leetcode/832-Flipping-an-Image/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -545,7 +1242,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/12/832-Flipping-an-Image/" class="post-title-link" itemprop="url">832. Flipping an Image</a>
+                <a href="/2019/11/12/leetcode/832-Flipping-an-Image/" class="post-title-link" itemprop="url">832. Flipping an Image</a>
               
             
           </h1>
@@ -694,7 +1391,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/1085-Sum-of-Digits-in-the-Minimum-Number/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/leetcode/1085-Sum-of-Digits-in-the-Minimum-Number/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -714,7 +1411,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/11/1085-Sum-of-Digits-in-the-Minimum-Number/" class="post-title-link" itemprop="url">1085. Sum of Digits in the Minimum Number</a>
+                <a href="/2019/11/11/leetcode/1085-Sum-of-Digits-in-the-Minimum-Number/" class="post-title-link" itemprop="url">1085. Sum of Digits in the Minimum Number</a>
               
             
           </h1>
@@ -864,7 +1561,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/1086-High-Five/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/leetcode/1086-High-Five/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -884,7 +1581,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/10/1086-High-Five/" class="post-title-link" itemprop="url">1086. High Five</a>
+                <a href="/2019/11/10/leetcode/1086-High-Five/" class="post-title-link" itemprop="url">1086. High Five</a>
               
             
           </h1>
@@ -1037,7 +1734,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/1252-Cells-with-Odd-Values-in-a-Matrix/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/10/leetcode/1252-Cells-with-Odd-Values-in-a-Matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -1057,7 +1754,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/11/10/1252-Cells-with-Odd-Values-in-a-Matrix/" class="post-title-link" itemprop="url">1252. Cells with Odd Values in a Matrix</a>
+                <a href="/2019/11/10/leetcode/1252-Cells-with-Odd-Values-in-a-Matrix/" class="post-title-link" itemprop="url">1252. Cells with Odd Values in a Matrix</a>
               
             
           </h1>
@@ -1210,7 +1907,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/643-Maximum-Average-Subarray-I/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/leetcode/643-Maximum-Average-Subarray-I/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -1230,7 +1927,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/07/09/643-Maximum-Average-Subarray-I/" class="post-title-link" itemprop="url">643. Maximum Average Subarray I</a>
+                <a href="/2019/07/09/leetcode/643-Maximum-Average-Subarray-I/" class="post-title-link" itemprop="url">643. Maximum Average Subarray I</a>
               
             
           </h1>
@@ -1363,733 +2060,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/06/838-Push-Dominoes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CHEN ZHIHANG">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IAM.CZH">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/07/06/838-Push-Dominoes/" class="post-title-link" itemprop="url">838. Push Dominoes</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-07-06 16:27:02" itemprop="dateCreated datePublished" datetime="2019-07-06T16:27:02+09:00">2019-07-06</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-07-09 00:11:17" itemprop="dateModified" datetime="2019-07-09T00:11:17+09:00">2019-07-09</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Medium/" itemprop="url" rel="index"><span itemprop="name">Leetcode Medium</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p><img src="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/05/18/domino.png" alt="Figure"></p>
-<p>There are <code>N</code> dominoes in a line, and we place each domino vertically upright.</p>
-<p>In the beginning, we simultaneously push some of the dominoes either to the left or to the right.</p>
-<p>After each second, each domino that is falling to the left pushes the adjacent domino on the left.</p>
-<p>Similarly, the dominoes falling to the right push their adjacent dominoes standing on the right.</p>
-<p>When a vertical domino has dominoes falling on it from both sides, it stays still due to the balance of the forces.</p>
-<p>For the purposes of this question, we will consider that a falling domino expends no additional force to a falling or already fallen domino.</p>
-<p>Given a string “S” representing the initial state. <code>S[i] = &#39;L&#39;</code>, if the i-th domino has been pushed to the left; <code>S[i] = &#39;R&#39;</code>, if the i-th domino has been pushed to the right; <code>S[i] = &#39;.&#39;</code>, if the i-th domino has not been pushed.</p>
-<p>Return a string representing the final state</p>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><blockquote>
-<p><strong>Input</strong>: “.L.R…LR..L..”<br><strong>Output</strong>: “LL.RR.LLRRLL..”</p>
-</blockquote>
-<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>就只有四种情况</p>
-<blockquote>
-<p>L…L = LLLLL<br>L…R = L…R<br>R…L = RR.LL<br>R…R = R…R</p>
-</blockquote>
-<p>分别对这四种情况进行讨论就行了。<br>找到一个<code>L</code>或<code>R</code>，继续寻找一个<code>L</code>或<code>R</code>，我们只关心他们两个的距离，根据上面四种可能性，分别添加字符<br>具体见代码</p>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// L...L = LLLLL</span></span><br><span class="line">    <span class="comment">// L...R = L...R</span></span><br><span class="line">    <span class="comment">// R...L = RR.LL</span></span><br><span class="line">    <span class="comment">// R...R = R...R</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">pushDominoes</span><span class="params">(<span class="built_in">string</span> d)</span> </span>&#123;</span><br><span class="line">        d = <span class="string">'L'</span> + d + <span class="string">'R'</span>;</span><br><span class="line">        <span class="built_in">string</span> res = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">1</span>; j &lt; d.length(); ++j)&#123;</span><br><span class="line">            <span class="keyword">if</span> (d[j] == <span class="string">'.'</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> middleNum = j - i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span>) res += d[i];</span><br><span class="line">            <span class="keyword">if</span> (d[i] == d[j]) res += <span class="built_in">string</span>(middleNum, d[i]);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (d[i] == <span class="string">'L'</span> &amp;&amp; d[j] == <span class="string">'R'</span>) res += <span class="built_in">string</span>(middleNum, <span class="string">'.'</span>);</span><br><span class="line">            <span class="keyword">else</span> res+= <span class="built_in">string</span>(middleNum/<span class="number">2</span>, <span class="string">'R'</span>) + <span class="built_in">string</span>( middleNum%<span class="number">2</span>, <span class="string">'.'</span>) + <span class="built_in">string</span>(middleNum/<span class="number">2</span>, <span class="string">'L'</span>);</span><br><span class="line">            i = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/28/16-3Sum-Closest/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CHEN ZHIHANG">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IAM.CZH">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/28/16-3Sum-Closest/" class="post-title-link" itemprop="url">16. 3Sum Closest</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-28 01:20:10 / Modified: 01:33:21" itemprop="dateCreated datePublished" datetime="2019-06-28T01:20:10+09:00">2019-06-28</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Medium/" itemprop="url" rel="index"><span itemprop="name">Leetcode Medium</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Given an array <code>nums</code> of n integers and an integer <code>target</code>, find three integers in <code>nums</code> such that the sum is closest to <code>target</code>. Return the sum of the three integers. You may assume that each input would have exactly one solution.</p>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><blockquote>
-<p>Given array nums = [-1, 2, 1, -4], and target = 1.</p>
-<p>The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</p>
-</blockquote>
-<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>这道题目意外简单。最先能想到的解法应该是<strong>brute-force</strong>。但是复杂度<code>O(N^3)</code>明显不会是题目要求的。<br>直接告诉我这类题目应该要先排序一下，复杂度<code>N(LogN)</code><br>一时间没有什么好想法，于是就想我们可以从第一位到最后一位先扫一遍。确定三个数中的第一个数<br><code>i: 0 ~ N-1</code>, 在扫的过程中增加两个指针<code>p1</code>和<code>p2</code>。因为我们已经对数组进行排序了，所以可以根据<code>nums[i]</code>,<code>nums[p1]</code>和<code>nums[p2]</code>三者的和于<code>target</code>的差值来确定<code>p1</code>,<code>p2</code>指针的移动方向。并且保存与<code>target</code>最相近的那个值。算法复杂度为<code>O(N^2)</code></p>
-<p><code>ps:</code> 为了更快，我们可以在每次计算完三个数的<code>sum</code>时，判断一下是不是等于<code>target</code>的值，如果等于<code>target</code>的值，直接返回就可以了。</p>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">threeSumClosest</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">int</span> res = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size()<span class="number">-2</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> p1 = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> p2 = nums.size()<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(p1 &lt; p2) &#123;</span><br><span class="line">                <span class="keyword">int</span> currSum = nums[i] + nums[p1] + nums[p2];</span><br><span class="line">                <span class="keyword">if</span> (currSum == target) <span class="keyword">return</span> target;</span><br><span class="line">                <span class="keyword">if</span> ( <span class="built_in">abs</span>(currSum - target) &lt; <span class="built_in">abs</span>(res - target) ) </span><br><span class="line">                    res = currSum;</span><br><span class="line">                <span class="keyword">if</span> (currSum &lt; target) p1++;</span><br><span class="line">                <span class="keyword">else</span> p2--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/355-Design-Twitter/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CHEN ZHIHANG">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IAM.CZH">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/25/355-Design-Twitter/" class="post-title-link" itemprop="url">355. Design Twitter</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-25 17:18:27 / Modified: 17:42:16" itemprop="dateCreated datePublished" datetime="2019-06-25T17:18:27+09:00">2019-06-25</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Medium/" itemprop="url" rel="index"><span itemprop="name">Leetcode Medium</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>Design a simplified version of Twitter where users can post tweets, follow/unfollow another user and is able to see the 10 most recent tweets in the user’s news feed. Your design should support the following methods:</p>
-<ol>
-<li><strong>postTweet(userId, tweetId)</strong>: Compose a new tweet.</li>
-<li><strong>getNewsFeed(userId)</strong>: Retrieve the 10 most recent tweet ids in the user’s news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.</li>
-<li><strong>follow(followerId, followeeId)</strong>: Follower follows a followee.</li>
-<li><strong>unfollow(followerId, followeeId)</strong>: Follower unfollows a followee.</li>
-</ol>
-<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><ul>
-<li>Your Twitter object will be instantiated and called as such:</li>
-<li>Twitter* obj = new Twitter();</li>
-<li>obj-&gt;postTweet(userId,tweetId);</li>
-<li>vector<int> param_2 = obj-&gt;getNewsFeed(userId);</int></li>
-<li>obj-&gt;follow(followerId,followeeId);</li>
-<li>obj-&gt;unfollow(followerId,followeeId);</li>
-</ul>
-<blockquote>
-<p>Twitter twitter = new Twitter();</p>
-<p>// User 1 posts a new tweet (id = 5).<br>twitter.postTweet(1, 5);</p>
-<p>// User 1’s news feed should return a list with 1 tweet id -&gt; [5].<br>twitter.getNewsFeed(1);</p>
-<p>// User 1 follows user 2.<br>twitter.follow(1, 2);</p>
-<p>// User 2 posts a new tweet (id = 6).<br>twitter.postTweet(2, 6);</p>
-<p>// User 1’s news feed should return a list with 2 tweet ids -&gt; [6, 5].<br>// Tweet id 6 should precede tweet id 5 because it is posted after tweet id 5.<br>twitter.getNewsFeed(1);</p>
-<p>// User 1 unfollows user 2.<br>twitter.unfollow(1, 2);</p>
-<p>// User 1’s news feed should return a list with 1 tweet id -&gt; [5],<br>// since user 1 is no longer following user 2.<br>twitter.getNewsFeed(1);</p>
-</blockquote>
-<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>其实这道题相对简单。<br>四个功能</p>
-<ol>
-<li><p>关注<br>关注的功能比较简单，用<code>unodered_map&lt;userId, unodered_set&lt;followeeId&gt;&gt;</code></p>
-</li>
-<li><p>取消关注<br>取消关注的话只需要把对应的<code>unodered_set&lt;followeeId&gt;</code>里面的<code>id</code>删掉就可以了。</p>
-</li>
-<li><p>发推文（把<code>userId</code>和<code>tweetId</code>绑定）<br>由于最后需要返回最近的推文，和时间有关，因此定义一个<code>pair&lt;tweetId, time&gt;</code>来表示一个推文，<code>time</code>由全局控制。<br>然后同样用<code>unodered_map&lt;userId, unodered_set&lt;tweetId&gt;&gt;</code> 来储存发过的推特。</p>
-</li>
-<li><p>返回自己和关注的人最近的10条推文<code>vector[tweetId]</code><br>定义一个<code>priority_queue&lt;pair&lt;tweetId, time&gt;&gt;</code>来根据时间排序。<br>遍历自己发过的推，以及关注的人发过的推。然后储存到<code>pq</code>，当<code>pq</code>大于10个的时候，推出一个。</p>
-</li>
-</ol>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">CustomCompare</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&amp; tw1, <span class="keyword">const</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&amp; tw2)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> tw1.second &gt; tw2.second;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">pair_hash</span> &#123;</span></span><br><span class="line">    <span class="keyword">inline</span> <span class="built_in">std</span>::<span class="keyword">size_t</span> <span class="keyword">operator</span>()(<span class="keyword">const</span> <span class="built_in">std</span>::pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &amp; v) <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> v.first;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Twitter</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> TWEET pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line">    <span class="comment">/** Initialize your data structure here. */</span></span><br><span class="line">    <span class="keyword">int</span> time = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">unordered_set</span>&lt;<span class="keyword">int</span>&gt;&gt; followMap;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">unordered_set</span>&lt;TWEET,pair_hash&gt;&gt; postMap;</span><br><span class="line">    </span><br><span class="line">    Twitter() &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Compose a new tweet. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">postTweet</span><span class="params">(<span class="keyword">int</span> userId, <span class="keyword">int</span> tweetId)</span> </span>&#123;</span><br><span class="line">        TWEET tweet = make_pair(tweetId, time++);</span><br><span class="line">        postMap[userId].insert(tweet);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent. */</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; getNewsFeed(<span class="keyword">int</span> userId) &#123;</span><br><span class="line">        priority_queue&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;, <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt;, CustomCompare&gt; pq;</span><br><span class="line">        <span class="built_in">unordered_set</span>&lt;TWEET,pair_hash&gt; selfPost = postMap[userId];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; it : selfPost) &#123;</span><br><span class="line">            pq.push(it);</span><br><span class="line">            <span class="keyword">if</span> (pq.size() &gt; <span class="number">10</span>) pq.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; followeeId: followMap[userId]) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; it : postMap[followeeId]) &#123;</span><br><span class="line">                pq.push(it);</span><br><span class="line">                <span class="keyword">if</span> (pq.size() &gt; <span class="number">10</span>) pq.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> j = pq.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res(j);</span><br><span class="line">        <span class="keyword">while</span> (!pq.empty()) &#123;</span><br><span class="line">            res[--j] = pq.top().first;</span><br><span class="line">            <span class="comment">// res.push_front();</span></span><br><span class="line">            pq.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Follower follows a followee. If the operation is invalid, it should be a no-op. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">follow</span><span class="params">(<span class="keyword">int</span> followerId, <span class="keyword">int</span> followeeId)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (followerId == followeeId) <span class="keyword">return</span>;</span><br><span class="line">        followMap[followerId].insert(followeeId);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">unfollow</span><span class="params">(<span class="keyword">int</span> followerId, <span class="keyword">int</span> followeeId)</span> </span>&#123;</span><br><span class="line">        followMap[followerId].erase(followeeId);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/MAC创建Spring-boot项目环境/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CHEN ZHIHANG">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IAM.CZH">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/06/25/MAC创建Spring-boot项目环境/" class="post-title-link" itemprop="url">MAC创建Spring-boot项目环境</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-06-25 00:40:59 / Modified: 20:40:49" itemprop="dateCreated datePublished" datetime="2019-06-25T00:40:59+09:00">2019-06-25</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>使用<strong>brew</strong></p>
-<h3 id="更新brew"><a href="#更新brew" class="headerlink" title="更新brew"></a>更新brew</h3><p><code>brew update &amp;&amp; brew upgrade &amp;&amp; brew cleanup</code></p>
-<h3 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h3><p><code>brew cask install java</code></p>
-<p>安装完成后，执行<code>java -version</code>. 有输出信息表示安装成功。</p>
-<h3 id="设置JAVA环境变量"><a href="#设置JAVA环境变量" class="headerlink" title="设置JAVA环境变量"></a>设置JAVA环境变量</h3><p><code>vim ~/.bash_profile</code> 进入环境变量<br>输入<br><code>export JAVA_HOME=$(/usr/libexec/java_home)</code><br>保存退出，并执行<br><code>source ~/.bash_profile</code><br>执行<code>echo JAVA_HOME</code>，应该可以看得到路径</p>
-<h3 id="安装-Maven"><a href="#安装-Maven" class="headerlink" title="安装 Maven"></a>安装 Maven</h3><p><code>brew install maven</code></p>
-<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><blockquote>
-<p>export M2_HOME=/usr/local/Cellar/maven/{版本号}/<br>export M2=$M2_HOME/bin<br>export PATH=$M2:$JAVA_HOME:$PATH</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2138,7 +2108,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-count">28</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
