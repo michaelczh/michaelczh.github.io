@@ -86,18 +86,18 @@
 
 
 
-  <meta name="description" content="Answer比较简单一道题，但是写的没有很爽。因为感觉逻辑有点混乱 1234567891011121314151617181920class Solution &amp;#123;public:    int countCharacters(vector&amp;lt;string&amp;gt;&amp;amp; words, string chars) &amp;#123;        // restore        vect">
+  <meta name="description" content="Answer 112345678910111213141516171819202122232425// 复杂度O(NM)class Solution &amp;#123;public:    bool isToeplitzMatrix(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; matrix) &amp;#123;        value = matrix[0][0];">
 <meta name="keywords" content="Leetcode,Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1160. Find Words That Can Be Formed by Characters">
-<meta property="og:url" content="http://yoursite.com/2019/11/20/leetcode/1160-Find-Words-That-Can-Be-Formed-by-Characters/index.html">
+<meta property="og:title" content="766. Toeplitz Matrix">
+<meta property="og:url" content="http://yoursite.com/2019/11/29/766-Toeplitz-Matrix/index.html">
 <meta property="og:site_name" content="IAM.CZH">
-<meta property="og:description" content="Answer比较简单一道题，但是写的没有很爽。因为感觉逻辑有点混乱 1234567891011121314151617181920class Solution &amp;#123;public:    int countCharacters(vector&amp;lt;string&amp;gt;&amp;amp; words, string chars) &amp;#123;        // restore        vect">
+<meta property="og:description" content="Answer 112345678910111213141516171819202122232425// 复杂度O(NM)class Solution &amp;#123;public:    bool isToeplitzMatrix(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; matrix) &amp;#123;        value = matrix[0][0];">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-20T14:12:22.252Z">
+<meta property="og:updated_time" content="2019-11-29T14:19:14.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1160. Find Words That Can Be Formed by Characters">
-<meta name="twitter:description" content="Answer比较简单一道题，但是写的没有很爽。因为感觉逻辑有点混乱 1234567891011121314151617181920class Solution &amp;#123;public:    int countCharacters(vector&amp;lt;string&amp;gt;&amp;amp; words, string chars) &amp;#123;        // restore        vect">
+<meta name="twitter:title" content="766. Toeplitz Matrix">
+<meta name="twitter:description" content="Answer 112345678910111213141516171819202122232425// 复杂度O(NM)class Solution &amp;#123;public:    bool isToeplitzMatrix(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; matrix) &amp;#123;        value = matrix[0][0];">
 
 
 
@@ -105,7 +105,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/11/20/leetcode/1160-Find-Words-That-Can-Be-Formed-by-Characters/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/29/766-Toeplitz-Matrix/">
 
 
 
@@ -115,7 +115,7 @@
   };
 </script>
 
-  <title>1160. Find Words That Can Be Formed by Characters | IAM.CZH</title>
+  <title>766. Toeplitz Matrix | IAM.CZH</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/leetcode/1160-Find-Words-That-Can-Be-Formed-by-Characters/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/29/766-Toeplitz-Matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -377,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1160. Find Words That Can Be Formed by Characters
+          <h1 class="post-title" itemprop="name headline">766. Toeplitz Matrix
 
               
             
@@ -403,7 +403,7 @@
                 
               
 
-              <time title="Created: 2019-11-20 23:11:38 / Modified: 23:12:22" itemprop="dateCreated datePublished" datetime="2019-11-20T23:11:38+09:00">2019-11-20</time>
+              <time title="Created: 2019-11-29 23:16:19 / Modified: 23:19:14" itemprop="dateCreated datePublished" datetime="2019-11-29T23:16:19+09:00">2019-11-29</time>
             
 
             
@@ -467,8 +467,10 @@
       
 
       
-        <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>比较简单一道题，但是写的没有很爽。因为感觉逻辑有点混乱</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countCharacters</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; words, <span class="built_in">string</span> chars)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// restore</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; record(<span class="number">26</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; c: chars) record[c - <span class="string">'a'</span>]++;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; word : words) &#123;</span><br><span class="line">            <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp = record;</span><br><span class="line">            <span class="keyword">while</span>(len &lt; word.size() &amp;&amp; tmp[word[len] - <span class="string">'a'</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                tmp[word[len++] - <span class="string">'a'</span>]--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (len == word.length()) res+= len;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="Answer-1"><a href="#Answer-1" class="headerlink" title="Answer 1"></a>Answer 1</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复杂度O(NM)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isToeplitzMatrix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line">        value = matrix[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; matrix.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> common = matrix[i][<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">if</span> (!helper(matrix, i+<span class="number">1</span>, <span class="number">1</span>, common)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; matrix[<span class="number">0</span>].size(); ++j) &#123;</span><br><span class="line">            <span class="keyword">int</span> common = matrix[<span class="number">0</span>][j];</span><br><span class="line">            <span class="keyword">if</span> (!helper(matrix, <span class="number">1</span>, j+<span class="number">1</span>, common)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">helper</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> i, <span class="keyword">int</span> j, <span class="keyword">int</span>&amp; common)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= matrix.size() || j &gt;= matrix[<span class="number">0</span>].size()) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> (matrix[i][j] == common) &amp;&amp; helper(matrix, i+<span class="number">1</span>, j+<span class="number">1</span>, common);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Answer-2"><a href="#Answer-2" class="headerlink" title="Answer 2"></a>Answer 2</h4><p>第二种方法更简单，是在论坛找到的。很简洁</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复杂度O(NM)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isToeplitzMatrix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> m = matrix.size(), n = matrix[<span class="number">0</span>].size();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m<span class="number">-1</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n<span class="number">-1</span>; ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (matrix[i][j] != matrix[i+<span class="number">1</span>][j+<span class="number">1</span>]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -511,8 +513,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/20/leetcode/509-Fibonacci-Number/" rel="next" title="509. Fibonacci Number">
-                <i class="fa fa-chevron-left"></i> 509. Fibonacci Number
+              <a href="/2019/11/28/1266-Minimum-Time-Visiting-All-Points/" rel="next" title="1266. Minimum Time Visiting All Points">
+                <i class="fa fa-chevron-left"></i> 1266. Minimum Time Visiting All Points
               </a>
             
           </div>
@@ -520,10 +522,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/20/leetcode/1122-Relative-Sort-Array/" rel="prev" title="1122. Relative Sort Array">
-                1122. Relative Sort Array <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -722,7 +720,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">1.</span> <span class="nav-text">Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer-1"><span class="nav-number">1.</span> <span class="nav-text">Answer 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer-2"><span class="nav-number">2.</span> <span class="nav-text">Answer 2</span></a></li></ol></div>
             
 
           </div>
