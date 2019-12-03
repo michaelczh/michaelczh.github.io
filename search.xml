@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[1099. Two Sum Less Than K]]></title>
+    <url>%2F2019%2F12%2F03%2F1099-Two-Sum-Less-Than-K%2F</url>
+    <content type="text"><![CDATA[Answer 1这道题用暴力很容易做出来，复杂度是O(N^2)这边的思路是先排序，复杂度是(NlogN)然后双重循环来判定值，这边一个好处是如果和大于K就可以判断后面的值也用不着了。但是复杂度怎么说呢，也不知道。只知道比O(N^2)小。 1234567891011121314151617class Solution &#123;public: int twoSumLessThanK(vector&lt;int&gt;&amp; A, int K) &#123; sort(A.begin(), A.end()); int res = -1; for(int i = 0; i &lt; A.size(); ++i) &#123; for (int j = i+1; j &lt; A.size(); ++j) &#123; int sum = A[i] + A[j]; if (sum &lt; K) res = max(res, sum); else break; &#125; &#125; return res; &#125;&#125;; Answer 2最好还是双指针做吧 1234567891011121314151617181920class Solution &#123;public: int twoSumLessThanK(vector&lt;int&gt;&amp; A, int K) &#123; sort(A.begin(), A.end()); int res = -1; int i = 0, j = A.size()-1; while( i &lt; j) &#123; int sum = A[i] + A[j]; if (sum &lt; K) &#123; res = max(res, sum); i++; &#125;else j--; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1150. Check If a Number Is Majority Element in a Sorted Array]]></title>
+    <url>%2F2019%2F12%2F03%2F1150-Check-If-a-Number-Is-Majority-Element-in-a-Sorted-Array%2F</url>
+    <content type="text"><![CDATA[Answer 1复杂度O(N) 很容易想到的一道题目 12345678910// 复杂度O(n)class Solution &#123;public: bool isMajorityElement(vector&lt;int&gt;&amp; nums, int target) &#123; int res = 0; for(int&amp; n: nums) res+= n == target ? 1 : 0; return res &gt; nums.size()/2; &#125;&#125;; Answer 2因为有排序，复杂度变为O(logN) 1234567891011121314151617181920212223class Solution &#123;public: bool isMajorityElement(vector&lt;int&gt;&amp; nums, int target) &#123; int res = 0; int i = 0, j = nums.size()-1; while(i &lt;= j) &#123; int mid = i + (j-i)/2; if (nums[mid] == target) &#123; res++; int right = mid+1, left = mid-1; while(right &lt; nums.size() &amp;&amp; nums[right++] == target) res++; while(left &gt;=0 &amp;&amp; nums[left--] == target) res++; return res &gt; nums.size()/2; &#125; if (nums[mid] &gt; target) j = mid-1; else i = mid+1; &#125; return false; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[766. Toeplitz Matrix]]></title>
     <url>%2F2019%2F11%2F29%2F766-Toeplitz-Matrix%2F</url>
     <content type="text"><![CDATA[Answer 112345678910111213141516171819202122232425// 复杂度O(NM)class Solution &#123;public: bool isToeplitzMatrix(vector&lt;vector&lt;int&gt;&gt;&amp; matrix) &#123; value = matrix[0][0]; for(int i = 0; i &lt; matrix.size(); ++i) &#123; int common = matrix[i][0]; if (!helper(matrix, i+1, 1, common)) return false; &#125; for(int j = 0; j &lt; matrix[0].size(); ++j) &#123; int common = matrix[0][j]; if (!helper(matrix, 1, j+1, common)) return false; &#125; return true; &#125; bool helper(vector&lt;vector&lt;int&gt;&gt;&amp; matrix, int i, int j, int&amp; common) &#123; if (i &gt;= matrix.size() || j &gt;= matrix[0].size()) return true; return (matrix[i][j] == common) &amp;&amp; helper(matrix, i+1, j+1, common); &#125;&#125;; Answer 2第二种方法更简单，是在论坛找到的。很简洁 1234567891011121314151617// 复杂度O(NM)class Solution &#123;public: bool isToeplitzMatrix(vector&lt;vector&lt;int&gt;&gt;&amp; matrix) &#123; int m = matrix.size(), n = matrix[0].size(); for(int i = 0; i &lt; m-1; ++i) &#123; for(int j = 0; j &lt; n-1; ++j) &#123; if (matrix[i][j] != matrix[i+1][j+1]) return false; &#125; &#125; return true; &#125;&#125;;]]></content>
@@ -16,7 +42,7 @@
   <entry>
     <title><![CDATA[1266. Minimum Time Visiting All Points]]></title>
     <url>%2F2019%2F11%2F28%2F1266-Minimum-Time-Visiting-All-Points%2F</url>
-    <content type="text"><![CDATA[Answer刚开始看起来还挺唬人的，以为要用BFS什么的做，没想到很简单 1234567891011121314// 复杂度O(N)class Solution &#123;public: int minTimeToVisitAllPoints(vector&lt;vector&lt;int&gt;&gt;&amp; points) &#123; int res = 0; for (int i = 0; i &lt; points.size()-1; ++i) &#123; int hor = abs(points[i][0] - points[i+1][0]); int ver = abs(points[i][1] - points[i+1][1]); res += max(hor, ver); &#125; return res; &#125;&#125;;]]></content>
+    <content type="text"><![CDATA[Answer刚开始看起来还挺唬人的，以为要用BFS什么的做，没想到很简单 1234567891011121314// 复杂度O(N)class Solution &#123;public: int minTimeToVisitAllPoints(vector&lt;vector&lt;int&gt;&gt;&amp; points) &#123; int res = 0; for (int i = 0; i &lt; points.size()-1; ++i) &#123; int hor = abs(points[i][0] - points[i+1][0]); int ver = abs(points[i][1] - points[i+1][1]); res += max(hor, ver); &#125; return res; &#125;&#125;; [[36,59,71,15,26,82,87],[56,36,59,71,15,26,82],[15,0 ,36,59,71,15,26]]]]></content>
       <categories>
         <category>Leetcode Easy</category>
         <category>Array</category>
