@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[566. Reshape the Matrix]]></title>
+    <url>%2F2019%2F12%2F04%2F566-Reshape-the-Matrix%2F</url>
+    <content type="text"><![CDATA[Answer比较简单的一道题，就是考察index的转换复杂度就是O(nm) 1234567891011121314151617class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; matrixReshape(vector&lt;vector&lt;int&gt;&gt;&amp; nums, int r, int c) &#123; int n = nums.size(), m = nums[0].size(); if (n*m != r*c) return nums; vector&lt;vector&lt;int&gt;&gt; res(r, vector&lt;int&gt;(c,0)); for(int i = 0; i &lt; n; ++i) &#123; for(int j = 0; j &lt; m; ++j) &#123; int index = i * m + j; res[index/c][index%c] = nums[i][j]; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[1099. Two Sum Less Than K]]></title>
     <url>%2F2019%2F12%2F03%2F1099-Two-Sum-Less-Than-K%2F</url>
     <content type="text"><![CDATA[Answer 1这道题用暴力很容易做出来，复杂度是O(N^2)这边的思路是先排序，复杂度是(NlogN)然后双重循环来判定值，这边一个好处是如果和大于K就可以判断后面的值也用不着了。但是复杂度怎么说呢，也不知道。只知道比O(N^2)小。 1234567891011121314151617class Solution &#123;public: int twoSumLessThanK(vector&lt;int&gt;&amp; A, int K) &#123; sort(A.begin(), A.end()); int res = -1; for(int i = 0; i &lt; A.size(); ++i) &#123; for (int j = i+1; j &lt; A.size(); ++j) &#123; int sum = A[i] + A[j]; if (sum &lt; K) res = max(res, sum); else break; &#125; &#125; return res; &#125;&#125;; Answer 2最好还是双指针做吧 1234567891011121314151617181920class Solution &#123;public: int twoSumLessThanK(vector&lt;int&gt;&amp; A, int K) &#123; sort(A.begin(), A.end()); int res = -1; int i = 0, j = A.size()-1; while( i &lt; j) &#123; int sum = A[i] + A[j]; if (sum &lt; K) &#123; res = max(res, sum); i++; &#125;else j--; &#125; return res; &#125;&#125;;]]></content>
@@ -93,7 +106,7 @@
   </entry>
   <entry>
     <title><![CDATA[1200. Minimum Absolute Difference]]></title>
-    <url>%2F2019%2F11%2F22%2F1200-Minimum-Absolute-Difference%2F</url>
+    <url>%2F2019%2F11%2F22%2Fleetcode%2F1200-Minimum-Absolute-Difference%2F</url>
     <content type="text"><![CDATA[Answer看完觉得比较简单。但是感觉没什么挑战。又是亚麻的题目O.O 12345678910111213141516171819202122// 复杂度 O(NlogN)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(arr.begin(), arr.end()); // find the minimum value int minDist = INT_MAX; for(int i = 0; i &lt; arr.size()-1; ++i) &#123; minDist = min(minDist, arr[i+1] - arr[i]); &#125; // return res for (int i = 0; i &lt; arr.size()-1; ++i) &#123; if (arr[i+1] - arr[i] == minDist) res.push_back(vector&lt;int&gt;&#123;arr[i], arr[i+1]&#125;); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -106,7 +119,7 @@
   </entry>
   <entry>
     <title><![CDATA[1200. Minimum Absolute Difference]]></title>
-    <url>%2F2019%2F11%2F22%2Fleetcode%2F1200-Minimum-Absolute-Difference%2F</url>
+    <url>%2F2019%2F11%2F22%2F1200-Minimum-Absolute-Difference%2F</url>
     <content type="text"><![CDATA[Answer看完觉得比较简单。但是感觉没什么挑战。又是亚麻的题目O.O 12345678910111213141516171819202122// 复杂度 O(NlogN)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(arr.begin(), arr.end()); // find the minimum value int minDist = INT_MAX; for(int i = 0; i &lt; arr.size()-1; ++i) &#123; minDist = min(minDist, arr[i+1] - arr[i]); &#125; // return res for (int i = 0; i &lt; arr.size()-1; ++i) &#123; if (arr[i+1] - arr[i] == minDist) res.push_back(vector&lt;int&gt;&#123;arr[i], arr[i+1]&#125;); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>

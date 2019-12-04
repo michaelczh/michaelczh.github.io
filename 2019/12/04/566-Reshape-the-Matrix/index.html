@@ -86,18 +86,18 @@
 
 
 
-  <meta name="description" content="Answer 1这道题用暴力很容易做出来，复杂度是O(N^2)这边的思路是先排序，复杂度是(NlogN)然后双重循环来判定值，这边一个好处是如果和大于K就可以判断后面的值也用不着了。但是复杂度怎么说呢，也不知道。只知道比O(N^2)小。 1234567891011121314151617class Solution &amp;#123;public:    int twoSumLessThanK(vect">
+  <meta name="description" content="Answer比较简单的一道题，就是考察index的转换复杂度就是O(nm) 1234567891011121314151617class Solution &amp;#123;public:    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; matrixReshape(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; nums, int r, int c) &amp;#">
 <meta name="keywords" content="Leetcode,Array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1099. Two Sum Less Than K">
-<meta property="og:url" content="http://yoursite.com/2019/12/03/1099-Two-Sum-Less-Than-K/index.html">
+<meta property="og:title" content="566. Reshape the Matrix">
+<meta property="og:url" content="http://yoursite.com/2019/12/04/566-Reshape-the-Matrix/index.html">
 <meta property="og:site_name" content="IAM.CZH">
-<meta property="og:description" content="Answer 1这道题用暴力很容易做出来，复杂度是O(N^2)这边的思路是先排序，复杂度是(NlogN)然后双重循环来判定值，这边一个好处是如果和大于K就可以判断后面的值也用不着了。但是复杂度怎么说呢，也不知道。只知道比O(N^2)小。 1234567891011121314151617class Solution &amp;#123;public:    int twoSumLessThanK(vect">
+<meta property="og:description" content="Answer比较简单的一道题，就是考察index的转换复杂度就是O(nm) 1234567891011121314151617class Solution &amp;#123;public:    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; matrixReshape(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; nums, int r, int c) &amp;#">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-12-03T12:39:03.130Z">
+<meta property="og:updated_time" content="2019-12-04T13:09:02.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1099. Two Sum Less Than K">
-<meta name="twitter:description" content="Answer 1这道题用暴力很容易做出来，复杂度是O(N^2)这边的思路是先排序，复杂度是(NlogN)然后双重循环来判定值，这边一个好处是如果和大于K就可以判断后面的值也用不着了。但是复杂度怎么说呢，也不知道。只知道比O(N^2)小。 1234567891011121314151617class Solution &amp;#123;public:    int twoSumLessThanK(vect">
+<meta name="twitter:title" content="566. Reshape the Matrix">
+<meta name="twitter:description" content="Answer比较简单的一道题，就是考察index的转换复杂度就是O(nm) 1234567891011121314151617class Solution &amp;#123;public:    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; matrixReshape(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; nums, int r, int c) &amp;#">
 
 
 
@@ -105,7 +105,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/12/03/1099-Two-Sum-Less-Than-K/">
+  <link rel="canonical" href="http://yoursite.com/2019/12/04/566-Reshape-the-Matrix/">
 
 
 
@@ -115,7 +115,7 @@
   };
 </script>
 
-  <title>1099. Two Sum Less Than K | IAM.CZH</title>
+  <title>566. Reshape the Matrix | IAM.CZH</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/1099-Two-Sum-Less-Than-K/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/04/566-Reshape-the-Matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -377,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1099. Two Sum Less Than K
+          <h1 class="post-title" itemprop="name headline">566. Reshape the Matrix
 
               
             
@@ -403,7 +403,7 @@
                 
               
 
-              <time title="Created: 2019-12-03 21:28:12 / Modified: 21:39:03" itemprop="dateCreated datePublished" datetime="2019-12-03T21:28:12+09:00">2019-12-03</time>
+              <time title="Created: 2019-12-04 22:08:12 / Modified: 22:09:02" itemprop="dateCreated datePublished" datetime="2019-12-04T22:08:12+09:00">2019-12-04</time>
             
 
             
@@ -467,11 +467,8 @@
       
 
       
-        <h4 id="Answer-1"><a href="#Answer-1" class="headerlink" title="Answer 1"></a>Answer 1</h4><p>这道题用暴力很容易做出来，复杂度是O(N^2)<br>这边的思路是先排序，复杂度是(NlogN)<br>然后双重循环来判定值，这边一个好处是如果和大于<code>K</code>就可以判断后面的值也用不着了。<br>但是复杂度怎么说呢，也不知道。只知道比O(N^2)小。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">twoSumLessThanK</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        sort(A.begin(), A.end());</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; A.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; A.size(); ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> sum = A[i] + A[j]; </span><br><span class="line">                <span class="keyword">if</span> (sum &lt; K) res = max(res, sum);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="Answer-2"><a href="#Answer-2" class="headerlink" title="Answer 2"></a>Answer 2</h4><p>最好还是双指针做吧</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">twoSumLessThanK</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; A, <span class="keyword">int</span> K)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        sort(A.begin(), A.end());</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = A.size()<span class="number">-1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>( i &lt; j) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = A[i] + A[j];</span><br><span class="line">            <span class="keyword">if</span> (sum &lt; K) &#123;</span><br><span class="line">                res = max(res, sum);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;<span class="keyword">else</span> j--;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>比较简单的一道题，就是考察<code>index</code>的转换<br>复杂度就是O(nm)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; matrixReshape(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; nums, <span class="keyword">int</span> r, <span class="keyword">int</span> c) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size(), m = nums[<span class="number">0</span>].size();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (n*m != r*c) <span class="keyword">return</span> nums;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res(r, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(c,<span class="number">0</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> index = i * m + j;</span><br><span class="line">                res[index/c][index%c] = nums[i][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -514,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/03/1150-Check-If-a-Number-Is-Majority-Element-in-a-Sorted-Array/" rel="next" title="1150. Check If a Number Is Majority Element in a Sorted Array">
-                <i class="fa fa-chevron-left"></i> 1150. Check If a Number Is Majority Element in a Sorted Array
+              <a href="/2019/12/03/1099-Two-Sum-Less-Than-K/" rel="next" title="1099. Two Sum Less Than K">
+                <i class="fa fa-chevron-left"></i> 1099. Two Sum Less Than K
               </a>
             
           </div>
@@ -523,10 +520,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/04/566-Reshape-the-Matrix/" rel="prev" title="566. Reshape the Matrix">
-                566. Reshape the Matrix <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -725,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer-1"><span class="nav-number">1.</span> <span class="nav-text">Answer 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer-2"><span class="nav-number">2.</span> <span class="nav-text">Answer 2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">1.</span> <span class="nav-text">Answer</span></a></li></ol></div>
             
 
           </div>
