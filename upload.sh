@@ -1,4 +1,4 @@
 hexo d -g
-git add *.md
+git add -A
 git commit -m "add blogs"
-git push origin master:archive
+git push origin archive:archive
