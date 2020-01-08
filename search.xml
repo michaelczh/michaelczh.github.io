@@ -1,9 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Array][Easy] Check If It Is a Straight Line]]></title>
+    <url>%2F2020%2F01%2F01%2Fleetcode%2FArray-Easy-Check-If-It-Is-a-Straight-Line%2F</url>
+    <content type="text"><![CDATA[Answer为了避免除以0，所以用乘法 12345678910111213141516class Solution &#123;public: bool checkStraightLine(vector&lt;vector&lt;int&gt;&gt;&amp; cord) &#123; for(int i = 0; i &lt; cord.size()-2; ++i) &#123; int k1 = (cord[i+1][0] - cord[i][0]) * (cord[i+2][1] - cord[i+1][1]); int k2 = (cord[i+1][1] - cord[i][1]) * (cord[i+2][0] - cord[i+1][0]); if (k1 != k2) return false; &#125; return true; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[830. Positions of Large Groups]]></title>
+    <url>%2F2019%2F12%2F27%2Fleetcode%2F830-Positions-of-Large-Groups%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213141516class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; largeGroupPositions(string S) &#123; vector&lt;vector&lt;int&gt;&gt; res; for(int i = 0, j = 0; i &lt; S.size(); i = j) &#123; while(S[i] == S[j]) j++; if (j - i &gt;= 3) res.push_back(vector&lt;int&gt;&#123;i, j-1&#125;); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[746. Min Cost Climbing Stairs]]></title>
+    <url>%2F2019%2F12%2F26%2Fleetcode%2F746-Min-Cost-Climbing-Stairs%2F</url>
+    <content type="text"><![CDATA[Answer 1DP 1234567891011class Solution &#123;public: int minCostClimbingStairs(vector&lt;int&gt;&amp; cost) &#123; int n = cost.size(); for(int i = 2; i &lt; n; ++i) &#123; cost[i] += min(cost[i-2], cost[i-1]); &#125; return min(cost[n-1], cost[n-2]); &#125;&#125;; Answer 2慢很多 1234567891011121314class Solution &#123;public: unordered_map&lt;int,int&gt; memo; int minCostClimbingStairs(vector&lt;int&gt;&amp; cost) &#123; return min(helper(cost, 0), helper(cost,1)); &#125; int helper(vector&lt;int&gt;&amp;cost, int i) &#123; if(i == cost.size() - 1 || i == cost.size() - 2) return cost[i]; if (memo.count(i+1) == 0) memo[i+1] = helper(cost, i+1); if (memo.count(i+2) == 0) memo[i+2] = helper(cost, i+2); return cost[i] + min(memo[i+1], memo[i+2]); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[121. Best Time to Buy and Sell Stock]]></title>
+    <url>%2F2019%2F12%2F26%2Fleetcode%2F121-Best-Time-to-Buy-and-Sell-Stock%2F</url>
+    <content type="text"><![CDATA[Answer因为只能交易一次，所以肯定是一个最大值减去最小值就是答案。但是有个条件是最小值必须在最大的左边。所以遍历这个数列，然后更新最小值。同时计算最大利益 1234567891011121314class Solution &#123;public: int maxProfit(vector&lt;int&gt;&amp; prices) &#123; int res = 0; int minPrice = INT_MAX; for(int i = 0; i &lt; prices.size(); ++i) &#123; res = max(prices[i] - minPrice, res); minPrice = min(prices[i], minPrice); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[717. 1-bit and 2-bit Characters]]></title>
+    <url>%2F2019%2F12%2F26%2Fleetcode%2F717-1-bit-and-2-bit-Characters%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213class Solution &#123;public: bool isOneBitCharacter(vector&lt;int&gt;&amp; bits) &#123; int cnt = 0; for(int i = bits.size()-2; i &gt;= 0; --i) &#123; if (bits[i] == 1) ++cnt; else break; &#125; return cnt % 2 == 0; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[118. Pascal's Triangle]]></title>
+    <url>%2F2019%2F12%2F25%2Fleetcode%2F118-Pascal-s-Triangle%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213141516171819class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; generate(int numRows) &#123; vector&lt;vector&lt;int&gt;&gt; res(numRows); for (int i = 0; i &lt; numRows; ++i) &#123; res[i].resize(i+1); res[i][0] = 1, res[i][i] = 1; for (int j = 1; j &lt; i; ++j) &#123; res[i][j] = res[i-1][j-1] + res[i-1][j]; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[268. Missing Number]]></title>
+    <url>%2F2019%2F12%2F24%2Fleetcode%2F268-Missing-Number%2F</url>
+    <content type="text"><![CDATA[Answer 112345678910111213class Solution &#123;public: int missingNumber(vector&lt;int&gt;&amp; nums) &#123; int tmp = 0; for(int i = 0; i &lt; nums.size(); ++i) &#123; tmp += nums[i] - i; &#125; return nums.size() - tmp; &#125;&#125;; Answer 212345678910111213class Solution &#123;public: int missingNumber(vector&lt;int&gt;&amp; nums) &#123; int res = nums.size(); for(int i = 0; i &lt; nums.size(); ++i) &#123; res = res ^ i; res = res ^ nums[i]; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[661. Image Smoother]]></title>
+    <url>%2F2019%2F12%2F24%2Fleetcode%2F661-Image-Smoother%2F</url>
+    <content type="text"><![CDATA[Answer 1时间复杂度O(N^2), 空间复杂度也是O(N^2)没有智慧的一种解法 123456789101112131415161718192021222324252627class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; imageSmoother(vector&lt;vector&lt;int&gt;&gt;&amp; M) &#123; vector&lt;vector&lt;int&gt;&gt; res = M; for(int i = 0; i &lt; M.size(); ++i) &#123; for(int j = 0; j &lt; M[0].size(); ++j) &#123; res[i][j] = sumOfNine(M, i, j); &#125; &#125; return res; &#125; int sumOfNine(vector&lt;vector&lt;int&gt;&gt;&amp; M, int a, int b) &#123; int cul = 0; int cnt = 0; for(int i = a-1; i &lt;= a + 1; ++i) &#123; for(int j = b-1; j &lt;= b+1; ++j) &#123; if (i &lt; 0 || i &gt;= M.size() || j &lt; 0 || j &gt;= M[0].size()) continue; cul += M[i][j]; cnt ++; &#125; &#125; return cul / cnt; &#125;&#125;; Answer 2另外一种方法可以做到O(1)空间复杂度，因为题目给了数值是[0-255]，所以我们可以用8bits来储存原来的数字。剩余9-16bit来储存新的数字。 123456789101112131415161718192021222324252627282930313233class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; imageSmoother(vector&lt;vector&lt;int&gt;&gt;&amp; M) &#123; vector&lt;vector&lt;int&gt;&gt; dirs = &#123;&#123;0,1&#125;,&#123;0,-1&#125;,&#123;1,0&#125;,&#123;-1,0&#125;,&#123;-1,-1&#125;,&#123;1,1&#125;,&#123;-1,1&#125;,&#123;1,-1&#125;&#125;; for (int i = 0; i &lt; M.size(); ++i) &#123; for(int j = 0; j &lt; M[0].size(); ++j) &#123; int cnt = 1, tmp = M[i][j]; for(auto dir: dirs) &#123; int a = i + dir[0], b = j + dir[1]; if (a &lt; 0 || a &gt;= M.size() || b &lt; 0 || b &gt;= M[0].size()) continue; cnt++; tmp += M[a][b] &amp; 0xFF; &#125; M[i][j] |= (tmp/cnt) &lt;&lt; 8; &#125; &#125; for (int i = 0; i &lt; M.size(); ++i) &#123; for(int j = 0; j &lt; M[0].size(); ++j) &#123; M[i][j] &gt;&gt;= 8; &#125; &#125; return M; &#125; &#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[167. Two Sum II - Input array is sorted]]></title>
+    <url>%2F2019%2F12%2F23%2Fleetcode%2F167-Two-Sum-II-Input-array-is-sorted%2F</url>
+    <content type="text"><![CDATA[Answer 12sum是很经典的题目了，最简单的形式应该是用map最初。现在由于题目给了是排序过的，我们可以使用二分查找复杂度是O(N) 12345678910111213141516171819202122232425262728class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; numbers, int target) &#123; for(int i = 0; i &lt; numbers.size(); ++i) &#123; int tar = target - numbers[i]; int found = binarySearch(numbers, tar, i+1, numbers.size()-1); if (found != -1) return vector&lt;int&gt;&#123;i+1, found+1&#125;; &#125; return vector&lt;int&gt;&#123;-1,-1&#125;; &#125; int binarySearch(vector&lt;int&gt;&amp; nums, int target, int i, int j) &#123; while( i &lt;= j) &#123; int mid = i + (j-i)/2; if (nums[mid] == target) return mid; if (nums[mid] &lt; target) i = mid+1; else j = mid-1; &#125; return -1; &#125;&#125;; Answer 2另外一种方法的复杂度也是O(N)，但是不需要二分查找 123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; numbers, int target) &#123; int i = 0, j = numbers.size()-1; while( i &lt; j ) &#123; int currSum = numbers[i] + numbers[j]; if ( currSum == target) return vector&lt;int&gt;&#123;i+1,j+1&#125;; if (currSum &gt; target) j--; else i++; &#125; return vector&lt;int&gt;&#123;-1,-1&#125;; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[122. Best Time to Buy and Sell Stock II]]></title>
+    <url>%2F2019%2F12%2F20%2Fleetcode%2F122-Best-Time-to-Buy-and-Sell-Stock-II%2F</url>
+    <content type="text"><![CDATA[AnswerPeak Valley Approach 123456789101112class Solution &#123;public: int maxProfit(vector&lt;int&gt;&amp; prices) &#123; int res = 0; for(int i = 1; i &lt; prices.size(); ++i) &#123; if (prices[i] &gt; prices[i-1]) res += prices[i] - prices[i-1]; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[217. Contains Duplicate]]></title>
+    <url>%2F2019%2F12%2F20%2Fleetcode%2F217-Contains-Duplicate%2F</url>
+    <content type="text"><![CDATA[Answer时间复杂度O(N)，但是空间复杂度也是O(N)似乎没有空间复杂度O(1)的方法 123456789class Solution &#123;public: bool containsDuplicate(vector&lt;int&gt;&amp; nums) &#123; unordered_set&lt;int&gt; set(nums.begin(), nums.end()); return set.size() != nums.size(); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[448. Find All Numbers Disappeared in an Array]]></title>
+    <url>%2F2019%2F12%2F19%2Fleetcode%2F448-Find-All-Numbers-Disappeared-in-an-Array%2F</url>
+    <content type="text"><![CDATA[思路因为题目说只会出现一次或者两次，所以思路就是遍历一遍每个数字，对每个数字作为index-1（因为从1开始）,然后翻转那个nums[index]于是没有出现的index是不会被翻转的，所以之后便利一遍找到大于0的也就是没有被翻转的, 那个i+1，就是答案之一 Answer123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; findDisappearedNumbers(vector&lt;int&gt;&amp; nums) &#123; for(int i = 0; i &lt; nums.size(); ++i) &#123; int index = abs(nums[i]) - 1; // 因为nums[i] 有可能是被翻转成负数的了 if (nums[index] &gt; 0) nums[index] = -nums[index]; &#125; vector&lt;int&gt; res; for(int i = 0; i &lt; nums.size(); ++i) &#123; if (nums[i] &gt; 0) res.push_back(i + 1); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[169. Majority Element]]></title>
+    <url>%2F2019%2F12%2F18%2Fleetcode%2F169-Majority-Element%2F</url>
+    <content type="text"><![CDATA[Answer 1第一种方法很简单，很容易想到。时间复杂度是O(N)，但是空间复杂度也是O(N) 12345678910111213141516class Solution &#123;public: int majorityElement(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); unordered_map&lt;int,int&gt; map; for(auto&amp; n: nums) map[n]++; for(auto&amp; it: map) &#123; if (it.second &gt; n/2) return it.first; &#125; return 0; &#125;&#125;; Answer 2在论坛还有一种很聪明的方法.空间复杂度是O(N),当前遍历的值等于目前的major的话就加1，否则就减1，对于数列在[0…i] 里面寻找major,那么在什么情况下就知道目前的major不是真的major了呢，就是count减到0的时候。因为题目是major是&gt; n/2的 123456789101112131415161718class Solution &#123;public: int majorityElement(vector&lt;int&gt;&amp; nums) &#123; int major = nums[0], count = 1; for(int i = 1; i &lt; nums.size(); ++i) &#123; if (count == 0) &#123; count++; major = nums[i]; &#125;else if (nums[i] == major) count++; else count--; &#125; return major; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1184. Distance Between Bus Stops]]></title>
+    <url>%2F2019%2F12%2F17%2Fleetcode%2F1184-Distance-Between-Bus-Stops%2F</url>
+    <content type="text"><![CDATA[Answer很普通的一道题目，画个图就知道了 123456789101112131415161718class Solution &#123;public: int distanceBetweenBusStops(vector&lt;int&gt;&amp; distance, int start, int destination) &#123; int small = min(start, destination); int large = max(start, destination); int case1 = 0; for (int i = 0; i &lt; distance.size(); ++i) &#123; if (i &gt;= small &amp;&amp; i &lt; large) continue; case1 += distance[i]; &#125; int case2 = 0; for(int i = small; i &lt; large; ++i) case1 += distance[i]; return min(case1, case2); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[283. Move Zeroes]]></title>
+    <url>%2F2019%2F12%2F15%2Fleetcode%2F283-Move-Zeroes%2F</url>
+    <content type="text"><![CDATA[Answer复杂度O(n) 1234567891011121314151617class Solution &#123;public: void moveZeroes(vector&lt;int&gt;&amp; nums) &#123; int i = 0, j = 0; for(int i = 0; i &lt; nums.size(); ++i) &#123; // 有多少个非0 这个就会被执行多少次 if (nums[i] != 0) nums[j++] = nums[i]; &#125; // 最后再补齐0 for(; j &lt; nums.size(); ++j) nums[j] = 0; return nums &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[485. Max Consecutive Ones]]></title>
+    <url>%2F2019%2F12%2F13%2Fleetcode%2F485-Max-Consecutive-Ones%2F</url>
+    <content type="text"><![CDATA[Description485. Max Consecutive Ones Answer很简单的一道题目了 1234567891011121314class Solution &#123;public: int findMaxConsecutiveOnes(vector&lt;int&gt;&amp; nums) &#123; int curr = 0; int res = 0; for(auto&amp; n: nums) &#123; curr = ( curr + n ) * n; res = max(curr, res); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[896. Monotonic Array]]></title>
+    <url>%2F2019%2F12%2F13%2Fleetcode%2F896-Monotonic-Array%2F</url>
+    <content type="text"><![CDATA[Answer 1最简单的方法就是两种各判断一遍，复杂度O(N) 1234567891011121314151617181920class Solution &#123;public: bool isMonotonic(vector&lt;int&gt;&amp; A) &#123; return increasing(A) || decreasing(A); &#125; bool increasing(vector&lt;int&gt;&amp; A) &#123; for(int i = 1; i &lt; A.size(); ++i) &#123; if (A[i] &lt; A[i-1]) return false; &#125; return true; &#125; bool decreasing(vector&lt;int&gt;&amp; A) &#123; for(int i = 1; i &lt; A.size(); ++i) &#123; if (A[i] &gt; A[i-1]) return false; &#125; return true; &#125;&#125;; Answer 2更简洁的方法 1234567891011class Solution &#123;public: bool isMonotonic(vector&lt;int&gt;&amp; A) &#123; int incFlag = true, decFlag = true; for(int i = 1; i &lt; A.size(); ++i) &#123; incFlag &amp;= A[i] &gt;= A[i-1]; decFlag &amp;= A[i] &lt;= A[i-1]; &#125; return incFlag || decFlag; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1013. Partition Array Into Three Parts With Equal Sum]]></title>
+    <url>%2F2019%2F12%2F12%2Fleetcode%2F1013-Partition-Array-Into-Three-Parts-With-Equal-Sum%2F</url>
+    <content type="text"><![CDATA[Answer1234567891011121314151617181920212223// O(n)class Solution &#123;public: bool canThreePartsEqualSum(vector&lt;int&gt;&amp; A) &#123; int average = 0; for(auto&amp; n : A) average += n; average /= 3; int cnt = 0; int curr = 0; for (int i = 0; i &lt; A.size(); ++i) &#123; curr += A[i]; if(curr != average) continue; else if(++cnt == 3) return true; curr = 0; &#125; return false; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[888. Fair Candy Swap]]></title>
+    <url>%2F2019%2F12%2F10%2Fleetcode%2F888-Fair-Candy-Swap%2F</url>
+    <content type="text"><![CDATA[Answer123456789101112131415161718192021222324252627// sumA - cA[i] + cB[j] = sumB - cB[j] + cA[i]// =&gt; cA[i] - cB[j] = (sumA - sumB)/2 class Solution &#123;public: vector&lt;int&gt; fairCandySwap(vector&lt;int&gt;&amp; A, vector&lt;int&gt;&amp; B) &#123; unordered_set&lt;int&gt; setA; unordered_set&lt;int&gt; setB; int sumA = 0, sumB; for(auto&amp; n : A) &#123; setA.insert(n); sumA += n; &#125; for(auto&amp; n : B) &#123; setB.insert(n); sumB += n; &#125; for(int value : setA) &#123; int target = 2*value + sumB - sumA; if (setB.count(target) != 0) return vector&lt;int&gt;&#123;value, target&#125;; &#125; return vector&lt;int&gt;&#123;0, 0&#125;; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1170. Compare Strings by Frequency of the Smallest Character]]></title>
+    <url>%2F2019%2F12%2F09%2Fleetcode%2F1170-Compare-Strings-by-Frequency-of-the-Smallest-Character%2F</url>
+    <content type="text"><![CDATA[Answer 1思想是计算words每个词的频率然后累加，最后计算queries里的每个query频率然后根据累加的累加的结果就可以知道比自己频率大的数量有多少复杂度是O(N) 12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: vector&lt;int&gt; numSmallerByFrequency(vector&lt;string&gt;&amp; queries, vector&lt;string&gt;&amp; words) &#123; int n = queries.size(); int m = words.size(); vector&lt;int&gt; accumFreq(2000,0); for(auto word: words) &#123; accumFreq[getF(word)]++; &#125; for (int i = 1; i &lt; 2000; ++i) accumFreq[i] += accumFreq[i-1]; vector&lt;int&gt; res(n,0); for(int i = 0; i &lt; n; ++i) &#123; int f = getF(queries[i]); res[i] = m-accumFreq[f]; &#125; return res; &#125; int getF(string query) &#123; vector&lt;int&gt; freqs(26,0); for(auto&amp; c : query) freqs[c - 'a']++; for(int freq: freqs) &#123; if (freq!=0) return freq; &#125; return 0; &#125;&#125;; Answer 1思想是计算words每个词的频率然后累加，最后计算queries里的每个query频率然后根据累加的累加的结果就可以知道比自己频率大的数量有多少复杂度是O(N) 12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: vector&lt;int&gt; numSmallerByFrequency(vector&lt;string&gt;&amp; queries, vector&lt;string&gt;&amp; words) &#123; int n = queries.size(); int m = words.size(); vector&lt;int&gt; accumFreq(2000,0); for(auto word: words) &#123; accumFreq[getF(word)]++; &#125; for (int i = 1; i &lt; 2000; ++i) accumFreq[i] += accumFreq[i-1]; vector&lt;int&gt; res(n,0); for(int i = 0; i &lt; n; ++i) &#123; int f = getF(queries[i]); res[i] = m-accumFreq[f]; &#125; return res; &#125; int getF(string query) &#123; vector&lt;int&gt; freqs(26,0); for(auto&amp; c : query) freqs[c - 'a']++; for(int freq: freqs) &#123; if (freq!=0) return freq; &#125; return 0; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[1089. Duplicate Zeros]]></title>
+    <url>%2F2019%2F12%2F07%2Fleetcode%2F1089-Duplicate-Zeros%2F</url>
+    <content type="text"><![CDATA[Answer这道题其实不是特别能理解 1234567891011121314151617181920212223242526class Solution &#123;public: void duplicateZeros(vector&lt;int&gt;&amp; arr) &#123; int shift = 0; for(auto&amp; num : arr) shift += (num == 0? 1 : 0); // i 是旧的arr的index, j是新的index int n = arr.size(); for (int i = n-1, j = n+shift-1; i &lt; j; --i,--j) &#123; if(arr[i] != 0) &#123;。// 如果不是0 且 j 小于n了 那么就复制 if (j &lt; n) arr[j] = arr[i]; &#125;else&#123; // if (j &lt; n)&#123; // 如果是0 且j &lt; n 那我们就让它为0 arr[j] = 0; &#125; if (--j &lt; n) &#123; // 如果--j 小于n 那复制一遍0 arr[j] = 0; &#125; &#125; &#125; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+        <tag>review</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[566. Reshape the Matrix]]></title>
-    <url>%2F2019%2F12%2F04%2F566-Reshape-the-Matrix%2F</url>
-    <content type="text"><![CDATA[Answer比较简单的一道题，就是考察index的转换复杂度就是O(nm) 1234567891011121314151617class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; matrixReshape(vector&lt;vector&lt;int&gt;&gt;&amp; nums, int r, int c) &#123; int n = nums.size(), m = nums[0].size(); if (n*m != r*c) return nums; vector&lt;vector&lt;int&gt;&gt; res(r, vector&lt;int&gt;(c,0)); for(int i = 0; i &lt; n; ++i) &#123; for(int j = 0; j &lt; m; ++j) &#123; int index = i * m + j; res[index/c][index%c] = nums[i][j]; &#125; &#125; return res; &#125;&#125;;]]></content>
+    <url>%2F2019%2F12%2F07%2Fleetcode%2F566-Reshape-the-Matrix%2F</url>
+    <content type="text"><![CDATA[Answer1234567891011121314151617class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; matrixReshape(vector&lt;vector&lt;int&gt;&gt;&amp; nums, int r, int c) &#123; int n = nums.size(), m = nums[0].size(); if (n*m != r*c) return nums; vector&lt;vector&lt;int&gt;&gt; res(r, vector&lt;int&gt;(c,0)); for(int i = 0; i &lt; n; ++i) &#123; for(int j = 0; j &lt; m; ++j) &#123; int index = i * m + j; res[index/c][index%c] = nums[i][j]; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[243. Shortest Word Distance]]></title>
+    <url>%2F2019%2F12%2F06%2Fleetcode%2F243-Shortest-Word-Distance%2F</url>
+    <content type="text"><![CDATA[Answer123456789101112131415161718class Solution &#123;public: int shortestDistance(vector&lt;string&gt;&amp; words, string word1, string word2) &#123; int word1Index = -1; int word2Index = -1; int res = INT_MAX; for (int i = 0; i &lt; words.size(); ++i) &#123; if (words[i] == word1) word1Index = i; if (words[i] == word2) word2Index = i; if (word1Index != -1 &amp;&amp; word2Index != -1) &#123; res = min(res, abs(word1Index-word2Index)); &#125; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
         <category>Array</category>
@@ -15,7 +302,7 @@
   </entry>
   <entry>
     <title><![CDATA[1099. Two Sum Less Than K]]></title>
-    <url>%2F2019%2F12%2F03%2F1099-Two-Sum-Less-Than-K%2F</url>
+    <url>%2F2019%2F12%2F03%2Fleetcode%2F1099-Two-Sum-Less-Than-K%2F</url>
     <content type="text"><![CDATA[Answer 1这道题用暴力很容易做出来，复杂度是O(N^2)这边的思路是先排序，复杂度是(NlogN)然后双重循环来判定值，这边一个好处是如果和大于K就可以判断后面的值也用不着了。但是复杂度怎么说呢，也不知道。只知道比O(N^2)小。 1234567891011121314151617class Solution &#123;public: int twoSumLessThanK(vector&lt;int&gt;&amp; A, int K) &#123; sort(A.begin(), A.end()); int res = -1; for(int i = 0; i &lt; A.size(); ++i) &#123; for (int j = i+1; j &lt; A.size(); ++j) &#123; int sum = A[i] + A[j]; if (sum &lt; K) res = max(res, sum); else break; &#125; &#125; return res; &#125;&#125;; Answer 2最好还是双指针做吧 1234567891011121314151617181920class Solution &#123;public: int twoSumLessThanK(vector&lt;int&gt;&amp; A, int K) &#123; sort(A.begin(), A.end()); int res = -1; int i = 0, j = A.size()-1; while( i &lt; j) &#123; int sum = A[i] + A[j]; if (sum &lt; K) &#123; res = max(res, sum); i++; &#125;else j--; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -28,7 +315,7 @@
   </entry>
   <entry>
     <title><![CDATA[1150. Check If a Number Is Majority Element in a Sorted Array]]></title>
-    <url>%2F2019%2F12%2F03%2F1150-Check-If-a-Number-Is-Majority-Element-in-a-Sorted-Array%2F</url>
+    <url>%2F2019%2F12%2F03%2Fleetcode%2F1150-Check-If-a-Number-Is-Majority-Element-in-a-Sorted-Array%2F</url>
     <content type="text"><![CDATA[Answer 1复杂度O(N) 很容易想到的一道题目 12345678910// 复杂度O(n)class Solution &#123;public: bool isMajorityElement(vector&lt;int&gt;&amp; nums, int target) &#123; int res = 0; for(int&amp; n: nums) res+= n == target ? 1 : 0; return res &gt; nums.size()/2; &#125;&#125;; Answer 2因为有排序，复杂度变为O(logN) 1234567891011121314151617181920212223class Solution &#123;public: bool isMajorityElement(vector&lt;int&gt;&amp; nums, int target) &#123; int res = 0; int i = 0, j = nums.size()-1; while(i &lt;= j) &#123; int mid = i + (j-i)/2; if (nums[mid] == target) &#123; res++; int right = mid+1, left = mid-1; while(right &lt; nums.size() &amp;&amp; nums[right++] == target) res++; while(left &gt;=0 &amp;&amp; nums[left--] == target) res++; return res &gt; nums.size()/2; &#125; if (nums[mid] &gt; target) j = mid-1; else i = mid+1; &#125; return false; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -41,7 +328,7 @@
   </entry>
   <entry>
     <title><![CDATA[766. Toeplitz Matrix]]></title>
-    <url>%2F2019%2F11%2F29%2F766-Toeplitz-Matrix%2F</url>
+    <url>%2F2019%2F11%2F29%2Fleetcode%2F766-Toeplitz-Matrix%2F</url>
     <content type="text"><![CDATA[Answer 112345678910111213141516171819202122232425// 复杂度O(NM)class Solution &#123;public: bool isToeplitzMatrix(vector&lt;vector&lt;int&gt;&gt;&amp; matrix) &#123; value = matrix[0][0]; for(int i = 0; i &lt; matrix.size(); ++i) &#123; int common = matrix[i][0]; if (!helper(matrix, i+1, 1, common)) return false; &#125; for(int j = 0; j &lt; matrix[0].size(); ++j) &#123; int common = matrix[0][j]; if (!helper(matrix, 1, j+1, common)) return false; &#125; return true; &#125; bool helper(vector&lt;vector&lt;int&gt;&gt;&amp; matrix, int i, int j, int&amp; common) &#123; if (i &gt;= matrix.size() || j &gt;= matrix[0].size()) return true; return (matrix[i][j] == common) &amp;&amp; helper(matrix, i+1, j+1, common); &#125;&#125;; Answer 2第二种方法更简单，是在论坛找到的。很简洁 1234567891011121314151617// 复杂度O(NM)class Solution &#123;public: bool isToeplitzMatrix(vector&lt;vector&lt;int&gt;&gt;&amp; matrix) &#123; int m = matrix.size(), n = matrix[0].size(); for(int i = 0; i &lt; m-1; ++i) &#123; for(int j = 0; j &lt; n-1; ++j) &#123; if (matrix[i][j] != matrix[i+1][j+1]) return false; &#125; &#125; return true; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -54,7 +341,7 @@
   </entry>
   <entry>
     <title><![CDATA[1266. Minimum Time Visiting All Points]]></title>
-    <url>%2F2019%2F11%2F28%2F1266-Minimum-Time-Visiting-All-Points%2F</url>
+    <url>%2F2019%2F11%2F28%2Fleetcode%2F1266-Minimum-Time-Visiting-All-Points%2F</url>
     <content type="text"><![CDATA[Answer刚开始看起来还挺唬人的，以为要用BFS什么的做，没想到很简单 1234567891011121314// 复杂度O(N)class Solution &#123;public: int minTimeToVisitAllPoints(vector&lt;vector&lt;int&gt;&gt;&amp; points) &#123; int res = 0; for (int i = 0; i &lt; points.size()-1; ++i) &#123; int hor = abs(points[i][0] - points[i+1][0]); int ver = abs(points[i][1] - points[i+1][1]); res += max(hor, ver); &#125; return res; &#125;&#125;; [[36,59,71,15,26,82,87],[56,36,59,71,15,26,82],[15,0 ,36,59,71,15,26]]]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -67,21 +354,8 @@
   </entry>
   <entry>
     <title><![CDATA[867. Transpose Matrix]]></title>
-    <url>%2F2019%2F11%2F28%2F867-Transpose-Matrix%2F</url>
+    <url>%2F2019%2F11%2F28%2Fleetcode%2F867-Transpose-Matrix%2F</url>
     <content type="text"><![CDATA[Answer傻瓜题目 123456789101112131415161718// 复杂度 O(N^2)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; transpose(vector&lt;vector&lt;int&gt;&gt;&amp; A) &#123; int n = A.size(), m = A[0].size(); vector&lt;vector&lt;int&gt;&gt; res(m, vector&lt;int&gt;(n,0)); for(int i = 0; i &lt; n; ++i) &#123; for(int j = 0; j &lt; m; ++j) &#123; res[j][i] = A[i][j]; &#125; &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Leetcode Easy</category>
-        <category>Array</category>
-      </categories>
-      <tags>
-        <tag>Leetcode</tag>
-        <tag>Array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[1002. Find Common Characters]]></title>
-    <url>%2F2019%2F11%2F22%2F1002-Find-Common-Characters%2F</url>
-    <content type="text"><![CDATA[Answer很多有字母相关的题目都可以塑造一个26长度的array来完成。 1234567891011121314151617181920class Solution &#123;public: vector&lt;string&gt; commonChars(vector&lt;string&gt;&amp; A) &#123; vector&lt;int&gt; cnt(26, INT_MAX); for(auto&amp; word: A) &#123; vector&lt;int&gt; cnt0(26, 0); for(auto&amp; c : word) cnt0[c - 'a']++; for(int i = 0; i &lt; 26; ++i) cnt[i] = min(cnt[i], cnt0[i]); &#125; vector&lt;string&gt; res; for(int i = 0; i &lt; 26; ++i) &#123; for(int j = 0; j &lt; cnt[i]; ++j) res.push_back(string(1, 'a' + i)); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
         <category>Array</category>
@@ -107,19 +381,6 @@
   <entry>
     <title><![CDATA[1200. Minimum Absolute Difference]]></title>
     <url>%2F2019%2F11%2F22%2Fleetcode%2F1200-Minimum-Absolute-Difference%2F</url>
-    <content type="text"><![CDATA[Answer看完觉得比较简单。但是感觉没什么挑战。又是亚麻的题目O.O 12345678910111213141516171819202122// 复杂度 O(NlogN)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(arr.begin(), arr.end()); // find the minimum value int minDist = INT_MAX; for(int i = 0; i &lt; arr.size()-1; ++i) &#123; minDist = min(minDist, arr[i+1] - arr[i]); &#125; // return res for (int i = 0; i &lt; arr.size()-1; ++i) &#123; if (arr[i+1] - arr[i] == minDist) res.push_back(vector&lt;int&gt;&#123;arr[i], arr[i+1]&#125;); &#125; return res; &#125;&#125;;]]></content>
-      <categories>
-        <category>Leetcode Easy</category>
-        <category>Array</category>
-      </categories>
-      <tags>
-        <tag>Leetcode</tag>
-        <tag>Array</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[1200. Minimum Absolute Difference]]></title>
-    <url>%2F2019%2F11%2F22%2F1200-Minimum-Absolute-Difference%2F</url>
     <content type="text"><![CDATA[Answer看完觉得比较简单。但是感觉没什么挑战。又是亚麻的题目O.O 12345678910111213141516171819202122// 复杂度 O(NlogN)class Solution &#123;public: vector&lt;vector&lt;int&gt;&gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; vector&lt;vector&lt;int&gt;&gt; res; sort(arr.begin(), arr.end()); // find the minimum value int minDist = INT_MAX; for(int i = 0; i &lt; arr.size()-1; ++i) &#123; minDist = min(minDist, arr[i+1] - arr[i]); &#125; // return res for (int i = 0; i &lt; arr.size()-1; ++i) &#123; if (arr[i+1] - arr[i] == minDist) res.push_back(vector&lt;int&gt;&#123;arr[i], arr[i+1]&#125;); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -347,7 +608,7 @@
   </entry>
   <entry>
     <title><![CDATA[MAC创建Spring-boot项目环境]]></title>
-    <url>%2F2019%2F06%2F25%2FMAC%E5%88%9B%E5%BB%BASpring-boot%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%2F</url>
+    <url>%2F2019%2F06%2F25%2Fspringboot%2FMAC%E5%88%9B%E5%BB%BASpring-boot%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83%2F</url>
     <content type="text"><![CDATA[使用brew 更新brewbrew update &amp;&amp; brew upgrade &amp;&amp; brew cleanup 安装Javabrew cask install java 安装完成后，执行java -version. 有输出信息表示安装成功。 设置JAVA环境变量vim ~/.bash_profile 进入环境变量输入export JAVA_HOME=$(/usr/libexec/java_home)保存退出，并执行source ~/.bash_profile执行echo JAVA_HOME，应该可以看得到路径 安装 Mavenbrew install maven 设置环境变量 export M2_HOME=/usr/local/Cellar/maven/{版本号}/export M2=$M2_HOME/binexport PATH=$M2:$JAVA_HOME:$PATH]]></content>
       <categories>
         <category>Java</category>
@@ -355,17 +616,6 @@
       <tags>
         <tag>Java</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[485. Max Consecutive Ones]]></title>
-    <url>%2F2019%2F06%2F24%2Fleetcode%2F485-Max-Consecutive-Ones%2F</url>
-    <content type="text"><![CDATA[ProblemGiven a binary array, find the maximum number of consecutive 1s in this array. Example Input: [1,1,0,1,1,1]Output: 3Explanation:The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3. Explanation好简单而且无聊的一道问题。就贴个答案吧 Answer1234567891011121314class Solution &#123;public: int findMaxConsecutiveOnes(vector&lt;int&gt;&amp; nums) &#123; int res = 0; int tmp = 0; for(int&amp;n : nums)&#123; tmp += n; tmp = tmp*n; res = max(res, tmp); &#125; return res; &#125;&#125;;`]]></content>
-      <categories>
-        <category>Leetcode Easy</category>
-      </categories>
-      <tags>
-        <tag>Leetcode</tag>
       </tags>
   </entry>
   <entry>
