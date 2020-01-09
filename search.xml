@@ -16,14 +16,14 @@
   <entry>
     <title><![CDATA[Number of Equivalent Domino Pairs]]></title>
     <url>%2F2020%2F01%2F09%2FNumber-of-Equivalent-Domino-Pairs%2F</url>
-    <content type="text"><![CDATA[Answer12]]></content>
+    <content type="text"><![CDATA[Answer用了一个index来识别是否是相同的domino 123456789101112131415161718class Solution &#123;public: int numEquivDominoPairs(vector&lt;vector&lt;int&gt;&gt;&amp; dominoes) &#123; int res = 0; unordered_map&lt;int, int&gt; count; for(auto&amp; domino: dominoes) &#123; int index = max(domino[0], domino[1]) * 10 + min(domino[0], domino[1]); count[index]++; &#125; for(auto&amp; it: count) &#123; res += it.second * (it.second - 1) / 2; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
-        <category>Leetcode Medium</category>
-        <category>Leetcode Hard</category>
+        <category>Array</category>
       </categories>
       <tags>
         <tag>Leetcode</tag>
+        <tag>Array</tag>
       </tags>
   </entry>
   <entry>
