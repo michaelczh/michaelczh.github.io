@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Pairs of Songs With Total Durations Divisible by 60]]></title>
+    <url>%2F2020%2F01%2F09%2FPairs-of-Songs-With-Total-Durations-Divisible-by-60%2F</url>
+    <content type="text"><![CDATA[Answer这道题可以想象成是2sum，但是两个相加的数其实不是数字本身，需要做一定的处理首先是要满足能被60整除，需要找到两个数满足(x+t) % 60等价于x%60 = 60 - t%60x%60的范围是 [0,59]60 - t%60的范围是 [1,60] 所以等式应该变换成x%60 = (60 - t%60)%60 之后遍历储存x%60然后计算 (60 - t%60)%60是否存在，如果存在就代表找到了相应的可以和x相加被60整除的数字 12345678910111213141516171819class Solution &#123;public: int numPairsDivisibleBy60(vector&lt;int&gt;&amp; time) &#123; unordered_map&lt;int,int&gt; count; int res = 0; for(auto&amp; t : time) &#123; int target = (60 - t % 60)%60; res += count[target]; count[t%60]++; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[[Array][Easy] Check If It Is a Straight Line]]></title>
     <url>%2F2020%2F01%2F01%2Fleetcode%2FArray-Easy-Check-If-It-Is-a-Straight-Line%2F</url>
     <content type="text"><![CDATA[Answer为了避免除以0，所以用乘法 12345678910111213141516class Solution &#123;public: bool checkStraightLine(vector&lt;vector&lt;int&gt;&gt;&amp; cord) &#123; for(int i = 0; i &lt; cord.size()-2; ++i) &#123; int k1 = (cord[i+1][0] - cord[i][0]) * (cord[i+2][1] - cord[i+1][1]); int k2 = (cord[i+1][1] - cord[i][1]) * (cord[i+2][0] - cord[i+1][0]); if (k1 != k2) return false; &#125; return true; &#125;&#125;;]]></content>
