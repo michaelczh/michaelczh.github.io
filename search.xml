@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Number of Equivalent Domino Pairs]]></title>
+    <url>%2F2020%2F01%2F09%2FNumber-of-Equivalent-Domino-Pairs%2F</url>
+    <content type="text"><![CDATA[Answer12]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Leetcode Medium</category>
+        <category>Leetcode Hard</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Pairs of Songs With Total Durations Divisible by 60]]></title>
     <url>%2F2020%2F01%2F09%2FPairs-of-Songs-With-Total-Durations-Divisible-by-60%2F</url>
     <content type="text"><![CDATA[Answer这道题可以想象成是2sum，但是两个相加的数其实不是数字本身，需要做一定的处理首先是要满足能被60整除，需要找到两个数满足(x+t) % 60等价于x%60 = 60 - t%60x%60的范围是 [0,59]60 - t%60的范围是 [1,60] 所以等式应该变换成x%60 = (60 - t%60)%60 之后遍历储存x%60然后计算 (60 - t%60)%60是否存在，如果存在就代表找到了相应的可以和x相加被60整除的数字 12345678910111213141516171819class Solution &#123;public: int numPairsDivisibleBy60(vector&lt;int&gt;&amp; time) &#123; unordered_map&lt;int,int&gt; count; int res = 0; for(auto&amp; t : time) &#123; int target = (60 - t % 60)%60; res += count[target]; count[t%60]++; &#125; return res; &#125;&#125;;]]></content>
