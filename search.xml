@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Pascal's Triangle II]]></title>
+    <url>%2F2020%2F01%2F11%2F119-Pascal-s-Triangle-II%2F</url>
+    <content type="text"><![CDATA[Answer1234567891011121314151617class Solution &#123;public: vector&lt;int&gt; getRow(int rowIndex) &#123; vector&lt;int&gt; res(rowIndex+1,0); res[0] = 1; for(int i = 1; i &lt; rowIndex + 1; ++i) &#123; for(int j = i; j &gt;= 1; --j) &#123; res[j] += res[j-1]; &#125; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Remove Element]]></title>
     <url>%2F2020%2F01%2F09%2FRemove-Element%2F</url>
     <content type="text"><![CDATA[Answer12345678910111213class Solution &#123;public: int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123; int j = 0; for(int i = 0; i &lt; nums.size(); ++i) &#123; if(nums[i] != val) nums[j++] = nums[i]; &#125; return j; &#125;&#125;;]]></content>
