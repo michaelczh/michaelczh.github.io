@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Maximum Subarray]]></title>
+    <url>%2F2020%2F01%2F13%2FMaximum-Subarray%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213141516class Solution &#123;public: int maxSubArray(vector&lt;int&gt;&amp; nums) &#123; int res = INT_MIN; vector&lt;int&gt; dp(nums.size(),0); dp[0] = nums[0]; for(int i = 1; i &lt; nums.size(); ++i) &#123; dp[i] = nums[i] + (dp[i-1] &gt; 0 ? dp[i-1] : 0) ; res = max(res, dp[i]); &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Pascal's Triangle II]]></title>
     <url>%2F2020%2F01%2F11%2F119-Pascal-s-Triangle-II%2F</url>
     <content type="text"><![CDATA[Answer1234567891011121314151617class Solution &#123;public: vector&lt;int&gt; getRow(int rowIndex) &#123; vector&lt;int&gt; res(rowIndex+1,0); res[0] = 1; for(int i = 1; i &lt; rowIndex + 1; ++i) &#123; for(int j = i; j &gt;= 1; --j) &#123; res[j] += res[j-1]; &#125; &#125; return res; &#125;&#125;;]]></content>
