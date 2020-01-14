@@ -3,10 +3,11 @@ title: {{ title }}
 date: {{ date }}
 tags:
 - Leetcode
+  - Array
 categories: 
 - Leetcode Easy
-- Leetcode Medium
-- Leetcode Hard
+- Array
+
 ---
 
 #### Answer
