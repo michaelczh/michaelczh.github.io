@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Add to Array-Form of Integer]]></title>
+    <url>%2F2020%2F01%2F14%2FAdd-to-Array-Form-of-Integer%2F</url>
+    <content type="text"><![CDATA[Answer123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; addToArrayForm(vector&lt;int&gt;&amp; A, int K) &#123; for(int i = A.size()-1; i &gt;= 0 &amp;&amp; K &gt; 0; --i) &#123; A[i] += K; K = A[i] / 10; A[i] = A[i] % 10; &#125; while ( K != 0) &#123; A.insert(A.begin(), K % 10); K = K / 10; &#125; return A; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Two Sum]]></title>
     <url>%2F2020%2F01%2F14%2FTwo-Sum%2F</url>
     <content type="text"><![CDATA[Answer很经典的一道题目了，这边用hashmap做。也可以用双指针来做。这样不用耗费额外的空间复杂度且时间复杂度也是O(n) 123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123; unordered_map&lt;int,int&gt; map; for(int i = 0; i &lt; nums.size(); ++i) &#123; map[nums[i]] = i; &#125; for(int i = 0; i &lt; nums.size(); ++i) &#123; int found = target - nums[i]; if (map.count(found) != 0 &amp;&amp; map[found] != i) return vector&lt;int&gt;&#123;i, map[found]&#125;; &#125; return vector&lt;int&gt;&#123;-1,-1&#125;; &#125;&#125;;]]></content>
