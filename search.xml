@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Two Sum]]></title>
+    <url>%2F2020%2F01%2F14%2FTwo-Sum%2F</url>
+    <content type="text"><![CDATA[Answer很经典的一道题目了，这边用hashmap做。也可以用双指针来做。这样不用耗费额外的空间复杂度且时间复杂度也是O(n) 123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123; unordered_map&lt;int,int&gt; map; for(int i = 0; i &lt; nums.size(); ++i) &#123; map[nums[i]] = i; &#125; for(int i = 0; i &lt; nums.size(); ++i) &#123; int found = target - nums[i]; if (map.count(found) != 0 &amp;&amp; map[found] != i) return vector&lt;int&gt;&#123;i, map[found]&#125;; &#125; return vector&lt;int&gt;&#123;-1,-1&#125;; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Longest Continuous Increasing Subsequence]]></title>
     <url>%2F2020%2F01%2F14%2FLongest-Continuous-Increasing-Subsequence%2F</url>
     <content type="text"><![CDATA[Answer 11234567891011121314151617181920212223class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; if (nums.size() == 0) return 0; // dp[i] -&gt; [0,i] subarray endwith nums[i] vector&lt;int&gt; dp(nums.size(), 1); int res = 1; for(int i = 1; i&lt; nums.size(); ++i) &#123; if (nums[i] &gt; nums[i-1]) dp[i] = dp[i-1] + 1; else dp[i] = 1; // cout &lt;&lt; dp[i] &lt;&lt; endl; res = max(res, dp[i]); &#125; return res; &#125;&#125;; Answer 21234567891011121314class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int cnt = 0; int res = 0; for (int i = 0; i &lt; n; ++i) &#123; if (i == 0 || nums[i] &gt; nums[i-1]) res = max(res, ++cnt); else cnt = 1; &#125; return res; &#125;&#125;;]]></content>
