@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Longest Continuous Increasing Subsequence]]></title>
+    <url>%2F2020%2F01%2F14%2FLongest-Continuous-Increasing-Subsequence%2F</url>
+    <content type="text"><![CDATA[Answer 11234567891011121314151617181920212223class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; if (nums.size() == 0) return 0; // dp[i] -&gt; [0,i] subarray endwith nums[i] vector&lt;int&gt; dp(nums.size(), 1); int res = 1; for(int i = 1; i&lt; nums.size(); ++i) &#123; if (nums[i] &gt; nums[i-1]) dp[i] = dp[i-1] + 1; else dp[i] = 1; // cout &lt;&lt; dp[i] &lt;&lt; endl; res = max(res, dp[i]); &#125; return res; &#125;&#125;; Answer 21234567891011121314class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int cnt = 0; int res = 0; for (int i = 0; i &lt; n; ++i) &#123; if (i == 0 || nums[i] &gt; nums[i-1]) res = max(res, ++cnt); else cnt = 1; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Maximum Subarray]]></title>
-    <url>%2F2020%2F01%2F13%2FMaximum-Subarray%2F</url>
-    <content type="text"><![CDATA[Answer12345678910111213141516class Solution &#123;public: int maxSubArray(vector&lt;int&gt;&amp; nums) &#123; int res = INT_MIN; vector&lt;int&gt; dp(nums.size(),0); dp[0] = nums[0]; for(int i = 1; i &lt; nums.size(); ++i) &#123; dp[i] = nums[i] + (dp[i-1] &gt; 0 ? dp[i-1] : 0) ; res = max(res, dp[i]); &#125; return res; &#125;&#125;;]]></content>
+    <url>%2F2020%2F01%2F13%2Fleetcode%2FMaximum-Subarray%2F</url>
+    <content type="text"><![CDATA[Answerdp[i]的定义是 nums[0,i]的最大子数列。那么dp[i+1] = (dp[0,i] &gt; 0 ? dp[i] : 0) + nums[i+1]因为如果前面的子数列为负数的话，一定无法是答案，因为负数加上任何数一定是小于本身的。 12345678910111213141516class Solution &#123;public: int maxSubArray(vector&lt;int&gt;&amp; nums) &#123; int res = INT_MIN; vector&lt;int&gt; dp(nums.size(),0); dp[0] = nums[0]; for(int i = 1; i &lt; nums.size(); ++i) &#123; dp[i] = nums[i] + (dp[i-1] &gt; 0 ? dp[i-1] : 0) ; res = max(res, dp[i]); &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
         <category>Array</category>
@@ -15,7 +28,7 @@
   </entry>
   <entry>
     <title><![CDATA[Pascal's Triangle II]]></title>
-    <url>%2F2020%2F01%2F11%2F119-Pascal-s-Triangle-II%2F</url>
+    <url>%2F2020%2F01%2F11%2Fleetcode%2FPascal-s-Triangle-II%2F</url>
     <content type="text"><![CDATA[Answer1234567891011121314151617class Solution &#123;public: vector&lt;int&gt; getRow(int rowIndex) &#123; vector&lt;int&gt; res(rowIndex+1,0); res[0] = 1; for(int i = 1; i &lt; rowIndex + 1; ++i) &#123; for(int j = i; j &gt;= 1; --j) &#123; res[j] += res[j-1]; &#125; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -28,7 +41,7 @@
   </entry>
   <entry>
     <title><![CDATA[Remove Element]]></title>
-    <url>%2F2020%2F01%2F09%2FRemove-Element%2F</url>
+    <url>%2F2020%2F01%2F09%2Fleetcode%2FRemove-Element%2F</url>
     <content type="text"><![CDATA[Answer12345678910111213class Solution &#123;public: int removeElement(vector&lt;int&gt;&amp; nums, int val) &#123; int j = 0; for(int i = 0; i &lt; nums.size(); ++i) &#123; if(nums[i] != val) nums[j++] = nums[i]; &#125; return j; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -41,7 +54,7 @@
   </entry>
   <entry>
     <title><![CDATA[Number of Equivalent Domino Pairs]]></title>
-    <url>%2F2020%2F01%2F09%2FNumber-of-Equivalent-Domino-Pairs%2F</url>
+    <url>%2F2020%2F01%2F09%2Fleetcode%2FNumber-of-Equivalent-Domino-Pairs%2F</url>
     <content type="text"><![CDATA[Answer用了一个index来识别是否是相同的domino 123456789101112131415161718class Solution &#123;public: int numEquivDominoPairs(vector&lt;vector&lt;int&gt;&gt;&amp; dominoes) &#123; int res = 0; unordered_map&lt;int, int&gt; count; for(auto&amp; domino: dominoes) &#123; int index = max(domino[0], domino[1]) * 10 + min(domino[0], domino[1]); count[index]++; &#125; for(auto&amp; it: count) &#123; res += it.second * (it.second - 1) / 2; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -54,7 +67,7 @@
   </entry>
   <entry>
     <title><![CDATA[Pairs of Songs With Total Durations Divisible by 60]]></title>
-    <url>%2F2020%2F01%2F09%2FPairs-of-Songs-With-Total-Durations-Divisible-by-60%2F</url>
+    <url>%2F2020%2F01%2F09%2Fleetcode%2FPairs-of-Songs-With-Total-Durations-Divisible-by-60%2F</url>
     <content type="text"><![CDATA[Answer这道题可以想象成是2sum，但是两个相加的数其实不是数字本身，需要做一定的处理首先是要满足能被60整除，需要找到两个数满足(x+t) % 60等价于x%60 = 60 - t%60x%60的范围是 [0,59]60 - t%60的范围是 [1,60] 所以等式应该变换成x%60 = (60 - t%60)%60 之后遍历储存x%60然后计算 (60 - t%60)%60是否存在，如果存在就代表找到了相应的可以和x相加被60整除的数字 12345678910111213141516171819class Solution &#123;public: int numPairsDivisibleBy60(vector&lt;int&gt;&amp; time) &#123; unordered_map&lt;int,int&gt; count; int res = 0; for(auto&amp; t : time) &#123; int target = (60 - t % 60)%60; res += count[target]; count[t%60]++; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
