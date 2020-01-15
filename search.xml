@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Find Pivot Index]]></title>
+    <url>%2F2020%2F01%2F15%2FFind-Pivot-Index%2F</url>
+    <content type="text"><![CDATA[Answer 1很自然能想到的一种方法。 123456789101112131415161718class Solution &#123;public: int pivotIndex(vector&lt;int&gt;&amp; nums) &#123; int left = 0, right = 0; for(int num: nums) right += num; for(int i = 0; i &lt; nums.size(); ++i) &#123; if (i &gt; 0) left += nums[i-1]; right -= nums[i]; if (left == right) return i; &#125; return -1; &#125;&#125;; Answer 2参考discuss的答案。感觉用while比for更好 12345678910111213141516class Solution &#123;public: int pivotIndex(vector&lt;int&gt;&amp; nums) &#123; int total = 0; for(int num: nums) total += num; int i = 0, currSum = 0; while( i &lt; nums.size()) &#123; if (currSum * 2 == total - nums[i]) return i; currSum += nums[i++]; &#125; return -1; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Remove Duplicates from Sorted Array]]></title>
+    <url>%2F2020%2F01%2F15%2FRemove-Duplicates-from-Sorted-Array%2F</url>
+    <content type="text"><![CDATA[Answer123456789101112131415class Solution &#123;public: int removeDuplicates(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int cnt = 0; for(int i = 1; i&lt; n; ++i) &#123; if (nums[i] == nums[i-1]) ++cnt; else nums[i-cnt] = nums[i]; // 相当于offset,往前推几位 &#125; return n - cnt; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Add to Array-Form of Integer]]></title>
     <url>%2F2020%2F01%2F14%2FAdd-to-Array-Form-of-Integer%2F</url>
     <content type="text"><![CDATA[Answer123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; addToArrayForm(vector&lt;int&gt;&amp; A, int K) &#123; for(int i = A.size()-1; i &gt;= 0 &amp;&amp; K &gt; 0; --i) &#123; A[i] += K; K = A[i] / 10; A[i] = A[i] % 10; &#125; while ( K != 0) &#123; A.insert(A.begin(), K % 10); K = K / 10; &#125; return A; &#125;&#125;;]]></content>
