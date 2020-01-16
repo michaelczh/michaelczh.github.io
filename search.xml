@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Plus One]]></title>
+    <url>%2F2020%2F01%2F16%2FPlus-One%2F</url>
+    <content type="text"><![CDATA[Answer 1这道题目跟之前两个list相加的做法很像，不过更简单。 1234567891011121314151617class Solution &#123;public: vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123; int add = 0; int n = digits.size(); digits[n-1] += 1; // since list is not empty for(int i = digits.size()-1; i &gt;=0; --i) &#123; digits[i] += add; add = digits[i] / 10; digits[i] = digits[i] % 10; &#125; if (add) digits.insert(digits.begin(), add); return digits; &#125;&#125;; Answer 2不过看论坛的其实更简单的做法是每一位判断是不是小于9，如果是就直接加一返回。循环外的话就在前面差一个1 1234567891011121314151617public int[] plusOne(int[] digits) &#123; int n = digits.length; for(int i=n-1; i&gt;=0; i--) &#123; if(digits[i] &lt; 9) &#123; digits[i]++; return digits; &#125; digits[i] = 0; &#125; int[] newNumber = new int [n+1]; newNumber[0] = 1; return newNumber;&#125;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Maximize Distance to Closest Person]]></title>
+    <url>%2F2020%2F01%2F16%2Fleetcode%2FMaximize-Distance-to-Closest-Person%2F</url>
+    <content type="text"><![CDATA[Answer1234567891011121314151617class Solution &#123;public: int maxDistToClosest(vector&lt;int&gt;&amp; seats) &#123; int n = seats.size(); int last = -1; int res = INT_MIN; for(int i = 0; i &lt; n; ++i) &#123; if (seats[i] == 1) &#123; res = last &lt; 0 ? i : max(res, (i - last)/2); last = i; &#125; &#125; return max(res, n - last - 1); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Find Pivot Index]]></title>
-    <url>%2F2020%2F01%2F15%2FFind-Pivot-Index%2F</url>
+    <url>%2F2020%2F01%2F15%2Fleetcode%2FFind-Pivot-Index%2F</url>
     <content type="text"><![CDATA[Answer 1很自然能想到的一种方法。 123456789101112131415161718class Solution &#123;public: int pivotIndex(vector&lt;int&gt;&amp; nums) &#123; int left = 0, right = 0; for(int num: nums) right += num; for(int i = 0; i &lt; nums.size(); ++i) &#123; if (i &gt; 0) left += nums[i-1]; right -= nums[i]; if (left == right) return i; &#125; return -1; &#125;&#125;; Answer 2参考discuss的答案。感觉用while比for更好 12345678910111213141516class Solution &#123;public: int pivotIndex(vector&lt;int&gt;&amp; nums) &#123; int total = 0; for(int num: nums) total += num; int i = 0, currSum = 0; while( i &lt; nums.size()) &#123; if (currSum * 2 == total - nums[i]) return i; currSum += nums[i++]; &#125; return -1; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -14,7 +38,7 @@
   </entry>
   <entry>
     <title><![CDATA[Remove Duplicates from Sorted Array]]></title>
-    <url>%2F2020%2F01%2F15%2FRemove-Duplicates-from-Sorted-Array%2F</url>
+    <url>%2F2020%2F01%2F15%2Fleetcode%2FRemove-Duplicates-from-Sorted-Array%2F</url>
     <content type="text"><![CDATA[Answer123456789101112131415class Solution &#123;public: int removeDuplicates(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int cnt = 0; for(int i = 1; i&lt; n; ++i) &#123; if (nums[i] == nums[i-1]) ++cnt; else nums[i-cnt] = nums[i]; // 相当于offset,往前推几位 &#125; return n - cnt; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -26,7 +50,7 @@
   </entry>
   <entry>
     <title><![CDATA[Add to Array-Form of Integer]]></title>
-    <url>%2F2020%2F01%2F14%2FAdd-to-Array-Form-of-Integer%2F</url>
+    <url>%2F2020%2F01%2F14%2Fleetcode%2FAdd-to-Array-Form-of-Integer%2F</url>
     <content type="text"><![CDATA[Answer123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; addToArrayForm(vector&lt;int&gt;&amp; A, int K) &#123; for(int i = A.size()-1; i &gt;= 0 &amp;&amp; K &gt; 0; --i) &#123; A[i] += K; K = A[i] / 10; A[i] = A[i] % 10; &#125; while ( K != 0) &#123; A.insert(A.begin(), K % 10); K = K / 10; &#125; return A; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -38,7 +62,7 @@
   </entry>
   <entry>
     <title><![CDATA[Two Sum]]></title>
-    <url>%2F2020%2F01%2F14%2FTwo-Sum%2F</url>
+    <url>%2F2020%2F01%2F14%2Fleetcode%2FTwo-Sum%2F</url>
     <content type="text"><![CDATA[Answer很经典的一道题目了，这边用hashmap做。也可以用双指针来做。这样不用耗费额外的空间复杂度且时间复杂度也是O(n) 123456789101112131415161718class Solution &#123;public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123; unordered_map&lt;int,int&gt; map; for(int i = 0; i &lt; nums.size(); ++i) &#123; map[nums[i]] = i; &#125; for(int i = 0; i &lt; nums.size(); ++i) &#123; int found = target - nums[i]; if (map.count(found) != 0 &amp;&amp; map[found] != i) return vector&lt;int&gt;&#123;i, map[found]&#125;; &#125; return vector&lt;int&gt;&#123;-1,-1&#125;; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -50,7 +74,7 @@
   </entry>
   <entry>
     <title><![CDATA[Longest Continuous Increasing Subsequence]]></title>
-    <url>%2F2020%2F01%2F14%2FLongest-Continuous-Increasing-Subsequence%2F</url>
+    <url>%2F2020%2F01%2F14%2Fleetcode%2FLongest-Continuous-Increasing-Subsequence%2F</url>
     <content type="text"><![CDATA[Answer 11234567891011121314151617181920212223class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; if (nums.size() == 0) return 0; // dp[i] -&gt; [0,i] subarray endwith nums[i] vector&lt;int&gt; dp(nums.size(), 1); int res = 1; for(int i = 1; i&lt; nums.size(); ++i) &#123; if (nums[i] &gt; nums[i-1]) dp[i] = dp[i-1] + 1; else dp[i] = 1; // cout &lt;&lt; dp[i] &lt;&lt; endl; res = max(res, dp[i]); &#125; return res; &#125;&#125;; Answer 21234567891011121314class Solution &#123;public: int findLengthOfLCIS(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int cnt = 0; int res = 0; for (int i = 0; i &lt; n; ++i) &#123; if (i == 0 || nums[i] &gt; nums[i-1]) res = max(res, ++cnt); else cnt = 1; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
