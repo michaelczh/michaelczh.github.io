@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Summary of Binary Search]]></title>
+    <url>%2F2020%2F01%2F18%2FSummary-of-Binary-Search%2F</url>
+    <content type="text"><![CDATA[Summary12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061/** * 左闭右开的二分查找, 在[left, right) 中间寻找 */fun commonBinarySearch(list:List&lt;Int&gt;, target:Int):Int &#123; var left = 0 var right = list.size while (left &lt; right) &#123; val mid = left + (right-left)/2 if (list[mid] &lt; target) left = mid+1 else right = mid &#125; return left&#125;/** * 寻找左边界的二分查找 */fun leftBoundBinarySearch(list:List&lt;Int&gt;, target:Int):Int &#123; var left = 0 var right = list.size while (left &lt; right) &#123; val mid = left + (right-left)/2 if (list[mid] == target) right = mid // 收紧右边界 else if (list[mid] &lt; target) left = mid+1 else right = mid &#125; // target 比所有的数都大 返回-1 if (left == list.size) return -1 // 因为left有可能被遗漏 return if (list[left] == target) left else -1&#125;/** * 寻找右边界的二分查找 */fun rightBoundBinarySearch(list:List&lt;Int&gt;, target:Int):Int &#123; var left = 0 var right = list.size while (left &lt; right) &#123; val mid = left + (right-left)/2 if (list[mid] == target) left = mid+1 // 收紧左边界 else if (list[mid] &lt; target) left = mid+1 else right = mid &#125; // target 比所有的数都小 返回-1 if (left == 0) return -1 // 因为left更新的时候，需要加1，所以，最后返回下标的时候，就需要减1。 return if (list[left-1] == target) left-1 else -1&#125; 参考 https://www.zhihu.com/question/36132386 https://blog.csdn.net/IronWring_Fly/article/details/100548061]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>binary search</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Plus One]]></title>
     <url>%2F2020%2F01%2F16%2FPlus-One%2F</url>
     <content type="text"><![CDATA[Answer 1这道题目跟之前两个list相加的做法很像，不过更简单。 1234567891011121314151617class Solution &#123;public: vector&lt;int&gt; plusOne(vector&lt;int&gt;&amp; digits) &#123; int add = 0; int n = digits.size(); digits[n-1] += 1; // since list is not empty for(int i = digits.size()-1; i &gt;=0; --i) &#123; digits[i] += add; add = digits[i] / 10; digits[i] = digits[i] % 10; &#125; if (add) digits.insert(digits.begin(), add); return digits; &#125;&#125;; Answer 2不过看论坛的其实更简单的做法是每一位判断是不是小于9，如果是就直接加一返回。循环外的话就在前面差一个1 1234567891011121314151617public int[] plusOne(int[] digits) &#123; int n = digits.length; for(int i=n-1; i&gt;=0; i--) &#123; if(digits[i] &lt; 9) &#123; digits[i]++; return digits; &#125; digits[i] = 0; &#125; int[] newNumber = new int [n+1]; newNumber[0] = 1; return newNumber;&#125;]]></content>
