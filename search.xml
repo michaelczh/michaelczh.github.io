@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Contains Duplicate II]]></title>
+    <url>%2F2020%2F01%2F20%2Fleetcode%2FContains-Duplicate-II%2F</url>
+    <content type="text"><![CDATA[Answer 1用map来做 123456789101112131415161718class Solution &#123;public: bool containsNearbyDuplicate(vector&lt;int&gt;&amp; nums, int k) &#123; unordered_map&lt;int,int&gt; last; for(int i = 0; i &lt; nums.size(); ++i) &#123; if (last.count(nums[i])) &#123; if ((i - last[nums[i]]) &lt;= k) return true; &#125; last[nums[i]] = i; &#125; return false; &#125;&#125;; Answer 2第二种方法是保持一个滑动窗口，用set来做 123456789101112131415class Solution &#123;public: bool containsNearbyDuplicate(vector&lt;int&gt;&amp; nums, int k) &#123; unordered_set&lt;int&gt; wd; for(int i = 0; i &lt; nums.size(); ++i) &#123; if (i &gt; k) wd.erase(nums[i-k-1]); if (wd.count(nums[i])) return true; wd.insert(nums[i]); &#125; return false; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Merge Sorted Array]]></title>
+    <url>%2F2020%2F01%2F20%2Fleetcode%2FMerge-Sorted-Array%2F</url>
+    <content type="text"><![CDATA[Answer1234567891011121314151617class Solution &#123;public: void merge(vector&lt;int&gt;&amp; nums1, int m, vector&lt;int&gt;&amp; nums2, int n) &#123; int k = m + n; while(m &gt; 0 &amp;&amp; n &gt; 0) &#123; if (nums1[m-1] &gt; nums2[n-1]) &#123; nums1[--k] = nums1[--m]; &#125;else&#123; nums1[--k] = nums2[--n]; &#125; &#125; while(k &gt; 0 &amp;&amp; n &gt; 0 ) nums1[--k] = nums2[--n]; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Maximum Distance in Arrays]]></title>
+    <url>%2F2020%2F01%2F20%2Fleetcode%2FMaximum-Distance-in-Arrays%2F</url>
+    <content type="text"><![CDATA[Answer12]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Maximum Average Subarray I]]></title>
-    <url>%2F2020%2F01%2F19%2FMaximum-Average-Subarray-I%2F</url>
+    <url>%2F2020%2F01%2F19%2Fleetcode%2FMaximum-Average-Subarray-I%2F</url>
     <content type="text"><![CDATA[Answer123456789101112131415161718class Solution &#123;public: double findMaxAverage(vector&lt;int&gt;&amp; nums, int k) &#123; double sum = 0; for(int i = 0; i &lt; k; ++i) sum += nums[i]; double maxSum = sum; for(int i = k; i&lt; nums.size(); ++i) &#123; sum += nums[i] - nums[i-k]; maxSum = max(maxSum, sum); &#125; return maxSum / k; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
