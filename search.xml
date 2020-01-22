@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Rotate Array]]></title>
+    <url>%2F2020%2F01%2F22%2Fleetcode%2FRotate-Array%2F</url>
+    <content type="text"><![CDATA[Answer12]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[X of a Kind in a Deck of Cards]]></title>
+    <url>%2F2020%2F01%2F22%2Fleetcode%2FX-of-a-Kind-in-a-Deck-of-Cards%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213141516171819202122232425262728293031class Solution &#123;public: bool hasGroupsSizeX(vector&lt;int&gt;&amp; deck) &#123; // number, times unordered_map&lt;int,int&gt; record; for(auto&amp; num: deck) record[num]++; int minTimes = INT_MAX; for(auto&amp; it: record) minTimes = min(minTimes, it.second); if (minTimes &lt; 2) return false; for(int i = 2; i &lt;= minTimes; ++i) &#123; bool pass = true; for(auto&amp; it: record) &#123; if (it.second % i !=0 ) &#123; pass = false; break; &#125; &#125; if (pass) return true; &#125; return false; &#125;&#125;; https://www.cnblogs.com/grandyang/p/11575613.html]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Contains Duplicate II]]></title>
     <url>%2F2020%2F01%2F20%2Fleetcode%2FContains-Duplicate-II%2F</url>
     <content type="text"><![CDATA[Answer 1用map来做 123456789101112131415161718class Solution &#123;public: bool containsNearbyDuplicate(vector&lt;int&gt;&amp; nums, int k) &#123; unordered_map&lt;int,int&gt; last; for(int i = 0; i &lt; nums.size(); ++i) &#123; if (last.count(nums[i])) &#123; if ((i - last[nums[i]]) &lt;= k) return true; &#125; last[nums[i]] = i; &#125; return false; &#125;&#125;; Answer 2第二种方法是保持一个滑动窗口，用set来做 123456789101112131415class Solution &#123;public: bool containsNearbyDuplicate(vector&lt;int&gt;&amp; nums, int k) &#123; unordered_set&lt;int&gt; wd; for(int i = 0; i &lt; nums.size(); ++i) &#123; if (i &gt; k) wd.erase(nums[i-k-1]); if (wd.count(nums[i])) return true; wd.insert(nums[i]); &#125; return false; &#125;&#125;;]]></content>
