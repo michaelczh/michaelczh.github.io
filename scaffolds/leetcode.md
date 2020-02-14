@@ -3,10 +3,10 @@ title: {{ title }}
 date: {{ date }}
 tags:
 - Leetcode
-  - Array
+- DP
 categories: 
 - Leetcode Easy
-- Array
+- DP
 
 ---
 
