@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Paint House]]></title>
+    <url>%2F2020%2F02%2F14%2FPaint-House%2F</url>
+    <content type="text"><![CDATA[Answer很简单的一道DP问题了，做DP应该都需要先设定DP的定义吧。这边的 dp[i][j] 的定义是如果第i个房子需要刷j类型的颜色最少是多少钱。因为数组可以用一维的所以改成一维的。 1234567891011121314151617181920class Solution &#123;public: int minCost(vector&lt;vector&lt;int&gt;&gt;&amp; costs) &#123; int n = costs.size(); if (n == 0) return 0; vector&lt;int&gt; dp = costs[0]; for(int i = 1; i &lt; n; ++i) &#123; vector&lt;int&gt; tmp = vector&lt;int&gt;(3,0); tmp[0] = costs[i][0] + min(dp[1], dp[2]); tmp[1] = costs[i][1] + min(dp[0], dp[2]); tmp[2] = costs[i][2] + min(dp[0], dp[1]); dp = tmp; &#125; return min(min(dp[0],dp[1]), dp[2]); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>DP</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>DP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Can Place Flowers]]></title>
+    <url>%2F2020%2F01%2F23%2FCan-Place-Flowers%2F</url>
+    <content type="text"><![CDATA[Answer12345678910111213141516171819class Solution &#123;public: bool canPlaceFlowers(vector&lt;int&gt;&amp; flowerbed, int k) &#123; int n = flowerbed.size(); int res = 0; for(int i = 0; i &lt; n &amp;&amp; res &lt; k; ++i) &#123; int next = (i == n-1) ? 0 : flowerbed[i+1]; int before = (i == 0) ? 0 :flowerbed[i-1]; if (next == 0 &amp;&amp; before == 0 &amp;&amp; flowerbed[i] == 0) &#123; res++; flowerbed[i] = 1; &#125; &#125; return res == k; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>Array</category>
+      </categories>
+      <tags>
+        <tag>Leetcode - Array</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Rotate Array]]></title>
     <url>%2F2020%2F01%2F22%2Fleetcode%2FRotate-Array%2F</url>
     <content type="text"><![CDATA[Answer12]]></content>
