@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Longest String Chain]]></title>
+    <url>%2F2020%2F06%2F02%2FLongest-String-Chain%2F</url>
+    <content type="text"><![CDATA[Answer12]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>DP</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>DP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[House Robber II]]></title>
     <url>%2F2020%2F05%2F30%2FHouse-Robber-II%2F</url>
     <content type="text"><![CDATA[Explanation主要是dp的定义。因为不能同时偷取第一个和最后一个房子所以我们可以定义两个dp第一个dp是代表从第一个屋子开始偷第二个dp是代表从第二个屋子开始偷。 DP的定义为 dp[i]: 偷取前i个屋子(nums[0,i))的最大效益 dp[i] = max ( dp[i-1], dp[i-2] + nums[i-1] ) // 比较 偷取当前屋子和不偷取当前屋子的最大效益 在最近比较的时候，对于从第一个屋开始偷的，我们比较n-1的结果。和从第二个屋子开始偷的，我们计算到最后一个屋子就行。 Answer1234567891011121314151617181920212223242526272829class Solution &#123;public: int rob(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); if (n == 0) return 0; if ( n == 1 ) return nums[0]; vector&lt;int&gt; dpFirst(n+1, 0); // d[i] represents rob [0,i) houses vector&lt;int&gt; dpSecond(n+1, 0); dpFirst[0] = 0; dpFirst[1] = nums[0]; dpSecond[0] = 0; dpSecond[1] = 0; for(int i = 2; i &lt;= n; ++i) &#123; dpFirst[i] = max(dpFirst[i-1], dpFirst[i-2] + nums[i-1]); dpSecond[i] = max(dpSecond[i-1], dpSecond[i-2] + nums[i-1]); &#125; return max(dpFirst[n-1], dpSecond[n]); &#125;&#125;;]]></content>

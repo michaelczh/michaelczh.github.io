@@ -86,18 +86,18 @@
 
 
 
-  <meta name="description" content="Answer12345678910111213141516171819202122// 复杂度: O(NM) N,M分别为行列数class Solution &amp;#123;public:    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; flipAndInvertImage(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; A) &amp;#123;">
-<meta name="keywords" content="Leetcode,Array">
+  <meta name="description" content="Answer12">
+<meta name="keywords" content="Leetcode,DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="832. Flipping an Image">
-<meta property="og:url" content="http://yoursite.com/2019/11/12/leetcode/832-Flipping-an-Image/index.html">
+<meta property="og:title" content=" Longest String Chain">
+<meta property="og:url" content="http://yoursite.com/2020/06/02/Longest-String-Chain/index.html">
 <meta property="og:site_name" content="IAM.CZH">
-<meta property="og:description" content="Answer12345678910111213141516171819202122// 复杂度: O(NM) N,M分别为行列数class Solution &amp;#123;public:    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; flipAndInvertImage(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; A) &amp;#123;">
+<meta property="og:description" content="Answer12">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-12T14:53:43.737Z">
+<meta property="og:updated_time" content="2020-06-02T14:59:59.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="832. Flipping an Image">
-<meta name="twitter:description" content="Answer12345678910111213141516171819202122// 复杂度: O(NM) N,M分别为行列数class Solution &amp;#123;public:    vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; flipAndInvertImage(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; A) &amp;#123;">
+<meta name="twitter:title" content=" Longest String Chain">
+<meta name="twitter:description" content="Answer12">
 
 
 
@@ -105,7 +105,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/11/12/leetcode/832-Flipping-an-Image/">
+  <link rel="canonical" href="http://yoursite.com/2020/06/02/Longest-String-Chain/">
 
 
 
@@ -115,7 +115,7 @@
   };
 </script>
 
-  <title>832. Flipping an Image | IAM.CZH</title>
+  <title> Longest String Chain | IAM.CZH</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/12/leetcode/832-Flipping-an-Image/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/02/Longest-String-Chain/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -377,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">832. Flipping an Image
+          <h1 class="post-title" itemprop="name headline"> Longest String Chain
 
               
             
@@ -403,13 +403,9 @@
                 
               
 
-              <time title="Created: 2019-11-12 23:53:24 / Modified: 23:53:43" itemprop="dateCreated datePublished" datetime="2019-11-12T23:53:24+09:00">2019-11-12</time>
+              <time title="Created: 2020-06-02 23:59:59" itemprop="dateCreated datePublished" datetime="2020-06-02T23:59:59+09:00">2020-06-02</time>
             
 
-            
-              
-
-              
             
           </span>
 
@@ -432,7 +428,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a></span>
 
                 
                 
@@ -467,7 +463,7 @@
       
 
       
-        <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 复杂度: O(NM) N,M分别为行列数</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; flipAndInvertImage(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; A) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = A.size();</span><br><span class="line">        <span class="keyword">int</span> m = A[<span class="number">0</span>].size();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmpRow = A[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (m+<span class="number">1</span>)/<span class="number">2</span>; ++j) &#123;</span><br><span class="line">                swap(A[i][j], A[i][m-j<span class="number">-1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; ++j) </span><br><span class="line">                A[i][j] = <span class="number">1</span> - A[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> A;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
       
@@ -497,7 +493,7 @@
           
             <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           
-            <a href="/tags/Array/" rel="tag"># Array</a>
+            <a href="/tags/DP/" rel="tag"># DP</a>
           
         </div>
       
@@ -510,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/11/leetcode/1085-Sum-of-Digits-in-the-Minimum-Number/" rel="next" title="1085. Sum of Digits in the Minimum Number">
-                <i class="fa fa-chevron-left"></i> 1085. Sum of Digits in the Minimum Number
+              <a href="/2020/05/30/House-Robber-II/" rel="next" title="House Robber II">
+                <i class="fa fa-chevron-left"></i> House Robber II
               </a>
             
           </div>
@@ -519,10 +515,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/13/leetcode/905-Sort-Array-By-Parity/" rel="prev" title="905. Sort Array By Parity">
-                905. Sort Array By Parity <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
