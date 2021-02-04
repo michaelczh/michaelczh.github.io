@@ -9,7 +9,7 @@ categories:
 date: 2021-02-04 21:42:50
 ---
 
-#### Link
+#### Description
 
 [Link](https://leetcode.com/tag/bit-manipulation/)
 
