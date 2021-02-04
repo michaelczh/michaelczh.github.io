@@ -3,27 +3,12 @@
   <entry>
     <title><![CDATA[Find the Difference]]></title>
     <url>%2F2021%2F02%2F04%2FFind-the-Difference%2F</url>
-    <content type="text"><![CDATA[Answer12]]></content>
+    <content type="text"><![CDATA[LinkLink Answer这道题目给定了两个字符串，t比s多一个字符，要求找出这个字符是什么。自己做的时候用的是Map，我们可以把t的字符全部存起来，并且储存他们的数量。然后再遍历一遍s.把Map里的元素再一一删除，最后剩下的那个便是答案。 当然也可以反过来，储存s遍历t。假设找不到的话就是目前的答案。 123456789101112131415161718class Solution &#123;public: char findTheDifference(string s, string t) &#123; unordered_map&lt;char, int&gt; m; for(auto c: t) &#123; m[c]++; &#125; for(auto c: s) &#123; if (!m.count(c)) return c; m[c]--; if (m[c] == 0) &#123; m.erase(c); &#125; &#125; return m.begin()-&gt;first;; &#125;&#125;; 时间复杂度是O(N)，空间复杂度也是O(N)。看了论坛里的后发现了一种空间复杂度是O(1)的方法。利用了异或的性质。 1234567891011121314151617class Solution &#123;public: char findTheDifference(string s, string t) &#123; char res = 0; for(auto c: t) &#123; res ^= c; &#125; for(auto c: s) &#123; res ^= c; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
-        <category>DP</category>
       </categories>
       <tags>
         <tag>Leetcode</tag>
-        <tag>DP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Longest String Chain]]></title>
-    <url>%2F2020%2F06%2F02%2FLongest-String-Chain%2F</url>
-    <content type="text"><![CDATA[Answer12]]></content>
-      <categories>
-        <category>Leetcode Easy</category>
-        <category>DP</category>
-      </categories>
-      <tags>
-        <tag>Leetcode</tag>
-        <tag>DP</tag>
       </tags>
   </entry>
   <entry>
