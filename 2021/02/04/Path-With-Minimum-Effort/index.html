@@ -86,13 +86,18 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="IAM.CZH">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="DescriptionLink题目要求从最左上角走到最右下角，找到一条路可以使得每一步的差的值的最大的最小值。 Answer 1没有做出来，看了答案用了dijkstra算法。设置一个 $m*n$ 的数组dist，表示每一个元素到$(0, 0)$的阶段d的最大差值。初始化都设为INT_MAX.  设置一个pq, 把最左上角的点推入，设置距离为0， 循环这个pq，我们要优先考虑d最小的元素，因为只有从">
+<meta name="keywords" content="Leetcode,Dijkstra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Path With Minimum Effort">
+<meta property="og:url" content="http://yoursite.com/2021/02/04/Path-With-Minimum-Effort/index.html">
 <meta property="og:site_name" content="IAM.CZH">
+<meta property="og:description" content="DescriptionLink题目要求从最左上角走到最右下角，找到一条路可以使得每一步的差的值的最大的最小值。 Answer 1没有做出来，看了答案用了dijkstra算法。设置一个 $m*n$ 的数组dist，表示每一个元素到$(0, 0)$的阶段d的最大差值。初始化都设为INT_MAX.  设置一个pq, 把最左上角的点推入，设置距离为0， 循环这个pq，我们要优先考虑d最小的元素，因为只有从">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-02-04T13:08:27.509Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IAM.CZH">
+<meta name="twitter:title" content="Path With Minimum Effort">
+<meta name="twitter:description" content="DescriptionLink题目要求从最左上角走到最右下角，找到一条路可以使得每一步的差的值的最大的最小值。 Answer 1没有做出来，看了答案用了dijkstra算法。设置一个 $m*n$ 的数组dist，表示每一个元素到$(0, 0)$的阶段d的最大差值。初始化都设为INT_MAX.  设置一个pq, 把最左上角的点推入，设置距离为0， 循环这个pq，我们要优先考虑d最小的元素，因为只有从">
 
 
 
@@ -100,7 +105,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/archives/page/3/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/04/Path-With-Minimum-Effort/">
 
 
 
@@ -110,7 +115,7 @@
   };
 </script>
 
-  <title>Archive | IAM.CZH</title>
+  <title>Path With Minimum Effort | IAM.CZH</title>
   
 
 
@@ -158,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -264,7 +269,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -293,28 +298,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -361,401 +344,211 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/04/Path-With-Minimum-Effort/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">Path With Minimum Effort
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-04 22:05:11 / Modified: 22:08:27" itemprop="dateCreated datePublished" datetime="2021-02-04T22:05:11+09:00">2021-02-04</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        Nice! 77 posts in total. Keep on posting.
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Medium/" itemprop="url" rel="index"><span itemprop="name">Leetcode Medium</span></a></span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/01/14/leetcode/Longest-Continuous-Increasing-Subsequence/" itemprop="url">
-            
-              <span itemprop="name">Longest Continuous Increasing Subsequence</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-14T21:32:01+09:00" content="2020-01-14">
-          01-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/01/13/leetcode/Maximum-Subarray/" itemprop="url">
-            
-              <span itemprop="name">Maximum Subarray</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-13T21:43:52+09:00" content="2020-01-13">
-          01-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/01/11/leetcode/Pascal-s-Triangle-II/" itemprop="url">
-            
-              <span itemprop="name">Pascal's Triangle II</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-11T22:48:44+09:00" content="2020-01-11">
-          01-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/01/09/leetcode/Remove-Element/" itemprop="url">
-            
-              <span itemprop="name">Remove Element</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-09T22:40:32+09:00" content="2020-01-09">
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/01/09/leetcode/Number-of-Equivalent-Domino-Pairs/" itemprop="url">
-            
-              <span itemprop="name">Number of Equivalent Domino Pairs</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-09T22:27:20+09:00" content="2020-01-09">
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/01/09/leetcode/Pairs-of-Songs-With-Total-Durations-Divisible-by-60/" itemprop="url">
-            
-              <span itemprop="name">Pairs of Songs With Total Durations Divisible by 60</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-09T22:05:55+09:00" content="2020-01-09">
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/01/01/leetcode/Array-Easy-Check-If-It-Is-a-Straight-Line/" itemprop="url">
-            
-              <span itemprop="name">[Array][Easy] Check If It Is a Straight Line</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-01-01T17:28:38+09:00" content="2020-01-01">
-          01-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/12/27/leetcode/830-Positions-of-Large-Groups/" itemprop="url">
             
-              <span itemprop="name">830. Positions of Large Groups</span>
             
-          </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-27T17:13:30+09:00" content="2019-12-27">
-          12-27
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
 
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p><a href="https://leetcode.com/problems/path-with-minimum-effort/" target="_blank" rel="noopener">Link</a><br>题目要求从最左上角走到最右下角，找到一条路可以使得每一步的差的值的最大的最小值。</p>
+<h4 id="Answer-1"><a href="#Answer-1" class="headerlink" title="Answer 1"></a>Answer 1</h4><p>没有做出来，看了答案用了dijkstra算法。<br>设置一个 $m*n$ 的数组<code>dist</code>，表示每一个元素到$(0, 0)$的阶段<br><code>d</code>的最大差值。初始化都设为<code>INT_MAX</code>.</p>
+<ol>
+<li>设置一个<code>pq</code>, 把最左上角的点推入，设置距离为0，</li>
+<li>循环这个<code>pq</code>，我们要优先考虑<code>d</code>最小的元素，因为只有从最小找才有可能找到最小的最大<code>d</code>.</li>
+<li>到遍历到一个点的时候，我们看它的四周的四个点，计算他们的阶段差<code>d</code>, 如果小于数组<code>dist</code>则更新目前的值，并把他们加入到<code>pq</code>中。</li>
+</ol>
+<p>其实<code>pq</code>里面取出来的第一个的点是最有可能是答案要求的最优解，我们找到有可能的最优解，并且去遍历他们的身边的四个点来更新四个点的距离信息，并且加入到<code>pq</code>中，假设周边四个点突然出现了很大的抖动，那么<code>pq</code>就会把他们滞后，而开始遍历其它的点。如果把所有的点都遍历完，那么最后<code>dist</code>里面所储存的就是初始点到每一个点的最优解。</p>
+<p>空间复杂度: $O(MN)$<br>时间复杂度: $O(MN)$</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minimumEffortPath</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; heights)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> dirs[<span class="number">5</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> n = heights.size();</span><br><span class="line">    <span class="keyword">int</span> m = heights[<span class="number">0</span>].size();</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; dist(n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(m, INT_MAX));        </span><br><span class="line">    priority_queue&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;, <span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&gt;, greater&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt;&gt; pq;</span><br><span class="line"></span><br><span class="line">    pq.push(pair&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!pq.empty()) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> d = pq.top().first, r = pq.top().second/<span class="number">100</span>, c = pq.top().second%<span class="number">100</span>;</span><br><span class="line">        pq.pop();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (d &gt; dist[r][c]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (r == n<span class="number">-1</span> &amp;&amp; c == m<span class="number">-1</span> ) <span class="keyword">return</span> d;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; ++i) &#123;</span><br><span class="line">            <span class="keyword">int</span> nr = r+dirs[i], nc = c+dirs[i+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (nr &gt;= <span class="number">0</span> &amp;&amp; nc &gt;=<span class="number">0</span> &amp;&amp; nr &lt; n &amp;&amp; nc &lt; m) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">int</span> newDist = max(d, <span class="built_in">abs</span>(heights[r][c]-heights[nr][nc]));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (newDist &lt; dist[nr][nc]) &#123;</span><br><span class="line">                    dist[nr][nc] = newDist;</span><br><span class="line"></span><br><span class="line">                    pq.push(make_pair(newDist, nr*<span class="number">100</span>+nc));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/12/26/leetcode/746-Min-Cost-Climbing-Stairs/" itemprop="url">
-            
-              <span itemprop="name">746. Min Cost Climbing Stairs</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-26T22:05:06+09:00" content="2019-12-26">
-          12-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/12/26/leetcode/121-Best-Time-to-Buy-and-Sell-Stock/" itemprop="url">
-            
-              <span itemprop="name">121. Best Time to Buy and Sell Stock</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-12-26T09:41:41+09:00" content="2019-12-26">
-          12-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
+          
+            <a href="/tags/Dijkstra/" rel="tag"># Dijkstra</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/02/04/Find-the-Difference/" rel="next" title="Find the Difference">
+                <i class="fa fa-chevron-left"></i> Find the Difference
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="extend next" rel="next" href="/archives/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -775,8 +568,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -922,6 +724,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer-1"><span class="nav-number">2.</span> <span class="nav-text">Answer 1</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1075,6 +894,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
 
   
 
@@ -1090,6 +913,37 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '9d0557ccdbe194332b3a',
+    clientSecret: 'dafb2bb8abbf9cb1585ee0f8a1ea58d9e97f0300',
+    repo: 'michaelczh.github.io',
+    owner: 'michaelczh',
+    admin: ['michaelczh'],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
 
