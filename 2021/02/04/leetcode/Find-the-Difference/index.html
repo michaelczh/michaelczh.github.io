@@ -86,18 +86,18 @@
 
 
 
-  <meta name="description" content="Answer也不知道用DP是什么意思。 123456789101112131415class Solution &amp;#123;public:    bool isSubsequence(string s, string t) &amp;#123;        if (s.size() == 0 &amp;amp;&amp;amp; t.size() == 0) return true;                in">
-<meta name="keywords" content="Leetcode,DP">
+  <meta name="description" content="DescriptionLink Answer这道题目给定了两个字符串，t比s多一个字符，要求找出这个字符是什么。自己做的时候用的是Map，我们可以把t的字符全部存起来，并且储存他们的数量。然后再遍历一遍s.把Map里的元素再一一删除，最后剩下的那个便是答案。 当然也可以反过来，储存s遍历t。假设找不到的话就是目前的答案。 123456789101112131415161718class Solut">
+<meta name="keywords" content="Leetcode,Hash Table,Bit Manipulation">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Is Subsequence">
-<meta property="og:url" content="http://yoursite.com/2020/02/16/Is-Subsequence/index.html">
+<meta property="og:title" content="Find the Difference">
+<meta property="og:url" content="http://yoursite.com/2021/02/04/leetcode/Find-the-Difference/index.html">
 <meta property="og:site_name" content="IAM.CZH">
-<meta property="og:description" content="Answer也不知道用DP是什么意思。 123456789101112131415class Solution &amp;#123;public:    bool isSubsequence(string s, string t) &amp;#123;        if (s.size() == 0 &amp;amp;&amp;amp; t.size() == 0) return true;                in">
+<meta property="og:description" content="DescriptionLink Answer这道题目给定了两个字符串，t比s多一个字符，要求找出这个字符是什么。自己做的时候用的是Map，我们可以把t的字符全部存起来，并且储存他们的数量。然后再遍历一遍s.把Map里的元素再一一删除，最后剩下的那个便是答案。 当然也可以反过来，储存s遍历t。假设找不到的话就是目前的答案。 123456789101112131415161718class Solut">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-16T08:04:49.310Z">
+<meta property="og:updated_time" content="2021-02-04T13:10:06.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Is Subsequence">
-<meta name="twitter:description" content="Answer也不知道用DP是什么意思。 123456789101112131415class Solution &amp;#123;public:    bool isSubsequence(string s, string t) &amp;#123;        if (s.size() == 0 &amp;amp;&amp;amp; t.size() == 0) return true;                in">
+<meta name="twitter:title" content="Find the Difference">
+<meta name="twitter:description" content="DescriptionLink Answer这道题目给定了两个字符串，t比s多一个字符，要求找出这个字符是什么。自己做的时候用的是Map，我们可以把t的字符全部存起来，并且储存他们的数量。然后再遍历一遍s.把Map里的元素再一一删除，最后剩下的那个便是答案。 当然也可以反过来，储存s遍历t。假设找不到的话就是目前的答案。 123456789101112131415161718class Solut">
 
 
 
@@ -105,7 +105,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/02/16/Is-Subsequence/">
+  <link rel="canonical" href="http://yoursite.com/2021/02/04/leetcode/Find-the-Difference/">
 
 
 
@@ -115,7 +115,7 @@
   };
 </script>
 
-  <title>Is Subsequence | IAM.CZH</title>
+  <title>Find the Difference | IAM.CZH</title>
   
 
 
@@ -360,7 +360,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/16/Is-Subsequence/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/04/leetcode/Find-the-Difference/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -377,7 +377,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Is Subsequence
+          <h1 class="post-title" itemprop="name headline">Find the Difference
 
               
             
@@ -403,7 +403,7 @@
                 
               
 
-              <time title="Created: 2020-02-16 17:04:28 / Modified: 17:04:49" itemprop="dateCreated datePublished" datetime="2020-02-16T17:04:28+09:00">2020-02-16</time>
+              <time title="Created: 2021-02-04 21:42:50 / Modified: 22:10:06" itemprop="dateCreated datePublished" datetime="2021-02-04T21:42:50+09:00">2021-02-04</time>
             
 
             
@@ -426,13 +426,6 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/" itemprop="url" rel="index"><span itemprop="name">Leetcode Easy</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a></span>
 
                 
                 
@@ -467,8 +460,13 @@
       
 
       
-        <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>也不知道用DP是什么意思。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSubsequence</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (s.size() == <span class="number">0</span> &amp;&amp; t.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; t.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t[i] == s[j]) ++j;</span><br><span class="line">            <span class="keyword">if</span> (j == n) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p><a href="https://leetcode.com/tag/bit-manipulation/" target="_blank" rel="noopener">Link</a></p>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>这道题目给定了两个字符串，<code>t</code>比<code>s</code>多一个字符，要求找出这个字符是什么。<br>自己做的时候用的是<code>Map</code>，我们可以把<code>t</code>的字符全部存起来，并且储存他们的数量。然后再遍历一遍<code>s</code>.<br>把<code>Map</code>里的元素再一一删除，最后剩下的那个便是答案。</p>
+<p>当然也可以反过来，储存<code>s</code>遍历<code>t</code>。假设找不到的话就是目前的答案。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">findTheDifference</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; m;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: t) &#123;</span><br><span class="line">            m[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: s) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!m.count(c)) <span class="keyword">return</span> c;</span><br><span class="line">            m[c]--;</span><br><span class="line">            <span class="keyword">if</span> (m[c] == <span class="number">0</span>) &#123;</span><br><span class="line">                m.erase(c);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> m.begin()-&gt;first;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度是<code>O(N)</code>，空间复杂度也是<code>O(N)</code>。看了论坛里的后发现了一种空间复杂度是<code>O(1)</code>的方法。<br>利用了异或的性质。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">char</span> <span class="title">findTheDifference</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">char</span> res = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: t) &#123;</span><br><span class="line">            res ^= c;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: s) &#123;</span><br><span class="line">            res ^= c;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -498,7 +496,9 @@
           
             <a href="/tags/Leetcode/" rel="tag"># Leetcode</a>
           
-            <a href="/tags/DP/" rel="tag"># DP</a>
+            <a href="/tags/Hash-Table/" rel="tag"># Hash Table</a>
+          
+            <a href="/tags/Bit-Manipulation/" rel="tag"># Bit Manipulation</a>
           
         </div>
       
@@ -511,8 +511,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/14/Paint-House/" rel="next" title="Paint House">
-                <i class="fa fa-chevron-left"></i> Paint House
+              <a href="/2020/05/30/leetcode/House-Robber-II/" rel="next" title="House Robber II">
+                <i class="fa fa-chevron-left"></i> House Robber II
               </a>
             
           </div>
@@ -521,8 +521,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/05/30/House-Robber-II/" rel="prev" title="House Robber II">
-                House Robber II <i class="fa fa-chevron-right"></i>
+              <a href="/2021/02/04/leetcode/Path-With-Minimum-Effort/" rel="prev" title="Path With Minimum Effort">
+                Path With Minimum Effort <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -738,7 +738,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">1.</span> <span class="nav-text">Answer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Answer"><span class="nav-number">2.</span> <span class="nav-text">Answer</span></a></li></ol></div>
             
 
           </div>

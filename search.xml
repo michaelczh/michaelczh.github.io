@@ -2,8 +2,8 @@
 <search>
   <entry>
     <title><![CDATA[Path With Minimum Effort]]></title>
-    <url>%2F2021%2F02%2F04%2FPath-With-Minimum-Effort%2F</url>
-    <content type="text"><![CDATA[DescriptionLink题目要求从最左上角走到最右下角，找到一条路可以使得每一步的差的值的最大的最小值。 Answer 1没有做出来，看了答案用了dijkstra算法。设置一个 $m*n$ 的数组dist，表示每一个元素到$(0, 0)$的阶段d的最大差值。初始化都设为INT_MAX. 设置一个pq, 把最左上角的点推入，设置距离为0， 循环这个pq，我们要优先考虑d最小的元素，因为只有从最小找才有可能找到最小的最大d. 到遍历到一个点的时候，我们看它的四周的四个点，计算他们的阶段差d, 如果小于数组dist则更新目前的值，并把他们加入到pq中。 其实pq里面取出来的第一个的点是最有可能是答案要求的最优解，我们找到有可能的最优解，并且去遍历他们的身边的四个点来更新四个点的距离信息，并且加入到pq中，假设周边四个点突然出现了很大的抖动，那么pq就会把他们滞后，而开始遍历其它的点。如果把所有的点都遍历完，那么最后dist里面所储存的就是初始点到每一个点的最优解。 空间复杂度: $O(MN)$时间复杂度: $O(MN)$ 12345678910111213141516171819202122232425262728293031323334353637int minimumEffortPath(vector&lt;vector&lt;int&gt;&gt;&amp; heights) &#123; int dirs[5] = &#123;-1, 0, 1, 0, -1&#125;; int n = heights.size(); int m = heights[0].size(); vector&lt;vector&lt;int&gt;&gt; dist(n, vector&lt;int&gt;(m, INT_MAX)); priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int, int&gt;&gt;&gt; pq; pq.push(pair&#123;0, 0&#125;); while(!pq.empty()) &#123; int d = pq.top().first, r = pq.top().second/100, c = pq.top().second%100; pq.pop(); if (d &gt; dist[r][c]) continue; if (r == n-1 &amp;&amp; c == m-1 ) return d; for(int i = 0; i &lt; 4; ++i) &#123; int nr = r+dirs[i], nc = c+dirs[i+1]; if (nr &gt;= 0 &amp;&amp; nc &gt;=0 &amp;&amp; nr &lt; n &amp;&amp; nc &lt; m) &#123; int newDist = max(d, abs(heights[r][c]-heights[nr][nc])); if (newDist &lt; dist[nr][nc]) &#123; dist[nr][nc] = newDist; pq.push(make_pair(newDist, nr*100+nc)); &#125; &#125; &#125; &#125; return 0;&#125;]]></content>
+    <url>%2F2021%2F02%2F04%2Fleetcode%2FPath-With-Minimum-Effort%2F</url>
+    <content type="text"><![CDATA[DescriptionLink题目要求从最左上角走到最右下角，找到一条路可以使得每一步的差的值的最大的最小值。 Answer 1没有做出来，看了答案用了dijkstra算法。设置一个 $m*n$ 的数组dist，表示每一个元素到$(0, 0)$的阶段d的最大差值。初始化都设为INT_MAX. 设置一个pq, 把最左上角的点推入，设置距离为0， 循环这个pq，我们要优先考虑d最小的元素，因为只有从最小找才有可能找到最小的最大d. 到遍历到一个点的时候，我们看它的四周的四个点，计算他们的阶段差d, 如果小于数组dist则更新目前的值，并把他们加入到pq中。 其实pq里面取出来的第一个的点是最有可能是答案要求的最优解，我们找到有可能的最优解，并且去遍历他们的身边的四个点来更新四个点的距离信息，并且加入到pq中，假设周边四个点突然出现了很大的抖动，那么pq就会把他们滞后，而开始遍历其它的点。如果把所有的点都遍历完，那么最后dist里面所储存的就是初始点到每一个点的最优解。 空间复杂度: O(MN)时间复杂度: O(MN) 12345678910111213141516171819202122232425262728293031323334353637int minimumEffortPath(vector&lt;vector&lt;int&gt;&gt;&amp; heights) &#123; int dirs[5] = &#123;-1, 0, 1, 0, -1&#125;; int n = heights.size(); int m = heights[0].size(); vector&lt;vector&lt;int&gt;&gt; dist(n, vector&lt;int&gt;(m, INT_MAX)); priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int, int&gt;&gt;&gt; pq; pq.push(pair&#123;0, 0&#125;); while(!pq.empty()) &#123; int d = pq.top().first, r = pq.top().second/100, c = pq.top().second%100; pq.pop(); if (d &gt; dist[r][c]) continue; if (r == n-1 &amp;&amp; c == m-1 ) return d; for(int i = 0; i &lt; 4; ++i) &#123; int nr = r+dirs[i], nc = c+dirs[i+1]; if (nr &gt;= 0 &amp;&amp; nc &gt;=0 &amp;&amp; nr &lt; n &amp;&amp; nc &lt; m) &#123; int newDist = max(d, abs(heights[r][c]-heights[nr][nc])); if (newDist &lt; dist[nr][nc]) &#123; dist[nr][nc] = newDist; pq.push(make_pair(newDist, nr*100+nc)); &#125; &#125; &#125; &#125; return 0;&#125;]]></content>
       <categories>
         <category>Leetcode Medium</category>
       </categories>
@@ -14,8 +14,8 @@
   </entry>
   <entry>
     <title><![CDATA[Find the Difference]]></title>
-    <url>%2F2021%2F02%2F04%2FFind-the-Difference%2F</url>
-    <content type="text"><![CDATA[LinkLink Answer这道题目给定了两个字符串，t比s多一个字符，要求找出这个字符是什么。自己做的时候用的是Map，我们可以把t的字符全部存起来，并且储存他们的数量。然后再遍历一遍s.把Map里的元素再一一删除，最后剩下的那个便是答案。 当然也可以反过来，储存s遍历t。假设找不到的话就是目前的答案。 123456789101112131415161718class Solution &#123;public: char findTheDifference(string s, string t) &#123; unordered_map&lt;char, int&gt; m; for(auto c: t) &#123; m[c]++; &#125; for(auto c: s) &#123; if (!m.count(c)) return c; m[c]--; if (m[c] == 0) &#123; m.erase(c); &#125; &#125; return m.begin()-&gt;first;; &#125;&#125;; 时间复杂度是O(N)，空间复杂度也是O(N)。看了论坛里的后发现了一种空间复杂度是O(1)的方法。利用了异或的性质。 1234567891011121314151617class Solution &#123;public: char findTheDifference(string s, string t) &#123; char res = 0; for(auto c: t) &#123; res ^= c; &#125; for(auto c: s) &#123; res ^= c; &#125; return res; &#125;&#125;;]]></content>
+    <url>%2F2021%2F02%2F04%2Fleetcode%2FFind-the-Difference%2F</url>
+    <content type="text"><![CDATA[DescriptionLink Answer这道题目给定了两个字符串，t比s多一个字符，要求找出这个字符是什么。自己做的时候用的是Map，我们可以把t的字符全部存起来，并且储存他们的数量。然后再遍历一遍s.把Map里的元素再一一删除，最后剩下的那个便是答案。 当然也可以反过来，储存s遍历t。假设找不到的话就是目前的答案。 123456789101112131415161718class Solution &#123;public: char findTheDifference(string s, string t) &#123; unordered_map&lt;char, int&gt; m; for(auto c: t) &#123; m[c]++; &#125; for(auto c: s) &#123; if (!m.count(c)) return c; m[c]--; if (m[c] == 0) &#123; m.erase(c); &#125; &#125; return m.begin()-&gt;first;; &#125;&#125;; 时间复杂度是O(N)，空间复杂度也是O(N)。看了论坛里的后发现了一种空间复杂度是O(1)的方法。利用了异或的性质。 1234567891011121314151617class Solution &#123;public: char findTheDifference(string s, string t) &#123; char res = 0; for(auto c: t) &#123; res ^= c; &#125; for(auto c: s) &#123; res ^= c; &#125; return res; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
       </categories>
@@ -27,7 +27,7 @@
   </entry>
   <entry>
     <title><![CDATA[House Robber II]]></title>
-    <url>%2F2020%2F05%2F30%2FHouse-Robber-II%2F</url>
+    <url>%2F2020%2F05%2F30%2Fleetcode%2FHouse-Robber-II%2F</url>
     <content type="text"><![CDATA[Explanation主要是dp的定义。因为不能同时偷取第一个和最后一个房子所以我们可以定义两个dp第一个dp是代表从第一个屋子开始偷第二个dp是代表从第二个屋子开始偷。 DP的定义为 dp[i]: 偷取前i个屋子(nums[0,i))的最大效益 dp[i] = max ( dp[i-1], dp[i-2] + nums[i-1] ) // 比较 偷取当前屋子和不偷取当前屋子的最大效益 在最近比较的时候，对于从第一个屋开始偷的，我们比较n-1的结果。和从第二个屋子开始偷的，我们计算到最后一个屋子就行。 Answer1234567891011121314151617181920212223242526272829class Solution &#123;public: int rob(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); if (n == 0) return 0; if ( n == 1 ) return nums[0]; vector&lt;int&gt; dpFirst(n+1, 0); // d[i] represents rob [0,i) houses vector&lt;int&gt; dpSecond(n+1, 0); dpFirst[0] = 0; dpFirst[1] = nums[0]; dpSecond[0] = 0; dpSecond[1] = 0; for(int i = 2; i &lt;= n; ++i) &#123; dpFirst[i] = max(dpFirst[i-1], dpFirst[i-2] + nums[i-1]); dpSecond[i] = max(dpSecond[i-1], dpSecond[i-2] + nums[i-1]); &#125; return max(dpFirst[n-1], dpSecond[n]); &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Medium</category>
@@ -40,7 +40,7 @@
   </entry>
   <entry>
     <title><![CDATA[Is Subsequence]]></title>
-    <url>%2F2020%2F02%2F16%2FIs-Subsequence%2F</url>
+    <url>%2F2020%2F02%2F16%2Fleetcode%2FIs-Subsequence%2F</url>
     <content type="text"><![CDATA[Answer也不知道用DP是什么意思。 123456789101112131415class Solution &#123;public: bool isSubsequence(string s, string t) &#123; if (s.size() == 0 &amp;&amp; t.size() == 0) return true; int n = s.size(); int j = 0; for(int i = 0; i &lt; t.size(); ++i) &#123; if (t[i] == s[j]) ++j; if (j == n) return true; &#125; return false; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -53,7 +53,7 @@
   </entry>
   <entry>
     <title><![CDATA[Paint House]]></title>
-    <url>%2F2020%2F02%2F14%2FPaint-House%2F</url>
+    <url>%2F2020%2F02%2F14%2Fleetcode%2FPaint-House%2F</url>
     <content type="text"><![CDATA[Answer很简单的一道DP问题了，做DP应该都需要先设定DP的定义吧。这边的 dp[i][j] 的定义是如果第i个房子需要刷j类型的颜色最少是多少钱。因为数组可以用一维的所以改成一维的。 1234567891011121314151617181920class Solution &#123;public: int minCost(vector&lt;vector&lt;int&gt;&gt;&amp; costs) &#123; int n = costs.size(); if (n == 0) return 0; vector&lt;int&gt; dp = costs[0]; for(int i = 1; i &lt; n; ++i) &#123; vector&lt;int&gt; tmp = vector&lt;int&gt;(3,0); tmp[0] = costs[i][0] + min(dp[1], dp[2]); tmp[1] = costs[i][1] + min(dp[0], dp[2]); tmp[2] = costs[i][2] + min(dp[0], dp[1]); dp = tmp; &#125; return min(min(dp[0],dp[1]), dp[2]); &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
@@ -66,7 +66,7 @@
   </entry>
   <entry>
     <title><![CDATA[Can Place Flowers]]></title>
-    <url>%2F2020%2F01%2F23%2FCan-Place-Flowers%2F</url>
+    <url>%2F2020%2F01%2F23%2Fleetcode%2FCan-Place-Flowers%2F</url>
     <content type="text"><![CDATA[Answer12345678910111213141516171819class Solution &#123;public: bool canPlaceFlowers(vector&lt;int&gt;&amp; flowerbed, int k) &#123; int n = flowerbed.size(); int res = 0; for(int i = 0; i &lt; n &amp;&amp; res &lt; k; ++i) &#123; int next = (i == n-1) ? 0 : flowerbed[i+1]; int before = (i == 0) ? 0 :flowerbed[i-1]; if (next == 0 &amp;&amp; before == 0 &amp;&amp; flowerbed[i] == 0) &#123; res++; flowerbed[i] = 1; &#125; &#125; return res == k; &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode Easy</category>
