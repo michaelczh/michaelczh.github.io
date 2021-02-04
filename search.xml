@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Find the Difference]]></title>
+    <url>%2F2021%2F02%2F04%2FFind-the-Difference%2F</url>
+    <content type="text"><![CDATA[Answer12]]></content>
+      <categories>
+        <category>Leetcode Easy</category>
+        <category>DP</category>
+      </categories>
+      <tags>
+        <tag>Leetcode</tag>
+        <tag>DP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Longest String Chain]]></title>
     <url>%2F2020%2F06%2F02%2FLongest-String-Chain%2F</url>
     <content type="text"><![CDATA[Answer12]]></content>
