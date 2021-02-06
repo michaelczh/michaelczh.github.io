@@ -356,6 +356,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/06/Minimum-Window-Substring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2021/02/06/Minimum-Window-Substring/" class="post-title-link" itemprop="url">Minimum Window Substring</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-06 12:55:01 / Modified: 13:09:17" itemprop="dateCreated datePublished" datetime="2021-02-06T12:55:01+09:00">2021-02-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank" rel="noopener">Link</a></p>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>给定两个字符串<code>s</code>和<code>t</code>。要求返回包含<code>t</code>所有字符的<code>s</code>的最段子字符串。<br>主要思路是用<code>sliding window</code>来做。<br>思路是保持一个窗口，首先我们移动移动窗口的尾部使得能够包含<code>t</code>的所有字符，当我们找到之后，我们通过推进窗口的开始位置来求的最优解。</p>
+<p>我们用一个变量<code>reuqired</code>来表示目前window内还需要匹配到多少字符才能符合题目要求。<br>我们再用一个<code>remaining</code>数组来表示<code>t</code>中每个字符的个数。</p>
+<p>我们遍历<code>s</code>字符串的每一个字符<code>c</code></p>
+<ol>
+<li><p>假设required不为0，我们需要延长窗口的大小，并且–<code>remaining</code>里的字符<code>c</code>，假设原来<code>s</code>就不包含<code>c</code>这个字符，那么–的结果就是负的。<br>因此如果–之后的结果是<code>&gt;=0</code>就代表我们找到了需要的字符，因此<code>required--</code></p>
+</li>
+<li><p>假设required为0，代表我们窗口内以及包含了所有我们需要的字符了，那我们可以尝试把窗口缩小，也就是窗口<code>start</code>的位置往前进，在往前进的过程中，我们需要把<code>remaining</code>里的相应字符给<code>++</code>, 如果<code>++</code>的结果是正数（如果<code>t</code>中不包含这个字符的话在上一步会是负数），代表我们需要的字符少了一个，那我们需要把<code>required++</code>代表下一次我们需要再重复第一个步骤来找到所需要的字符。</p>
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; remaining(<span class="number">128</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: t) remaining[c]++;</span><br><span class="line">        <span class="keyword">int</span> required = t.size();</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, i = <span class="number">0</span>, left = <span class="number">0</span>, minLen = INT_MAX;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// = 是为了防止在最后一位的时候刚好找到</span></span><br><span class="line">        <span class="keyword">while</span>(i &lt;= s.size() &amp;&amp; start &lt; s.size()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (required) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == s.size()) <span class="keyword">break</span>;</span><br><span class="line">                remaining[s[i]]--;</span><br><span class="line">                <span class="keyword">if</span> (remaining[s[i]] &gt;= <span class="number">0</span>) required--;</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> ( i - start &lt; minLen) &#123;</span><br><span class="line">                    minLen = i-start;</span><br><span class="line">                    left = start;</span><br><span class="line">                &#125;</span><br><span class="line">                remaining[s[start]]++;</span><br><span class="line">                <span class="keyword">if</span> (remaining[s[start]] &gt; <span class="number">0</span>) required++;</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minLen == INT_MAX ? <span class="string">""</span> : s.substr(left, minLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/04/leetcode/Path-With-Minimum-Effort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1923,175 +2095,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/20/leetcode/Merge-Sorted-Array/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CHEN ZHIHANG">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IAM.CZH">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/01/20/leetcode/Merge-Sorted-Array/" class="post-title-link" itemprop="url">Merge Sorted Array</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-01-20 23:27:18 / Modified: 23:41:34" itemprop="dateCreated datePublished" datetime="2020-01-20T23:27:18+09:00">2020-01-20</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/" itemprop="url" rel="index"><span itemprop="name">Leetcode Easy</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode-Easy/Array/" itemprop="url" rel="index"><span itemprop="name">Array</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="keyword">int</span> m, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> k = m + n;</span><br><span class="line">        <span class="keyword">while</span>(m &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (nums1[m<span class="number">-1</span>] &gt; nums2[n<span class="number">-1</span>]) &#123;</span><br><span class="line">                nums1[--k] = nums1[--m];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                nums1[--k] = nums2[--n];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(k &gt; <span class="number">0</span> &amp;&amp; n &gt; <span class="number">0</span> ) nums1[--k] = nums2[--n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2140,7 +2143,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">77</span>
+                    <span class="site-state-item-count">78</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2173,7 +2176,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -2216,7 +2221,15 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

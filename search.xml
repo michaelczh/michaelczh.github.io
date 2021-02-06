@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Minimum Window Substring]]></title>
+    <url>%2F2021%2F02%2F06%2FMinimum-Window-Substring%2F</url>
+    <content type="text"><![CDATA[DescriptionLink Answer给定两个字符串s和t。要求返回包含t所有字符的s的最段子字符串。主要思路是用sliding window来做。思路是保持一个窗口，首先我们移动移动窗口的尾部使得能够包含t的所有字符，当我们找到之后，我们通过推进窗口的开始位置来求的最优解。 我们用一个变量reuqired来表示目前window内还需要匹配到多少字符才能符合题目要求。我们再用一个remaining数组来表示t中每个字符的个数。 我们遍历s字符串的每一个字符c 假设required不为0，我们需要延长窗口的大小，并且–remaining里的字符c，假设原来s就不包含c这个字符，那么–的结果就是负的。因此如果–之后的结果是&gt;=0就代表我们找到了需要的字符，因此required-- 假设required为0，代表我们窗口内以及包含了所有我们需要的字符了，那我们可以尝试把窗口缩小，也就是窗口start的位置往前进，在往前进的过程中，我们需要把remaining里的相应字符给++, 如果++的结果是正数（如果t中不包含这个字符的话在上一步会是负数），代表我们需要的字符少了一个，那我们需要把required++代表下一次我们需要再重复第一个步骤来找到所需要的字符。 1234567891011121314151617181920212223242526272829class Solution &#123;public: string minWindow(string s, string t) &#123; vector&lt;int&gt; remaining(128, 0); for(auto c: t) remaining[c]++; int required = t.size(); int start = 0, i = 0, left = 0, minLen = INT_MAX; // = 是为了防止在最后一位的时候刚好找到 while(i &lt;= s.size() &amp;&amp; start &lt; s.size()) &#123; if (required) &#123; if (i == s.size()) break; remaining[s[i]]--; if (remaining[s[i]] &gt;= 0) required--; ++i; &#125;else&#123; if ( i - start &lt; minLen) &#123; minLen = i-start; left = start; &#125; remaining[s[start]]++; if (remaining[s[start]] &gt; 0) required++; start++; &#125; &#125; return minLen == INT_MAX ? "" : s.substr(left, minLen); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Hash Table</tag>
+        <tag>Leetcode Hard</tag>
+        <tag>Sliding Window</tag>
+        <tag>Two Pointers</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Path With Minimum Effort]]></title>
     <url>%2F2021%2F02%2F04%2Fleetcode%2FPath-With-Minimum-Effort%2F</url>
     <content type="text"><![CDATA[DescriptionLink题目要求从最左上角走到最右下角，找到一条路可以使得每一步的差的值的最大的最小值。 Answer 1没有做出来，看了答案用了dijkstra算法。设置一个 $m*n$ 的数组dist，表示每一个元素到$(0, 0)$的阶段d的最大差值。初始化都设为INT_MAX. 设置一个pq, 把最左上角的点推入，设置距离为0， 循环这个pq，我们要优先考虑d最小的元素，因为只有从最小找才有可能找到最小的最大d. 到遍历到一个点的时候，我们看它的四周的四个点，计算他们的阶段差d, 如果小于数组dist则更新目前的值，并把他们加入到pq中。 其实pq里面取出来的第一个的点是最有可能是答案要求的最优解，我们找到有可能的最优解，并且去遍历他们的身边的四个点来更新四个点的距离信息，并且加入到pq中，假设周边四个点突然出现了很大的抖动，那么pq就会把他们滞后，而开始遍历其它的点。如果把所有的点都遍历完，那么最后dist里面所储存的就是初始点到每一个点的最优解。 空间复杂度: O(MN)时间复杂度: O(MN) 12345678910111213141516171819202122232425262728293031323334353637int minimumEffortPath(vector&lt;vector&lt;int&gt;&gt;&amp; heights) &#123; int dirs[5] = &#123;-1, 0, 1, 0, -1&#125;; int n = heights.size(); int m = heights[0].size(); vector&lt;vector&lt;int&gt;&gt; dist(n, vector&lt;int&gt;(m, INT_MAX)); priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;pair&lt;int, int&gt;&gt;&gt; pq; pq.push(pair&#123;0, 0&#125;); while(!pq.empty()) &#123; int d = pq.top().first, r = pq.top().second/100, c = pq.top().second%100; pq.pop(); if (d &gt; dist[r][c]) continue; if (r == n-1 &amp;&amp; c == m-1 ) return d; for(int i = 0; i &lt; 4; ++i) &#123; int nr = r+dirs[i], nc = c+dirs[i+1]; if (nr &gt;= 0 &amp;&amp; nc &gt;=0 &amp;&amp; nr &lt; n &amp;&amp; nc &lt; m) &#123; int newDist = max(d, abs(heights[r][c]-heights[nr][nc])); if (newDist &lt; dist[nr][nc]) &#123; dist[nr][nc] = newDist; pq.push(make_pair(newDist, nr*100+nc)); &#125; &#125; &#125; &#125; return 0;&#125;]]></content>
