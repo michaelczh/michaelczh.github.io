@@ -2,10 +2,10 @@
 title: {{ title }}
 date: {{ date }}
 tags:
-- Leetcode
+- Leetcode Easy
 - DP
 categories: 
-- Leetcode Easy
+- Leetcode
 
 ---
 
