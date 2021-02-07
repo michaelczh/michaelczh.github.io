@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Maximum Score From Removing Stones]]></title>
+    <url>%2F2021%2F02%2F07%2Fleetcode%2FMaximum-Score-From-Removing-Stones%2F</url>
+    <content type="text"><![CDATA[DescriptionLink有三个数，每一次操作我们可以选择任意两个数减，求最多能玩几次。 Answer这道题的策略应该是优先减少最大的和第二大的。因为如果从最小的开始减，那么游戏很快就会结束，例如1, 2, 10。每一次减少后，我们都回归求新的三个数的答案+1。 followUp：由于我们本质上是扣除最大和第二大的数，然后循环再一直求下去，因此我们可以一次性剪去多个数，只要能保证最大数和第二大数在减去该数之后还能保持第一大和第二大。 12345678910111213class Solution &#123;public: int maximumScore(int a, int b, int c) &#123; if (a &lt; b) return maximumScore(b, a, c); if (b &lt; c) return maximumScore(a, c, b); if (b == 0) return 0; int cnt = max(1, b-c); return cnt + maximumScore(a - cnt, b - cnt, c); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Leetcode Medium</tag>
+        <tag>Math</tag>
+        <tag>Heap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Check if Array Is Sorted and Rotated]]></title>
+    <url>%2F2021%2F02%2F07%2Fleetcode%2FCheck-if-Array-Is-Sorted-and-Rotated%2F</url>
+    <content type="text"><![CDATA[DescriptionLink Answer题目要求判断一个数列是否可以向右移动几位后是否可以变为全升序的。例如有一串数列 a1 &lt; a2 &lt; a3 &lt; a4 &gt; b1 &lt; b2 &lt; b3 &lt; b4，在b1的时候，是唯一一次不满足后面大于前面的。也就是说，如果该数列能移动几次就满足全升序的话，必须满足，前面比后面大出现的次数最多一次。由于最后一个数和最开始一个数是相连接的，因此我们还得判断最后一个数的第一个数的关系。 12345678910111213141516class Solution &#123;public: bool check(vector&lt;int&gt;&amp; nums) &#123; int n = nums.size(); int found = 0; for(int i = 0; i &lt; n; ++i) &#123; if (nums[i] &lt; nums[(i-1+n)%n]) &#123; found++; &#125; if (found &gt; 1) &#123; return false; &#125; &#125; return true; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Leetcode Easy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Minimum Window Substring]]></title>
-    <url>%2F2021%2F02%2F06%2FMinimum-Window-Substring%2F</url>
+    <url>%2F2021%2F02%2F06%2Fleetcode%2FMinimum-Window-Substring%2F</url>
     <content type="text"><![CDATA[DescriptionLink Answer给定两个字符串s和t。要求返回包含t所有字符的s的最段子字符串。主要思路是用sliding window来做。思路是保持一个窗口，首先我们移动移动窗口的尾部使得能够包含t的所有字符，当我们找到之后，我们通过推进窗口的开始位置来求的最优解。 我们用一个变量reuqired来表示目前window内还需要匹配到多少字符才能符合题目要求。我们再用一个remaining数组来表示t中每个字符的个数。 我们遍历s字符串的每一个字符c 假设required不为0，我们需要延长窗口的大小，并且–remaining里的字符c，假设原来s就不包含c这个字符，那么–的结果就是负的。因此如果–之后的结果是&gt;=0就代表我们找到了需要的字符，因此required-- 假设required为0，代表我们窗口内以及包含了所有我们需要的字符了，那我们可以尝试把窗口缩小，也就是窗口start的位置往前进，在往前进的过程中，我们需要把remaining里的相应字符给++, 如果++的结果是正数（如果t中不包含这个字符的话在上一步会是负数），代表我们需要的字符少了一个，那我们需要把required++代表下一次我们需要再重复第一个步骤来找到所需要的字符。 1234567891011121314151617181920212223242526272829class Solution &#123;public: string minWindow(string s, string t) &#123; vector&lt;int&gt; remaining(128, 0); for(auto c: t) remaining[c]++; int required = t.size(); int start = 0, i = 0, left = 0, minLen = INT_MAX; // = 是为了防止在最后一位的时候刚好找到 while(i &lt;= s.size() &amp;&amp; start &lt; s.size()) &#123; if (required) &#123; if (i == s.size()) break; remaining[s[i]]--; if (remaining[s[i]] &gt;= 0) required--; ++i; &#125;else&#123; if ( i - start &lt; minLen) &#123; minLen = i-start; left = start; &#125; remaining[s[start]]++; if (remaining[s[start]] &gt; 0) required++; start++; &#125; &#125; return minLen == INT_MAX ? "" : s.substr(left, minLen); &#125;&#125;;]]></content>
       <categories>
         <category>Leetcode</category>
@@ -10,9 +35,9 @@
       <tags>
         <tag>Hash Table</tag>
         <tag>Leetcode Hard</tag>
-        <tag>Sliding Window</tag>
         <tag>Two Pointers</tag>
         <tag>String</tag>
+        <tag>Sliding Window</tag>
       </tags>
   </entry>
   <entry>
