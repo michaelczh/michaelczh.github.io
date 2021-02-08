@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Closest Subsequence Sum]]></title>
+    <url>%2F2021%2F02%2F08%2Fleetcode%2FClosest-Subsequence-Sum%2F</url>
+    <content type="text"><![CDATA[DescriptionLink题目给定一个数列nums和goal. 求nums的子数列和goal的差的最小值。最直观的方法是把所有子数列的和全部求出来，然后一一和goal比较。求子数列的复杂度是O(2^N)。很容易就TLE。所以我们可以拆成2部当成2sum来做。 首先数列对半砍，我们求出左半边和右半边所有的子数列g1 g2 时间复杂度变成O(2^(N/2))然后我们遍历g2来找到g1中的组合使得和最接近goal. 当然我们还需要保持一个res来更新我们的最优解。如果只是双重循环g2和g1, 时间复杂度会是O(N^2)。因此我们选择对g1做个排序，然后通过二分查找来找。 二分查找的时候其实我们需要找到upper_bound, 也就是比和大于等于goal的第一个数。既然我们可以找到这个数，那么我们也需要找到这个数的前面那个数，来做一个比较，那个有可能是最优解并且更新我们的res Answer1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556class Solution &#123;public: int minAbsDifference(vector&lt;int&gt;&amp; nums, int goal) &#123; int n = nums.size(); vector&lt;int&gt; g1; vector&lt;int&gt; g2; genreateSum(0, n/2, 0, nums, g1); genreateSum(n/2, n, 0, nums, g2); sort(g1.begin(), g1.end()); int res = INT_MAX; for(auto num2: g2) &#123; int target = goal - num2; if (g1[0] &gt; target) &#123; res = min(res, abs(g1[0]+num2-goal)); continue; &#125; if (g1[g1.size()-1] &lt; target) &#123; res = min(res, abs(g1[g1.size()-1]+num2-goal)); continue; &#125; // 如果任何一个数都比target小，那么idx会返回g1.size(), 由于我们已经在上面一步做处理的，所以在这里不会出现 int idx = upperBound(g1, target); res = min(res, abs(g1[idx]+num2-goal)); if (idx &gt;= 1) &#123; res = min(res, abs(g1[idx-1]+num2-goal)); &#125; &#125; return res; &#125; void genreateSum(int start, int end, int curSum, vector&lt;int&gt;&amp; nums, vector&lt;int&gt;&amp; list) &#123; if (start == end) &#123; list.push_back(curSum); return; &#125; genreateSum(start+1, end, curSum+nums[start], nums, list); genreateSum(start+1, end, curSum, nums, list); &#125; int upperBound(vector&lt;int&gt;&amp; nums, int target) &#123; int i = 0, j = nums.size(); while( i &lt; j ) &#123; int mid = i + (j-i)/2; if (nums[mid] &lt; target) &#123; i = mid+1; &#125;else &#123; j = mid; &#125; &#125; return i; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>DP</tag>
+        <tag>Leetcode Easy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Maximum Score From Removing Stones]]></title>
     <url>%2F2021%2F02%2F07%2Fleetcode%2FMaximum-Score-From-Removing-Stones%2F</url>
     <content type="text"><![CDATA[DescriptionLink有三个数，每一次操作我们可以选择任意两个数减，求最多能玩几次。 Answer这道题的策略应该是优先减少最大的和第二大的。因为如果从最小的开始减，那么游戏很快就会结束，例如1, 2, 10。每一次减少后，我们都回归求新的三个数的答案+1。 followUp：由于我们本质上是扣除最大和第二大的数，然后循环再一直求下去，因此我们可以一次性剪去多个数，只要能保证最大数和第二大数在减去该数之后还能保持第一大和第二大。 12345678910111213class Solution &#123;public: int maximumScore(int a, int b, int c) &#123; if (a &lt; b) return maximumScore(b, a, c); if (b &lt; c) return maximumScore(a, c, b); if (b == 0) return 0; int cnt = max(1, b-c); return cnt + maximumScore(a - cnt, b - cnt, c); &#125;&#125;;]]></content>
