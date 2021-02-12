@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Pseudo-Palindromic Paths in a Binary Tree]]></title>
+    <url>%2F2021%2F02%2F12%2Fleetcode%2FPseudo-Palindromic-Paths-in-a-Binary-Tree%2F</url>
+    <content type="text"><![CDATA[DescriptionLink给定一棵树，求可以变为Palindrom路径的数量。 Answer1可以用backtrace来做，但是效率比较差时间: O(N)空间: O(9+H) H是数的高度 12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: unordered_set&lt;int&gt; record; int res = 0; int pseudoPalindromicPaths (TreeNode* root) &#123; helper(root); return res; &#125; void helper(TreeNode* root) &#123; if (!root) return; if (record.count(root-&gt;val)) &#123; record.erase(root-&gt;val); &#125;else&#123; record.insert(root-&gt;val); &#125; helper(root-&gt;left); helper(root-&gt;right); if (!root-&gt;left &amp;&amp; !root-&gt;right) &#123; if (record.size() == 0 || record.size() == 1) &#123; res++; &#125; &#125; if (record.count(root-&gt;val)) &#123; record.erase(root-&gt;val); &#125;else&#123; record.insert(root-&gt;val); &#125; &#125;&#125;; Answer2还有一种方法我们不用map来保存而是用bitmask来保存每一条路径的数，用^来抵消已经出现过一次的数。最后到达根节点的时候我们只需要利用count&amp;(count-1) == 0就可以判断count的是否只有一位为1。 123456789101112class Solution &#123;public: int pseudoPalindromicPaths (TreeNode* root, int count = 0) &#123; if (!root) return 0; count ^= 1 &lt;&lt; (root-&gt;val - 1); int res = pseudoPalindromicPaths(root-&gt;left, count) + pseudoPalindromicPaths(root-&gt;right, count); if (root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL &amp;&amp; (count &amp; (count - 1)) == 0) &#123; res++; &#125; return res; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Leetcode Easy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Convert BST to Greater Tree]]></title>
+    <url>%2F2021%2F02%2F12%2Fleetcode%2FConvert-BST-to-Greater-Tree%2F</url>
+    <content type="text"><![CDATA[DescriptionLink给定一颗二分查找的数，对每一个数字进行更新，更新为自己的数+大于自己的节点的和。 Answer我们可以从小到大遍历整棵树，维持一个curSum, 当遍历到一个节点后，节点值加上curSum然后更新为节点值即可 1234567891011121314151617class Solution &#123;public: int curSum = 0; TreeNode* convertBST(TreeNode* root) &#123; if (root) &#123; if (root-&gt;right) &#123; convertBST(root-&gt;right); &#125; curSum += root-&gt;val; root-&gt;val = curSum; if (root-&gt;left) &#123; convertBST(root-&gt;left); &#125; &#125; return root; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Leetcode Easy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Maximum Swap]]></title>
+    <url>%2F2021%2F02%2F12%2Fleetcode%2FMaximum-Swap%2F</url>
+    <content type="text"><![CDATA[DescriptionLink 给定一个整数，要求对调两个字符使得这个值最大。如果不对调也是最大值的话，就返回原来的值。 Answer要使得值最大的话，我们应该使得前面的小数字与后面的大数字对调。 扫一次字符，记录每个字符最大的下标的数组bucket。 再扫一次字符，对每一个字符，我们都对第一步得到的bucket来做遍历，看看有没有下标大于目前的，切数字也大于的，有的话我们对调，并且返回就可以了。 如果遍历没能返回结果代表不存在答案，我们就返回原来的值 12345678910111213141516171819202122232425class Solution &#123;public: int maximumSwap(int num) &#123; string numStr = to_string(num); int n = numStr.size(); vector&lt;int&gt; buckets(10, -1); for(int i = 0; i &lt; n; ++i) &#123; buckets[numStr[i]-'0'] = i; &#125; for(int i = 0; i &lt; n; ++i) &#123; for(int j = 9; j &gt; numStr[i]-'0'; --j) &#123; if (buckets[j] &gt; i) &#123; swap(numStr[buckets[j]], numStr[i]); return stoi(numStr); &#125; &#125; &#125; return num; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Array</tag>
+        <tag>Leetcode Medium</tag>
+        <tag>Math</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Closest Subsequence Sum]]></title>
     <url>%2F2021%2F02%2F08%2Fleetcode%2FClosest-Subsequence-Sum%2F</url>
     <content type="text"><![CDATA[DescriptionLink题目给定一个数列nums和goal. 求nums的子数列和goal的差的最小值。最直观的方法是把所有子数列的和全部求出来，然后一一和goal比较。求子数列的复杂度是O(2^N)。很容易就TLE。所以我们可以拆成2部当成2sum来做。 首先数列对半砍，我们求出左半边和右半边所有的子数列g1 g2 时间复杂度变成O(2^(N/2))然后我们遍历g2来找到g1中的组合使得和最接近goal. 当然我们还需要保持一个res来更新我们的最优解。如果只是双重循环g2和g1, 时间复杂度会是O(N^2)。因此我们选择对g1做个排序，然后通过二分查找来找。 二分查找的时候其实我们需要找到upper_bound, 也就是比和大于等于goal的第一个数。既然我们可以找到这个数，那么我们也需要找到这个数的前面那个数，来做一个比较，那个有可能是最优解并且更新我们的res Answer1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556class Solution &#123;public: int minAbsDifference(vector&lt;int&gt;&amp; nums, int goal) &#123; int n = nums.size(); vector&lt;int&gt; g1; vector&lt;int&gt; g2; genreateSum(0, n/2, 0, nums, g1); genreateSum(n/2, n, 0, nums, g2); sort(g1.begin(), g1.end()); int res = INT_MAX; for(auto num2: g2) &#123; int target = goal - num2; if (g1[0] &gt; target) &#123; res = min(res, abs(g1[0]+num2-goal)); continue; &#125; if (g1[g1.size()-1] &lt; target) &#123; res = min(res, abs(g1[g1.size()-1]+num2-goal)); continue; &#125; // 如果任何一个数都比target小，那么idx会返回g1.size(), 由于我们已经在上面一步做处理的，所以在这里不会出现 int idx = upperBound(g1, target); res = min(res, abs(g1[idx]+num2-goal)); if (idx &gt;= 1) &#123; res = min(res, abs(g1[idx-1]+num2-goal)); &#125; &#125; return res; &#125; void genreateSum(int start, int end, int curSum, vector&lt;int&gt;&amp; nums, vector&lt;int&gt;&amp; list) &#123; if (start == end) &#123; list.push_back(curSum); return; &#125; genreateSum(start+1, end, curSum+nums[start], nums, list); genreateSum(start+1, end, curSum, nums, list); &#125; int upperBound(vector&lt;int&gt;&amp; nums, int target) &#123; int i = 0, j = nums.size(); while( i &lt; j ) &#123; int mid = i + (j-i)/2; if (nums[mid] &lt; target) &#123; i = mid+1; &#125;else &#123; j = mid; &#125; &#125; return i; &#125;&#125;;]]></content>
