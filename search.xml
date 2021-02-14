@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Domino and Tromino Tiling]]></title>
+    <url>%2F2021%2F02%2F14%2FDomino-and-Tromino-Tiling%2F</url>
+    <content type="text"><![CDATA[DescriptionLink 很有趣的一道题，给定一个2*N的格子，一共有2种形状，问有几种拼法。 Answer虽然只有2种形状，一种是domino, 一种是tromino, 但是由于可以旋转，所以拼的时候一共有domino2种+tromino4种=6种。最开始也是想用dp做。但是对于tromino就不适用了。论坛有个人定一个三个dp来做。https://leetcode.com/problems/domino-and-tromino-tiling/ 时间: $O(N)$空间: $O(3N)$由于只需要最多前两种的状态，所以我们也可以用常数来保存状态使得空间复杂度只有$O(1)$ 123456789101112131415161718192021222324252627class Solution &#123;public: int numTilings(int N) &#123; if (N == 1) return 1; int mod = 1e9+7; vector&lt;long&gt; dp(N+1, 0); vector&lt;long&gt; dpUp(N+1, 0); vector&lt;long&gt; dpDown(N+1, 0); dp[1] = 1; dp[2] = 2; dpUp[2] = 1; dpDown[2] = 1; for(int i = 3; i &lt;= N; ++i) &#123; dp[i] = (dp[i-1] + dp[i-2] + dpUp[i-1] + dpDown[i-1]) % mod; dpUp[i] = (dp[i-2] + dpDown[i-1]) % mod; dpDown[i] = (dp[i-2] + dpUp[i-1]) % mod; &#125; return dp[N]; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Leetcode Medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[3Sum With Multiplicity]]></title>
+    <url>%2F2021%2F02%2F14%2F3Sum-With-Multiplicity%2F</url>
+    <content type="text"><![CDATA[DescriptionLink 3Sum的升级版，给定一个数列，然后求所有加起来和是target的子数列的个数。 Answer由于答案不是单一的，肯定根每个数字出现的次数有关，所以用一个map来储存所有数字的个数。然后我们分3种情况。假设nums[i]+nums[j]+nums[k]=target 假设三个数字都是一样的。即nums[i] == nums[j] == nums[k], 那么就是组合问题，从N个数字里面挑出3个。 假设两个数字一样。即nums[i] == nums[j] != nums[k], 也就是从N个数字里面挑出2个乘以nums[k]出现的次数。 假设三个数字都不一样。这种比较复杂。嫁入给定的数组是[1,2,3], target=6, 如果我们双循环数组，我们会得到[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]. 但是其实他们只能算一种。所以我们应该做个简单限制，当nums[i] &lt; nums[j] &lt; nums[k]或者nums[i] &gt; nums[j] &gt; nums[k]时候，我们才计算。 时间复杂度: $O(N^2)$空间复杂度: $O(N)$ 1234567891011121314151617181920212223242526class Solution &#123;public: int threeSumMulti(vector&lt;int&gt;&amp; A, int target) &#123; unordered_map&lt;int,long&gt; m; for(auto c: A) &#123; m[c]++; &#125; long res = 0; for(auto it1: m)&#123; for(auto it2: m) &#123; int i = it1.first, j = it2.first, k = target - i - j; if (!m.count(k)) continue; if (i == j &amp;&amp; j == k) &#123; res += m[i] * (m[i]-1) * (m[i]-2) / 6; &#125;else if (i == j &amp;&amp; i != k) &#123; res += m[i] * (m[i]-1) / 2 * m[k]; &#125;else if (i &lt; j &amp;&amp; j &lt; k) &#123; res += m[i] * m[j] * m[k]; &#125; &#125; &#125; return res % int(1e9+7); &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Leetcode Medium</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Minimum Limit of Balls in a Bag]]></title>
+    <url>%2F2021%2F02%2F14%2FMinimum-Limit-of-Balls-in-a-Bag%2F</url>
+    <content type="text"><![CDATA[DescriptionLink给定一个数组和一个最大操作数，每次操作都可以把其中一个数分割为任意两个正数，求最后数列里面最大的那个值的最小值。 Answer在比赛的时候，刚开始是想通过priority queue来处理最大的数，然后每次对半分，这样就可以保证最后所有数都能够相对平均。但是明显和题目实例得出来的不一样，后面又发现，其他怎么分根据maxOperation的不同也会不同，所以也没有办法用dp来做。后面看论坛的答案使用binary search来做。也就是我假设一个处理过后的最大值mid，然后遍历整个数组，看看为了变成mid得操作几次。然后全部相加看看有没有大于maxOperation. 如果大于maxOperation就表示我们取的mid值太大了，所以要取[mid+1, right] 12345678910111213141516171819202122class Solution &#123;public: int minimumSize(vector&lt;int&gt; nums, int maxOperations) &#123; int left = 1, right = 1e9; while(left &lt; right) &#123; int mid = left + (right-left)/2; int operations = 0; for(auto num: nums) &#123; // 需要几步才能分成小于等于mid operations += (num-1)/mid; &#125; if (operations &gt; maxOperations) &#123; left = mid+1; &#125;else &#123; right = mid; &#125; &#125; return left; &#125;&#125;;]]></content>
+      <categories>
+        <category>Leetcode</category>
+      </categories>
+      <tags>
+        <tag>Leetcode Medium</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Pseudo-Palindromic Paths in a Binary Tree]]></title>
     <url>%2F2021%2F02%2F12%2Fleetcode%2FPseudo-Palindromic-Paths-in-a-Binary-Tree%2F</url>
     <content type="text"><![CDATA[DescriptionLink给定一棵树，求可以变为Palindrom路径的数量。 Answer1可以用backtrace来做，但是效率比较差时间: O(N)空间: O(9+H) H是数的高度 12345678910111213141516171819202122232425262728293031323334class Solution &#123;public: unordered_set&lt;int&gt; record; int res = 0; int pseudoPalindromicPaths (TreeNode* root) &#123; helper(root); return res; &#125; void helper(TreeNode* root) &#123; if (!root) return; if (record.count(root-&gt;val)) &#123; record.erase(root-&gt;val); &#125;else&#123; record.insert(root-&gt;val); &#125; helper(root-&gt;left); helper(root-&gt;right); if (!root-&gt;left &amp;&amp; !root-&gt;right) &#123; if (record.size() == 0 || record.size() == 1) &#123; res++; &#125; &#125; if (record.count(root-&gt;val)) &#123; record.erase(root-&gt;val); &#125;else&#123; record.insert(root-&gt;val); &#125; &#125;&#125;; Answer2还有一种方法我们不用map来保存而是用bitmask来保存每一条路径的数，用^来抵消已经出现过一次的数。最后到达根节点的时候我们只需要利用count&amp;(count-1) == 0就可以判断count的是否只有一位为1。 123456789101112class Solution &#123;public: int pseudoPalindromicPaths (TreeNode* root, int count = 0) &#123; if (!root) return 0; count ^= 1 &lt;&lt; (root-&gt;val - 1); int res = pseudoPalindromicPaths(root-&gt;left, count) + pseudoPalindromicPaths(root-&gt;right, count); if (root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL &amp;&amp; (count &amp; (count - 1)) == 0) &#123; res++; &#125; return res; &#125;&#125;;]]></content>
@@ -30,8 +63,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>Array</tag>
         <tag>Leetcode Medium</tag>
+        <tag>Array</tag>
         <tag>Math</tag>
       </tags>
   </entry>
@@ -43,8 +76,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>Leetcode Easy</tag>
         <tag>DP</tag>
+        <tag>Leetcode Easy</tag>
       </tags>
   </entry>
   <entry>
@@ -68,8 +101,8 @@
         <category>Leetcode</category>
       </categories>
       <tags>
-        <tag>Leetcode Easy</tag>
         <tag>Array</tag>
+        <tag>Leetcode Easy</tag>
       </tags>
   </entry>
   <entry>
