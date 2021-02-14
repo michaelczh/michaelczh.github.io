@@ -903,12 +903,24 @@
                 
               
 
-              <time title="Created: 2021-02-08 22:32:53 / Modified: 22:56:48" itemprop="dateCreated datePublished" datetime="2021-02-08T22:32:53+09:00">2021-02-08</time>
+              <time title="Created: 2021-02-08 22:32:53" itemprop="dateCreated datePublished" datetime="2021-02-08T22:32:53+09:00">2021-02-08</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-02-13 09:55:10" itemprop="dateModified" datetime="2021-02-13T09:55:10+09:00">2021-02-13</time>
               
             
           </span>
@@ -962,8 +974,8 @@
       
         
           
-            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p><a href="https://leetcode.com/problems/closest-subsequence-sum/" target="_blank" rel="noopener">Link</a><br>题目给定一个数列<code>nums</code>和<code>goal</code>. 求<code>nums</code>的子数列和<code>goal</code>的差的最小值。<br>最直观的方法是把所有子数列的和全部求出来，然后一一和<code>goal</code>比较。<br>求子数列的复杂度是<code>O(2^N)</code>。很容易就TLE。所以我们可以拆成2部当成<code>2sum</code>来做。</p>
-<p>首先数列对半砍，我们求出左半边和右半边所有的子数列<code>g1</code> <code>g2</code> 时间复杂度变成<code>O(2^(N/2))</code><br>然后我们遍历<code>g2</code>来找到<code>g1</code>中的组合使得和最接近<code>goal</code>. 当然我们还需要保持一个<code>res</code>来更新我们的最优解。<br>如果只是双重循环<code>g2</code>和<code>g1</code>, 时间复杂度会是<code>O(N^2)</code>。因此我们选择对<code>g1</code>做个排序，然后通过二分查找来找。</p>
+            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p><a href="https://leetcode.com/problems/closest-subsequence-sum/" target="_blank" rel="noopener">Link</a><br>题目给定一个数列<code>nums</code>和<code>goal</code>. 求<code>nums</code>的子数列和<code>goal</code>的差的最小值。<br>最直观的方法是把所有子数列的和全部求出来，然后一一和<code>goal</code>比较。<br>求子数列的复杂度是$O(2^N)$。很容易就TLE。所以我们可以拆成2部当成<code>2sum</code>来做。</p>
+<p>首先数列对半砍，我们求出左半边和右半边所有的子数列<code>g1</code> <code>g2</code> 时间复杂度变成$O(2^{\frac{N}{2}})$<br>然后我们遍历<code>g2</code>来找到<code>g1</code>中的组合使得和最接近<code>goal</code>. 当然我们还需要保持一个<code>res</code>来更新我们的最优解。<br>如果只是双重循环<code>g2</code>和<code>g1</code>, 时间复杂度会是$O(N^2)$。因此我们选择对<code>g1</code>做个排序，然后通过二分查找来找。</p>
 <p>二分查找的时候其实我们需要找到<code>upper_bound</code>, 也就是比和大于等于<code>goal</code>的第一个数。既然我们可以找到这个数，那么我们也需要找到这个数的前面那个数，来做一个比较，那个有可能是最优解并且更新我们的<code>res</code></p>
 <h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minAbsDifference</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> goal)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g1;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; g2;</span><br><span class="line">        genreateSum(<span class="number">0</span>, n/<span class="number">2</span>, <span class="number">0</span>, nums, g1);</span><br><span class="line">        genreateSum(n/<span class="number">2</span>, n, <span class="number">0</span>, nums, g2);</span><br><span class="line">        sort(g1.begin(), g1.end());</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> num2: g2) &#123;</span><br><span class="line">            <span class="keyword">int</span> target = goal - num2;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> (g1[<span class="number">0</span>] &gt; target) &#123;</span><br><span class="line">                res = min(res, <span class="built_in">abs</span>(g1[<span class="number">0</span>]+num2-goal));</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (g1[g1.size()<span class="number">-1</span>] &lt; target) &#123;</span><br><span class="line">                res = min(res, <span class="built_in">abs</span>(g1[g1.size()<span class="number">-1</span>]+num2-goal));</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果任何一个数都比target小，那么idx会返回g1.size(), 由于我们已经在上面一步做处理的，所以在这里不会出现</span></span><br><span class="line">            <span class="keyword">int</span> idx = upperBound(g1, target);</span><br><span class="line">            </span><br><span class="line">            res = min(res, <span class="built_in">abs</span>(g1[idx]+num2-goal));</span><br><span class="line">            <span class="keyword">if</span> (idx &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">                res = min(res, <span class="built_in">abs</span>(g1[idx<span class="number">-1</span>]+num2-goal));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">genreateSum</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end, <span class="keyword">int</span> curSum, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; <span class="built_in">list</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (start == end) &#123;</span><br><span class="line">            <span class="built_in">list</span>.push_back(curSum);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        genreateSum(start+<span class="number">1</span>, end, curSum+nums[start], nums, <span class="built_in">list</span>);</span><br><span class="line">        genreateSum(start+<span class="number">1</span>, end, curSum, nums, <span class="built_in">list</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">upperBound</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = nums.size();</span><br><span class="line">        <span class="keyword">while</span>( i &lt; j ) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = i + (j-i)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">                i = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                j = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           
@@ -2199,18 +2211,7 @@
                   
                     
                   
-                  <a href="https://github.com/michaelczh" title="GitHub &rarr; https://github.com/michaelczh" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  
-                  
-                    
-                  
-                  
-                    
-                  
-                  <a href="https://havenotdecided.error" title="LinkedIn &rarr; https://havenotdecided.error" rel="noopener" target="_blank"><i class="fa fa-fw fa-linkedin"></i>LinkedIn</a>
+                  <a href="https://github.com/shikouchen" title="GitHub &rarr; https://github.com/shikouchen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
             </div>
@@ -2730,6 +2731,77 @@
   
 
   
+  
+
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    
+  
+
 
   
 
