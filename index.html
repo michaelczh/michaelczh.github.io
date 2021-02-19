@@ -356,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/Domino-and-Tromino-Tiling/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/19/algorithm/Minimum-Number-of-Refueling-Stops/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -376,7 +376,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2021/02/14/Domino-and-Tromino-Tiling/" class="post-title-link" itemprop="url">Domino and Tromino Tiling</a>
+                <a href="/2021/02/19/algorithm/Minimum-Number-of-Refueling-Stops/" class="post-title-link" itemprop="url">从Minimum Number of Refueling Stops谈DP降维</a>
               
             
           </h1>
@@ -401,12 +401,211 @@
                 
               
 
-              <time title="Created: 2021-02-14 14:59:54 / Modified: 15:05:04" itemprop="dateCreated datePublished" datetime="2021-02-14T14:59:54+09:00">2021-02-14</time>
+              <time title="Created: 2021-02-19 22:49:40 / Modified: 23:35:02" itemprop="dateCreated datePublished" datetime="2021-02-19T22:49:40+09:00">2021-02-19</time>
             
 
             
               
 
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p><a href="https://leetcode.com/problems/minimum-number-of-refueling-stops/" target="_blank" rel="noopener">Link</a></p>
+<p>给定一个<code>target</code>和<code>stations</code>,求最少加几次油可以到达目的地。</p>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>这是一道DP题</p>
+<p><code>dp[i][j]</code>:  经过<code>i</code>个加油站加<code>j</code>次油最多能走多少公里。这里有个限制<code>j &lt;= i</code></p>
+<p>当经过第<code>i</code>个加油站有两个选择，只有加油或者不加油两种选择。</p>
+<ol>
+<li>如果不加油的话, <code>dp[i][j] = dp[i-1][j]</code></li>
+<li>如果加油的话，<code>dp[i][j] = dp[i-1][j-1] + station[i-1][1]</code></li>
+</ol>
+<p>最后我们遍历<code>j</code>, 代表经过所有车站最多加<code>j</code>次油可以跑多少公里。如果大于等于<code>target</code>那么就返回<code>j</code>. 如果没有结果的话就返回<code>-1</code>。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minRefuelStops</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span> startFuel, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="comment">// dp[i][j] 经过第i个加油站，加j次油，可以跑的最远距离</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt;&gt; dp(n+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt;(n+<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = startFuel;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j&lt;= i; ++j) &#123;</span><br><span class="line">                <span class="comment">// 不加油</span></span><br><span class="line">                <span class="keyword">if</span> (dp[i<span class="number">-1</span>][j] &gt;= s[i<span class="number">-1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                    dp[i][j] = dp[i<span class="number">-1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 加油</span></span><br><span class="line">                <span class="keyword">if</span> (dp[i<span class="number">-1</span>][j<span class="number">-1</span>] &gt;= s[i<span class="number">-1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                    dp[i][j] = max(dp[i][j], dp[i<span class="number">-1</span>][j<span class="number">-1</span>] + s[i<span class="number">-1</span>][<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp[n][i] &gt;= target) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Follow-Up"><a href="#Follow-Up" class="headerlink" title="Follow Up"></a>Follow Up</h4><p>这题用了二维数组，我们观察到<code>dp</code>在更新的时候，只跟前有限个状态有关 </p>
+<ul>
+<li><p><code>dp[i][j] &lt;=&gt; dp[i-1][j]</code></p>
+</li>
+<li><p><code>dp[i][j] &lt;=&gt; dp[i-1][j-1]</code></p>
+</li>
+</ul>
+<p>我们看到<code>dp[i][*]</code>总是和前一个状态<code>dp[i-1][*]</code>有关，因此我们可以降低一个维度，也就是把第一维也删去。变为</p>
+<ul>
+<li><p><code>dp[j] &lt;=&gt; dp[j]</code></p>
+</li>
+<li><p><code>dp[j] &lt;=&gt; dp[j-1]</code></p>
+</li>
+</ul>
+<p>但是我们要注意<code>dp[j] = dp[j-1]</code>. 如果按顺序更新的话<code>dp[1] &lt;=&gt; dp[0]</code>… <code>dp[2] &lt;=&gt; dp[1]</code>. 在更新<code>dp[2]</code>的时候使用的<code>dp[1]</code>是本轮更新过的，会导致答案错误，因此我们应该尝试倒序更新。<code>dp[2] &lt;=&gt; dp[1]</code>…<code>dp[1] &lt;=&gt; dp[0]</code>. </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minRefuelStops</span><span class="params">(<span class="keyword">int</span> target, <span class="keyword">int</span> startFuel, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> n = s.size();</span><br><span class="line">        <span class="comment">// dp[i] 加i次油，可以跑的最远距离</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt; dp(n+<span class="number">1</span>);</span><br><span class="line">        dp[<span class="number">0</span>] = startFuel;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &gt;= <span class="number">1</span>; --j) &#123;</span><br><span class="line">                <span class="comment">// 不加油</span></span><br><span class="line">                <span class="keyword">if</span> (dp[j] &gt;= s[i<span class="number">-1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                    dp[j] = dp[j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 加油</span></span><br><span class="line">                <span class="keyword">if</span> (dp[j<span class="number">-1</span>] &gt;= s[i<span class="number">-1</span>][<span class="number">0</span>]) &#123;</span><br><span class="line">                    dp[j] = max(dp[j], dp[j<span class="number">-1</span>] + s[i<span class="number">-1</span>][<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp[i] &gt;= target) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/leetcode/Domino-and-Tromino-Tiling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CHEN ZHIHANG">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IAM.CZH">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2021/02/14/leetcode/Domino-and-Tromino-Tiling/" class="post-title-link" itemprop="url">Domino and Tromino Tiling</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2021-02-14 14:59:54" itemprop="dateCreated datePublished" datetime="2021-02-14T14:59:54+09:00">2021-02-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-02-19 23:34:55" itemprop="dateModified" datetime="2021-02-19T23:34:55+09:00">2021-02-19</time>
               
             
           </span>
@@ -522,7 +721,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/3Sum-With-Multiplicity/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/leetcode/3Sum-With-Multiplicity/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -542,7 +741,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2021/02/14/3Sum-With-Multiplicity/" class="post-title-link" itemprop="url">3Sum With Multiplicity</a>
+                <a href="/2021/02/14/leetcode/3Sum-With-Multiplicity/" class="post-title-link" itemprop="url">3Sum With Multiplicity</a>
               
             
           </h1>
@@ -567,12 +766,24 @@
                 
               
 
-              <time title="Created: 2021-02-14 14:35:31 / Modified: 14:48:24" itemprop="dateCreated datePublished" datetime="2021-02-14T14:35:31+09:00">2021-02-14</time>
+              <time title="Created: 2021-02-14 14:35:31" itemprop="dateCreated datePublished" datetime="2021-02-14T14:35:31+09:00">2021-02-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-02-19 23:35:01" itemprop="dateModified" datetime="2021-02-19T23:35:01+09:00">2021-02-19</time>
               
             
           </span>
@@ -696,7 +907,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/Minimum-Limit-of-Balls-in-a-Bag/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/14/leetcode/Minimum-Limit-of-Balls-in-a-Bag/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CHEN ZHIHANG">
@@ -716,7 +927,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2021/02/14/Minimum-Limit-of-Balls-in-a-Bag/" class="post-title-link" itemprop="url">Minimum Limit of Balls in a Bag</a>
+                <a href="/2021/02/14/leetcode/Minimum-Limit-of-Balls-in-a-Bag/" class="post-title-link" itemprop="url">Minimum Limit of Balls in a Bag</a>
               
             
           </h1>
@@ -741,12 +952,24 @@
                 
               
 
-              <time title="Created: 2021-02-14 14:24:01 / Modified: 14:34:34" itemprop="dateCreated datePublished" datetime="2021-02-14T14:24:01+09:00">2021-02-14</time>
+              <time title="Created: 2021-02-14 14:24:01" itemprop="dateCreated datePublished" datetime="2021-02-14T14:24:01+09:00">2021-02-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2021-02-19 23:34:58" itemprop="dateModified" datetime="2021-02-19T23:34:58+09:00">2021-02-19</time>
               
             
           </span>
@@ -1851,178 +2074,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/06/leetcode/Minimum-Window-Substring/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="CHEN ZHIHANG">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="IAM.CZH">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2021/02/06/leetcode/Minimum-Window-Substring/" class="post-title-link" itemprop="url">Minimum Window Substring</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2021-02-06 12:55:01 / Modified: 13:11:22" itemprop="dateCreated datePublished" datetime="2021-02-06T12:55:01+09:00">2021-02-06</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank" rel="noopener">Link</a></p>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>给定两个字符串<code>s</code>和<code>t</code>。要求返回包含<code>t</code>所有字符的<code>s</code>的最段子字符串。<br>主要思路是用<code>sliding window</code>来做。<br>思路是保持一个窗口，首先我们移动移动窗口的尾部使得能够包含<code>t</code>的所有字符，当我们找到之后，我们通过推进窗口的开始位置来求的最优解。</p>
-<p>我们用一个变量<code>reuqired</code>来表示目前window内还需要匹配到多少字符才能符合题目要求。<br>我们再用一个<code>remaining</code>数组来表示<code>t</code>中每个字符的个数。</p>
-<p>我们遍历<code>s</code>字符串的每一个字符<code>c</code></p>
-<ol>
-<li><p>假设required不为0，我们需要延长窗口的大小，并且–<code>remaining</code>里的字符<code>c</code>，假设原来<code>s</code>就不包含<code>c</code>这个字符，那么–的结果就是负的。<br>因此如果–之后的结果是<code>&gt;=0</code>就代表我们找到了需要的字符，因此<code>required--</code></p>
-</li>
-<li><p>假设required为0，代表我们窗口内以及包含了所有我们需要的字符了，那我们可以尝试把窗口缩小，也就是窗口<code>start</code>的位置往前进，在往前进的过程中，我们需要把<code>remaining</code>里的相应字符给<code>++</code>, 如果<code>++</code>的结果是正数（如果<code>t</code>中不包含这个字符的话在上一步会是负数），代表我们需要的字符少了一个，那我们需要把<code>required++</code>代表下一次我们需要再重复第一个步骤来找到所需要的字符。</p>
-</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minWindow</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; remaining(<span class="number">128</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: t) remaining[c]++;</span><br><span class="line">        <span class="keyword">int</span> required = t.size();</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">0</span>, i = <span class="number">0</span>, left = <span class="number">0</span>, minLen = INT_MAX;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// = 是为了防止在最后一位的时候刚好找到</span></span><br><span class="line">        <span class="keyword">while</span>(i &lt;= s.size() &amp;&amp; start &lt; s.size()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (required) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == s.size()) <span class="keyword">break</span>;</span><br><span class="line">                remaining[s[i]]--;</span><br><span class="line">                <span class="keyword">if</span> (remaining[s[i]] &gt;= <span class="number">0</span>) required--;</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> ( i - start &lt; minLen) &#123;</span><br><span class="line">                    minLen = i-start;</span><br><span class="line">                    left = start;</span><br><span class="line">                &#125;</span><br><span class="line">                remaining[s[start]]++;</span><br><span class="line">                <span class="keyword">if</span> (remaining[s[start]] &gt; <span class="number">0</span>) required++;</span><br><span class="line">                start++;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minLen == INT_MAX ? <span class="string">""</span> : s.substr(left, minLen);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2071,7 +2122,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">87</span>
+                    <span class="site-state-item-count">88</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2106,7 +2157,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
                 </div>
@@ -2726,9 +2779,9 @@
       
     
       
-        
-      
     
+      
+        
       
     
       
